@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "618178918990",
+    "firebase_url": "https://lotpick-26ea2.firebaseio.com",
+    "project_id": "lotpick-26ea2",
+    "storage_bucket": "lotpick-26ea2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:618178918990:android:57f2a87d4a9ce0c33ee11f",
+        "android_client_info": {
+          "package_name": "com.lotpick.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "618178918990-35ivautjg3ng03l2oq8530ji9m0r4788.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOb_5QAZZz8OGXkclTx-RIJcVkUD-9DNU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "618178918990-6urq5udg2fgh3cj39v9fc2qmea38bmra.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:618178918990:android:b002f616f832db873ee11f",
+        "android_client_info": {
+          "package_name": "com.lotpick.lotpick"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "618178918990-35ivautjg3ng03l2oq8530ji9m0r4788.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOb_5QAZZz8OGXkclTx-RIJcVkUD-9DNU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "618178918990-6urq5udg2fgh3cj39v9fc2qmea38bmra.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
