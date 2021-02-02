@@ -1,5 +1,5 @@
 
-# 💻 An Open Source organization to Educate people about the right style of getting educated!.📰🔥.
+# 💻 An Open Source Android App to Educate people about the right style of getting educated!.📰🔥.
 
 ![GitHub forks](https://img.shields.io/github/forks/CSwala/CSwala-website) 
 ![GitHub Repo stars](https://img.shields.io/github/stars/CSwala/CSwala-website)
