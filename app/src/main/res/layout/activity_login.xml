@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:lottie_fileName="Welcome.json"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.05" />
+
+
+
+
+    <Button
+        android:id="@+id/google"
+        android:layout_width="265dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_button"
+        android:drawableStart="@drawable/ic_google"
+        android:drawableTint="@color/colorPrimary"
+        android:padding="10sp"
+        android:text="Continue with google"
+        android:textColor="@color/colorPrimary"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.628" />
+
+    <Button
+        android:id="@+id/github"
+        android:layout_width="265dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_button"
+        android:drawableStart="@drawable/ic_github"
+        android:drawableTint="@color/colorPrimary"
+        android:padding="10sp"
+        android:text="Continue with Github"
+        android:textColor="@color/colorPrimary"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.777" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

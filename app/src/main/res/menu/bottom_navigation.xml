@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/explore"
+        android:icon="@drawable/ic_home_24"
+        android:title="EXPLORE"/>
+
+    <item
+        android:id="@+id/saved"
+        android:icon="@drawable/ic_home_24"
+        android:title="SAVED"/>
+    <item
+        android:id="@+id/inbox"
+        android:icon="@drawable/ic_baseline_account"
+        android:title="INBOX"/>
+    <item
+        android:id="@+id/account"
+        android:icon="@drawable/ic_baseline_account"
+        android:title="PROFILE"/>
+
+
+</menu>

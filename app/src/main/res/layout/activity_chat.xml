@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#E6E4E4"
+    tools:context=".ChatActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background = "#ffffff"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profileIV"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/addprofile"
+            app:civ_border_color="#000000"
+            app:civ_border_width="0.2dp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="25dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/NameTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:textStyle="bold"/>
+            <TextView
+            android:id="@+id/OnlineTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="online"
+            android:textSize="14sp"
+            android:textColor="#FF6058"
+            android:textStyle="bold"/>
+
+
+        </LinearLayout>
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chats_rv"
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:layout_alignParentBottom="true"
+        android:layout_above="@id/chatLayout"
+        android:layout_marginTop="1dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/chatLayout"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="#ffffff">
+        <EditText
+            android:id="@+id/messageet"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Start Typing..."
+            android:inputType="textCapSentences|textMultiLine"
+            android:padding="10dp"
+            android:background="@null"
+            android:layout_weight="1"
+            />
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/sendbtn"
+            android:background="@null"
+            android:src="@drawable/ic_send"/>
+
+
+
+    </LinearLayout>
+
+
+</RelativeLayout
+  >
