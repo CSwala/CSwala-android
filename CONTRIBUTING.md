@@ -3,6 +3,8 @@
 ## Please follow these steps if you wish to contribute to CSwala Android:
 
 ### Star the Repo!
+<br>
+<br>
 
 1. Go through the Issues to see if, what you want is already in discussion.
 
