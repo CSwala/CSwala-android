@@ -13,6 +13,13 @@
 <br>
 <a href='https://play.google.com/store/apps/details?id=com.cswala.android'><img align='center' height='85' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'></a>
 <br>
+<img align='center' height='85' src='https://github.com/CSwala/CSwala-android/blob/main/images/1.png'>
+<img align='right' height='85' src='https://github.com/CSwala/CSwala-android/blob/main/images/2.png'>
+<br>
+
+
+
+
 
 ## 🔥 Features
 
