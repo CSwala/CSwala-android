@@ -5,14 +5,11 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.util.Patterns;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,7 +20,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
-import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -61,14 +57,11 @@ public class LoginActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 
-
         final Button google = findViewById(R.id.google);
         final Button github = findViewById(R.id.github);
-        firebaseAuth=FirebaseAuth.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
 
-        progressDialog =new ProgressDialog(this);
-
-
+        progressDialog = new ProgressDialog(this);
 
 
         // Configure Google Sign In
@@ -77,17 +70,14 @@ public class LoginActivity extends AppCompatActivity {
                 .requestEmail()
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-        FirebaseUser user= firebaseAuth.getCurrentUser();
+        FirebaseUser user = firebaseAuth.getCurrentUser();
         updateUI(user);
-
-
-
 
 
         google.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Animation animation = AnimationUtils.loadAnimation(LoginActivity.this,R.anim.blink_anim);
+                Animation animation = AnimationUtils.loadAnimation(LoginActivity.this, R.anim.blink_anim);
                 google.startAnimation(animation);
                 signIn();
             }
@@ -96,16 +86,14 @@ public class LoginActivity extends AppCompatActivity {
         github.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Animation animation = AnimationUtils.loadAnimation(LoginActivity.this,R.anim.blink_anim);
+                Animation animation = AnimationUtils.loadAnimation(LoginActivity.this, R.anim.blink_anim);
                 github.startAnimation(animation);
                 githubSignIn();
             }
         });
 
 
-
- }
-
+    }
 
 
     private void githubSignIn() {
@@ -131,13 +119,13 @@ public class LoginActivity extends AppCompatActivity {
                                 // authResult.getAdditionalUserInfo().getProfile().
                                 // The OAuth access token can also be retrieved:
                                 //  authResult.getCredential().getAccessToken().
-                                Log.d("git token",authResult.getUser().getDisplayName());
+                                Log.d("git token", authResult.getUser().getDisplayName());
                                 //Log.d("git cred",authResult.getCredential().toString());
                                 //Log.d("access token",((OAuthCredential)authResult.getCredential()).getAccessToken());
 
 
                                 Toast.makeText(LoginActivity.this, "Github Sign in successful", Toast.LENGTH_SHORT).show();
-                                Log.d("git login","success");
+                                Log.d("git login", "success");
                                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
                             }
                         })
@@ -147,49 +135,42 @@ public class LoginActivity extends AppCompatActivity {
                             public void onFailure(@NonNull Exception e) {
                                 // Handle failure.
                                 Toast.makeText(LoginActivity.this, "Github Sign in failed", Toast.LENGTH_SHORT).show();
-                                Log.d("git login","failed"+ e.getMessage());
+                                Log.d("git login", "failed" + e.getMessage());
                             }
                         });
 
     }
 
-    private void updateUI(FirebaseUser user){
+    private void updateUI(FirebaseUser user) {
 
         {
-                if (user==null){
-                    Toast.makeText(this, "Please Login ", Toast.LENGTH_SHORT);
-                }
-                else {
-                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            if (user == null) {
+                Toast.makeText(this, "Please Login ", Toast.LENGTH_SHORT);
+            } else {
+                startActivity(new Intent(LoginActivity.this, MainActivity.class));
 
-                }
-
+            }
 
 
         }
     }
 
 
-
-
-
-
-
-    private void validate(String userEmail, String userPassword){
+    private void validate(String userEmail, String userPassword) {
 
         progressDialog.setMessage("Hey! By using this app you can find Great workspaces.");
         progressDialog.show();
-        firebaseAuth.signInWithEmailAndPassword(userEmail,userPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        firebaseAuth.signInWithEmailAndPassword(userEmail, userPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
+                if (task.isSuccessful()) {
                     progressDialog.dismiss();
-                    startActivity(new Intent(LoginActivity.this,MainActivity.class));
-                    Toast.makeText(LoginActivity.this,"Welcome back", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    Toast.makeText(LoginActivity.this, "Welcome back", Toast.LENGTH_SHORT).show();
 
-                }else{
-                    Toast.makeText(LoginActivity.this,"Invalid Email or Password", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(LoginActivity.this, "Invalid Email or Password", Toast.LENGTH_SHORT).show();
 
                 }
             }
@@ -197,10 +178,12 @@ public class LoginActivity extends AppCompatActivity {
 
 
     }
+
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -220,6 +203,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
     }
+
     @Override
     public void onStart() {
         super.onStart();
@@ -227,6 +211,7 @@ public class LoginActivity extends AppCompatActivity {
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
         updateUI(currentUser);
     }
+
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
 
@@ -251,5 +236,5 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
     }
-    }
+}
 

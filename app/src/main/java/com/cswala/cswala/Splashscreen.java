@@ -19,8 +19,8 @@ public class Splashscreen extends AppCompatActivity {
 
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        TextView tv=findViewById(R.id.tv);
-        TextView tv1=findViewById(R.id.textView2);
+        TextView tv = findViewById(R.id.tv);
+        TextView tv1 = findViewById(R.id.textView2);
         int SPLASH = 2500;
         Animation animation = AnimationUtils.loadAnimation(Splashscreen.this, R.anim.text_anim);
         tv.startAnimation(animation);
@@ -28,9 +28,9 @@ public class Splashscreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(Splashscreen.this,LoginActivity.class));
+                startActivity(new Intent(Splashscreen.this, LoginActivity.class));
                 finish();
             }
         }, SPLASH);
-}
+    }
 }

@@ -3,4 +3,8 @@
     <string name="splash_desc">Dictionary\nResources\nTips\nHacks</string>
     <string name="Title_splash">CSwala</string>
     <string name="log_out">Log Out !</string>
+    <string name="explore">EXPLORE</string>
+    <string name="saved">SAVED</string>
+    <string name="inbox">INBOX</string>
+    <string name="profile">PROFILE</string>
 </resources>
