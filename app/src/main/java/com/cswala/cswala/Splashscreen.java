@@ -21,7 +21,7 @@ public class Splashscreen extends AppCompatActivity {
 
         TextView tv = findViewById(R.id.tv);
         TextView tv1 = findViewById(R.id.textView2);
-        int SPLASH = 2500;
+        int SPLASH = 3000;
         Animation animation = AnimationUtils.loadAnimation(Splashscreen.this, R.anim.text_anim);
         tv.startAnimation(animation);
         tv1.startAnimation(animation);
