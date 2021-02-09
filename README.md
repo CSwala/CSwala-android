@@ -1,6 +1,8 @@
 
 # 💻 An Open Source Android App to Educate people about the right style of getting educated!.📰🔥.
 
+<img src="https://emoji.discord.st/emojis/DiscordLuv.gif">Join the Discord Server [here](https://discord.gg/rAz3Eb8fsN)
+
 ![GitHub forks](https://img.shields.io/github/forks/CSwala/CSwala-website) 
 ![GitHub Repo stars](https://img.shields.io/github/stars/CSwala/CSwala-website)
 <br>
@@ -51,7 +53,8 @@ You can find our Contributing guidelines [here](https://github.com/CSwala/CSwala
 <table>
   <tbody><tr>
     <td align="center"><a href="https://github.com/riturajjain2000"><img alt="" src="https://avatars.githubusercontent.com/riturajjain2000" width="200px;"><br><sub><b> Rituraj Jain </b></sub></a><br><a href="https://github.com/CSwala/CSwala-android/commits?author=riturajjain2000" title="Code">💻 </a></td> </a></td>
-
+    <td align="center"><a href="https://github.com/5tupidbrain"><img alt="" src="https://avatars.githubusercontent.com/5tupidbrain" width="200px;"><br><sub><b> Saransh Hardaha </b></sub></a><br><a href="https://github.com/CSwala/CSwala-android/commits?author=5tupidbrain" title="Code">💻 </a></td> </a></td>
+    <td align="center"><a href="https://github.com/Bharat155"><img alt="" src="https://avatars.githubusercontent.com/Bharat155" width="200px;"><br><sub><b> Bharat Ahuja </b></sub></a><br><a href="https://github.com/CSwala/CSwala-android/commits?author=Bharat155" title="Code">💻 </a></td> </a></td>
      
     
   </tr>
