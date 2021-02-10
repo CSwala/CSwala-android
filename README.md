@@ -3,7 +3,7 @@
 
 <img src="https://emoji.discord.st/emojis/DiscordLuv.gif" height="30" width="30">  Join the Discord Server [here](https://discord.gg/rAz3Eb8fsN)
 
-### Follow us on [LinkedIn](https://www.linkedin.com/company/cswala)
+💻💻Follow us on [LinkedIn](https://www.linkedin.com/company/cswala)
 
 
 ![GitHub forks](https://img.shields.io/github/forks/CSwala/CSwala-website) 
