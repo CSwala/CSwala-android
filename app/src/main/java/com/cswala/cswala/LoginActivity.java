@@ -88,7 +88,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Animation animation = AnimationUtils.loadAnimation(LoginActivity.this, R.anim.blink_anim);
                 github.startAnimation(animation);
-                githubSignIn();
+               // githubSignIn();
             }
         });
 
@@ -96,50 +96,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    private void githubSignIn() {
-
-        OAuthProvider.Builder provider = OAuthProvider.newBuilder("github.com");
-        // Request read access to a user's email addresses.
-        // This must be preconfigured in the app's API permissions.
-        List<String> scopes =
-                new ArrayList<String>() {
-                    {
-                        add("user:email");
-                    }
-                };
-        provider.setScopes(scopes);
-
-        firebaseAuth.startActivityForSignInWithProvider(/* activity= */ LoginActivity.this, provider.build())
-                .addOnSuccessListener(
-                        new OnSuccessListener<AuthResult>() {
-                            @Override
-                            public void onSuccess(AuthResult authResult) {
-                                // User is signed in.
-                                // IdP data available in
-                                // authResult.getAdditionalUserInfo().getProfile().
-                                // The OAuth access token can also be retrieved:
-                                //  authResult.getCredential().getAccessToken().
-                                Log.d("git token", authResult.getUser().getDisplayName());
-                                //Log.d("git cred",authResult.getCredential().toString());
-                                //Log.d("access token",((OAuthCredential)authResult.getCredential()).getAccessToken());
-
-
-                                Toast.makeText(LoginActivity.this, "Github Sign in successful", Toast.LENGTH_SHORT).show();
-                                Log.d("git login", "success");
-                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                            }
-                        })
-                .addOnFailureListener(
-                        new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                // Handle failure.
-                                Toast.makeText(LoginActivity.this, "Github Sign in failed", Toast.LENGTH_SHORT).show();
-                                Log.d("git login", "failed" + e.getMessage());
-                            }
-                        });
-
-    }
 
     private void updateUI(FirebaseUser user) {
 
