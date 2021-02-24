@@ -13,6 +13,11 @@
         android:title="@string/jobhunt"
         app:cnb_iconColor="@color/colorPrimaryDark" />
     <item
+        android:id="@+id/news"
+        android:icon="@drawable/ic_news"
+        android:title="@string/news"
+        app:cnb_iconColor="@color/colorPrimaryDark" />
+    <item
         android:id="@+id/inbox"
         android:icon="@drawable/ic_community"
         android:iconTint="@color/colorPrimaryDark"
