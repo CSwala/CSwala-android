@@ -21,7 +21,7 @@ For more information, refer to <a href = "https://docs.github.com/en" target = "
 
 4. Kindly wait for the approval from the maintainers of this project before starting to work on any issue.
 
-5. **Do not make changes to the main branch.** Create a seperate branch to commit any changes.
+5. **Do not make changes to the main branch.** All the changes should be made to the develop branch.
 
 6. Make sure that your code is properly formatted and does not contain any commented out code.
 
