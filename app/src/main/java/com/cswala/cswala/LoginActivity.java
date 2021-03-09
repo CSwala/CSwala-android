@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
         progressBarLayout=findViewById(R.id.progresslayout);
-        //progressBarLayout.setVisibility(View.INVISIBLE);
+        progressBarLayout.setVisibility(View.INVISIBLE);
 
 
         // Configure Google Sign In
