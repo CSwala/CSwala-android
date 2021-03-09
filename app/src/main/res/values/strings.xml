@@ -8,4 +8,8 @@
     <string name="community">COMMUNITY</string>
     <string name="jobhunt">JOBHUNT</string>
     <string name="news">HACKFEED</string>
+    <string name="message">Hey! By using this app you can find Great workspaces.</string>
+    <string name="Glogin">Continue with google</string>
+    <string name="Gitlogin">Continue with Github</string>
+
 </resources>
