@@ -10,6 +10,9 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -37,7 +40,7 @@ import java.util.List;
 public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;
-    private ProgressDialog progressDialog;
+    private LinearLayout progressBarLayout;
     private static final int RC_SIGN_IN = 1;
     private GoogleSignInClient mGoogleSignInClient;
     private static final String TAG = "Login";
@@ -61,7 +64,9 @@ public class LoginActivity extends AppCompatActivity {
         final Button github = findViewById(R.id.github);
         firebaseAuth = FirebaseAuth.getInstance();
 
-        progressDialog = new ProgressDialog(this);
+
+        progressBarLayout=findViewById(R.id.progresslayout);
+        //progressBarLayout.setVisibility(View.INVISIBLE);
 
 
         // Configure Google Sign In
@@ -114,14 +119,13 @@ public class LoginActivity extends AppCompatActivity {
 
     private void validate(String userEmail, String userPassword) {
 
-        progressDialog.setMessage("Hey! By using this app you can find Great workspaces.");
-        progressDialog.show();
+        progressBarLayout.setVisibility(View.VISIBLE);
         firebaseAuth.signInWithEmailAndPassword(userEmail, userPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    progressDialog.dismiss();
+                   progressBarLayout.setVisibility(View.INVISIBLE);
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     Toast.makeText(LoginActivity.this, "Welcome back", Toast.LENGTH_SHORT).show();
 
@@ -146,6 +150,9 @@ public class LoginActivity extends AppCompatActivity {
 
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
+
+
+
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
                 // Google Sign In was successful, authenticate with Firebase
@@ -170,7 +177,6 @@ public class LoginActivity extends AppCompatActivity {
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
-
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         firebaseAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
