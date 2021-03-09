@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.cswala.cswala.fragment.ProfileFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
@@ -19,7 +20,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         bt = findViewById(R.id.bottom_navigation);
-        bt.setItemSelected(R.id.explore, true);
+        bt.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(int i) {
+                switch (i){
+                    case R.id.account:
+                        Intent intent = new Intent(getApplicationContext(), ProfileFragment.class);
+                        startActivity(intent);
+                        break;
+                }
+            }
+        });
 
         TextView tv = findViewById(R.id.logout);
 

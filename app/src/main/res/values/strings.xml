@@ -8,4 +8,5 @@
     <string name="community">COMMUNITY</string>
     <string name="jobhunt">JOBHUNT</string>
     <string name="news">HACKFEED</string>
+    <string name="user_profile">User Profile</string>
 </resources>
