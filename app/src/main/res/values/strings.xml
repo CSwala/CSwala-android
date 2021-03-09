@@ -8,4 +8,6 @@
     <string name="community">COMMUNITY</string>
     <string name="jobhunt">JOBHUNT</string>
     <string name="news">HACKFEED</string>
+    <string name="GLogin">Continue with google</string>
+    <string name="GitLogin">Continue with Github</string>
 </resources>
