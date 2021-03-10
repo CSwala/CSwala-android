@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.05"
         app:lottie_autoPlay="true"
-        app:lottie_fileName="Welcome.json"
+        app:lottie_fileName="Login.json"
         app:lottie_loop="true" />
 
     <LinearLayout
@@ -60,7 +60,7 @@
         android:drawableTint="@color/colorAccent"
         android:fontFamily="@font/press_start_2p"
         android:padding="15sp"
-        android:text="Continue with google"
+        android:text="@string/GLogin"
         android:textColor="#388AFC"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -78,7 +78,7 @@
         android:drawableTint="@color/colorAccent"
         android:fontFamily="@font/press_start_2p"
         android:padding="15sp"
-        android:text="Continue with Github"
+        android:text="@string/GitLogin"
         android:textColor="#388AFC"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"

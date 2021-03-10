@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.cswala.cswala.utils.IntentHelper;
+
 public class Splashscreen extends AppCompatActivity {
 
     @Override
@@ -28,8 +30,8 @@ public class Splashscreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(Splashscreen.this, LoginActivity.class));
-                finish();
+                IntentHelper intentHelper=new IntentHelper(Splashscreen.this);
+                intentHelper.GoToLogin();
             }
         }, SPLASH);
     }
