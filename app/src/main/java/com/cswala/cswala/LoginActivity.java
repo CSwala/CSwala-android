@@ -33,6 +33,8 @@ import com.google.firebase.auth.OAuthProvider;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -63,6 +65,8 @@ public class LoginActivity extends AppCompatActivity {
 
         progressDialog = new ProgressDialog(this);
 
+        // Buttons Fade-in Animation's Method
+        timer();
 
         // Configure Google Sign In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -94,8 +98,6 @@ public class LoginActivity extends AppCompatActivity {
 
 
     }
-
-
 
     private void updateUI(FirebaseUser user) {
 
@@ -191,6 +193,32 @@ public class LoginActivity extends AppCompatActivity {
                         // ...
                     }
                 });
+    }
+
+    // Timer for Fade-in Animation of Buttons ( T1 - Google Button; T2 - GitHub Button )
+    private void timer() {
+        Timer t1, t2;
+        t1 = new Timer();
+        t2 = new Timer();
+        final Button google = findViewById(R.id.google);
+        final Button github = findViewById(R.id.github);
+
+        google.animate().alpha(0f).setDuration(1);
+        github.animate().alpha(0f).setDuration(1);
+
+        t1.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                google.animate().alpha(1f).setDuration(500);
+            }
+        },500);
+
+        t2.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                github.animate().alpha(1f).setDuration(500);
+            }
+        },1000);
     }
 }
 
