@@ -47,7 +47,7 @@
             android:layout_weight="4"
             android:gravity="center"
             android:id="@+id/tv_progressMsg"
-            android:text="Hey! By using this app you can find Great workspaces." />
+            android:text="Loading" />
     </LinearLayout>
 
 
