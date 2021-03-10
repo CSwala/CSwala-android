@@ -1,6 +1,5 @@
 package com.cswala.cswala;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
@@ -9,6 +8,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.cswala.cswala.utils.IntentHelper;
 
 public class Splashscreen extends AppCompatActivity {
 
@@ -28,8 +29,8 @@ public class Splashscreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(Splashscreen.this, LoginActivity.class));
-                finish();
+                IntentHelper intentHelper=new IntentHelper(Splashscreen.this);
+                intentHelper.GoToLogin();
             }
         }, SPLASH);
     }
