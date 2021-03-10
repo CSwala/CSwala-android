@@ -15,6 +15,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.cswala.cswala.utils.IntentHelper;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -103,8 +104,8 @@ public class LoginActivity extends AppCompatActivity {
             if (user == null) {
                 Toast.makeText(this, "Please Login ", Toast.LENGTH_SHORT);
             } else {
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
-
+                IntentHelper intentHelper=new IntentHelper(LoginActivity.this);
+                intentHelper.GoToHome();
             }
 
 
@@ -122,7 +123,8 @@ public class LoginActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     progressDialog.dismiss();
-                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    IntentHelper intentHelper=new IntentHelper(LoginActivity.this);
+                    intentHelper.GoToHome();
                     Toast.makeText(LoginActivity.this, "Welcome back", Toast.LENGTH_SHORT).show();
 
                 } else {
