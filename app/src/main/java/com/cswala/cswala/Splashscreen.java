@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.cswala.cswala.utils.IntentHelper;
+import com.pixplicity.easyprefs.library.Prefs;
 
 public class Splashscreen extends AppCompatActivity {
 
@@ -30,8 +31,11 @@ public class Splashscreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                //Don't use Intent, use this helper class
                 IntentHelper intentHelper=new IntentHelper(Splashscreen.this);
-                intentHelper.GoToLogin();
+                //Checking if our user is for first time or not...
+                if (Prefs.getBoolean("isFirstTime",true)) intentHelper.GoToIntro();
+                else intentHelper.GoToLogin();
             }
         }, SPLASH);
     }
