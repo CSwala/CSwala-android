@@ -4,8 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -31,6 +34,41 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.inbox:
 
                         break;
+                }
+            }
+        });
+
+        bt.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(int i) {
+
+                Fragment fragment = null;
+
+                switch(i) {
+
+                    case R.id.explore:
+                        //EXPLORE Fragment
+                        break;
+
+                    case R.id.jobhunt:
+                        fragment = new JobHunt();
+                        break;
+
+                    case R.id.hackfeed:
+                        //HACK FEED Fragment
+                        break;
+
+                    case R.id.communtiy:
+                        //COMMUNITY Fragment
+                        break;
+
+                    case R.id.profile:
+                        //PROFILE Fragment
+                        break;
+                }
+
+                if(fragment != null) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,fragment).commit();
                 }
             }
         });
