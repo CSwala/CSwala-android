@@ -10,4 +10,6 @@
     <string name="news">HACKFEED</string>
     <string name="user_profile">User Profile</string>
     <string name="comm">Community</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

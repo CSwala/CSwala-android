@@ -4,16 +4,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
-import com.cswala.cswala.fragment.CommunityFragment;
-import com.cswala.cswala.fragment.ProfileFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
 public class MainActivity extends AppCompatActivity {
     ChipNavigationBar bt;
+
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
     @Override
@@ -24,15 +23,32 @@ public class MainActivity extends AppCompatActivity {
         bt.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener() {
             @Override
             public void onItemSelected(int i) {
-                switch (i){
-                    case R.id.account:
-                        Intent intent = new Intent(getApplicationContext(), ProfileFragment.class);
-                        startActivity(intent);
+                Fragment fragment = null;
+
+                switch(i) {
+
+                    case R.id.explore:
+                        //explore Fragment
                         break;
+
+                    case R.id.saved:
+                        //job hunt fragment
+                        break;
+
+                    case R.id.news:
+                        //hack feed Fragment
+                        break;
+
                     case R.id.inbox:
-                        Intent intent1 = new Intent(getApplicationContext(), CommunityFragment.class);
-                        startActivity(intent1);
+                        //community fragment
                         break;
+
+                    case R.id.account:
+                        fragment = new ProfileFragment();
+                        break;
+                }
+                if(fragment != null) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,fragment).commit();
                 }
             }
         });
