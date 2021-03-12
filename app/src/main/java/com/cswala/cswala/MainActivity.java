@@ -7,8 +7,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.cswala.cswala.fragment.CommunityFragment;
-import com.cswala.cswala.fragment.ProfileFragment;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
@@ -25,13 +24,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(int i) {
                 switch (i){
+
                     case R.id.account:
-                        Intent intent = new Intent(getApplicationContext(), ProfileFragment.class);
-                        startActivity(intent);
+
                         break;
                     case R.id.inbox:
-                        Intent intent1 = new Intent(getApplicationContext(), CommunityFragment.class);
-                        startActivity(intent1);
+
                         break;
                 }
             }
