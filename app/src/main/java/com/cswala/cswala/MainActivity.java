@@ -36,19 +36,19 @@ public class MainActivity extends AppCompatActivity {
                         //EXPLORE Fragment
                         break;
 
-                    case R.id.saved:
+                    case R.id.jobhunt:
                         fragment = new JobHunt();
                         break;
 
-                    case R.id.news:
+                    case R.id.hackfeed:
                         //HACK FEED Fragment
                         break;
 
-                    case R.id.inbox:
+                    case R.id.communtiy:
                         //COMMUNITY Fragment
                         break;
 
-                    case R.id.account:
+                    case R.id.profile:
                         //PROFILE Fragment
                         break;
                 }
