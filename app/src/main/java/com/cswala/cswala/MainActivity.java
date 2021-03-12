@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.communtiy:
-                        //COMMUNITY Fragment
+                       fragment = new CommunityFragment();
                         break;
 
                     case R.id.profile:

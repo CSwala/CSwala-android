@@ -11,4 +11,6 @@
     <string name="GLogin">Continue with google</string>
     <string name="GitLogin">Continue with Github</string>
     <string name="ErrorLogin">Invalid Email or Password</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
