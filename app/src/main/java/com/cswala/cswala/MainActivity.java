@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.inbox:
-                        //community fragment
+                       fragment = new CommunityFragment();
                         break;
 
                     case R.id.account:
