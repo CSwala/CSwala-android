@@ -20,8 +20,35 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.05"
         app:lottie_autoPlay="true"
-        app:lottie_fileName="Welcome.json"
+        app:lottie_fileName="Login.json"
         app:lottie_loop="true" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#D3D3D3"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/progresslayout">
+
+        <ProgressBar
+            android:id="@+id/ProgressBar"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:id="@+id/tv_progressMsg"
+            android:text="Loading" />
+    </LinearLayout>
 
 
     <Button
@@ -33,7 +60,7 @@
         android:drawableTint="@color/colorAccent"
         android:fontFamily="@font/press_start_2p"
         android:padding="15sp"
-        android:text="Continue with google"
+        android:text="@string/GLogin"
         android:textColor="#388AFC"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -51,7 +78,7 @@
         android:drawableTint="@color/colorAccent"
         android:fontFamily="@font/press_start_2p"
         android:padding="15sp"
-        android:text="Continue with Github"
+        android:text="@string/GitLogin"
         android:textColor="#388AFC"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
