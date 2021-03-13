@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".LoginActivity"/>
+        <activity android:name=".IntroClass"/>
         <activity android:name=".MainActivity"/>
         <activity android:name=".Splashscreen">
             <intent-filter>
