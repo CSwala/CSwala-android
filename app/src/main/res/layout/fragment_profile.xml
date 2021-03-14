@@ -9,8 +9,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/community"
-        android:textSize="32dp"
+        android:text="@string/profile"
+        android:textSize="32sp"
         android:fontFamily="@font/press_start_2p"
         android:textColor="@color/colorPrimary"
         android:layout_marginTop="10dp"
