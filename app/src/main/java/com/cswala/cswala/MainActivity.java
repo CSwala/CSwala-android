@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.hackfeed:
-                        //HACK FEED Fragment
+                        fragment = new NewsFragment();
                         break;
 
                     case R.id.communtiy:
