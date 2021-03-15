@@ -29,5 +29,4 @@
         android:title="@string/profile"
         app:cnb_iconColor="@color/colorPrimaryDark" />
 
-
 </menu>
