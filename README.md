@@ -68,6 +68,20 @@ You can find our Code of Conduct [here](https://github.com/CSwala/CSwala-android
 
 This project follows the [MIT License](https://choosealicense.com/licenses/mit/).
 
+<h2>Contributors:</h2>
+
+### Credits goes to these people:✨
+
+<table>
+	<tr>
+		<td>
+   <a href="https://github.com/CSwala/CSwala-android/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=CSwala/CSwala-android" />
+</a>
+		</td>
+	</tr>
+</table>
+
 
 
 <br>
