@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
                 switch(i) {
 
                     case R.id.explore:
-                        //EXPLORE Fragment
+                        fragment = new ExploreFragment();
                         break;
 
                     case R.id.jobhunt:
