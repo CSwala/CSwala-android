@@ -1,11 +1,10 @@
-package com.cswala.cswala.Common;
+package com.cswala.cswala;
 
 import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import com.cswala.cswala.R;
 import com.cswala.cswala.utils.IntentHelper;
 import com.github.appintro.AppIntro2;
 import com.github.appintro.AppIntroFragment;
