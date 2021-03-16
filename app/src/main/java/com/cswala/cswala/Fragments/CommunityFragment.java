@@ -1,4 +1,4 @@
-package com.cswala.cswala;
+package com.cswala.cswala.Fragments;
 
 import android.os.Bundle;
 
@@ -8,13 +8,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class JobHunt extends Fragment {
+import com.cswala.cswala.R;
+
+
+public class CommunityFragment extends Fragment {
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_job_hunt, container, false);
-        return view;
+        return inflater.inflate(R.layout.fragment_community, container, false);
     }
 }
