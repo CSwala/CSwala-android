@@ -35,13 +35,11 @@
 
 ## 🛠 Tech Used
 
--Android
+<img alt="Android" src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white" />
+<img alt="Kotlin" src="https://img.shields.io/badge/kotlin-%230095D5.svg?&style=for-the-badge&logo=kotlin&logoColor=white"/>  <img alt="Java" src="https://img.shields.io/badge/java-%23ED8B00.svg?&style=for-the-badge&logo=java&logoColor=white"/>
+<img alt="Firebase Realtime DB" src="https://img.shields.io/badge/firebase realtime db%20-%23039BE5.svg?&style=for-the-badge&logo=firebase"/>
+<img alt="Firebase Firestore DB" src="https://img.shields.io/badge/firebase firestore db%20-%23039BE5.svg?&style=for-the-badge&logo=firebase"/>
 
--Kotlin/Java
-
--Firebase Realtime DB
-
--Firebase Firestore DB
 
 [![forthebadge](https://forthebadge.com/images/badges/built-by-developers.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/uses-git.svg)](https://forthebadge.com)
