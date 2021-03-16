@@ -1,6 +1,6 @@
 package com.cswala.cswala.Common;
 
-
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -24,7 +24,7 @@ public class IntroClass extends AppIntro2 {
         //For parallax effect
         setTransformer(new AppIntroPageTransformerType.Parallax(1, -1, 2));
         //For first slide
-        addSlide(AppIntroFragment.newInstance("CS-Wala 1", "Description", R.drawable.ic_intro_one, getColor(R.color.appintro_background_color)));
+        addSlide(AppIntroFragment.newInstance("CS-Wala 1", "Description",R.drawable.ic_intro_one, getColor(R.color.appintro_background_color)));
         //For second slide
         addSlide(AppIntroFragment.newInstance("CS-Wala 2", "Description",R.drawable.ic_intro_one, getColor(R.color.appintro_background_color)));
         //For third slide
