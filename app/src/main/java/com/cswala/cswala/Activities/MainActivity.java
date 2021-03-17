@@ -1,4 +1,4 @@
-package com.cswala.cswala;
+package com.cswala.cswala.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +13,7 @@ import com.cswala.cswala.Fragments.ExploreFragment;
 import com.cswala.cswala.Fragments.JobHunt;
 import com.cswala.cswala.Fragments.NewsFragment;
 import com.cswala.cswala.Fragments.ProfileFragment;
+import com.cswala.cswala.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
