@@ -12,7 +12,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Activities.LoginActivity"/>
         <activity android:name=".Activities.IntroClass"/>
-        <activity android:name=".Activities.MainActivity"/>
+        <activity android:name=".MainActivity"/>
         <activity android:name=".Activities.Splashscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
