@@ -1,4 +1,4 @@
-package com.cswala.cswala;
+package com.cswala.cswala.Activities;
 
 import android.graphics.Color;
 import android.os.Bundle;
