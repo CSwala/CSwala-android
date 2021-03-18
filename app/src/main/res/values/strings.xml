@@ -11,4 +11,12 @@
     <string name="GLogin">Continue with google</string>
     <string name="GitLogin">Continue with Github</string>
     <string name="ErrorLogin">Invalid Email or Password</string>
+    <string name="my_profile">MY PROFILE</string>
+    <string name="hello">Hello</string>
+    <string name="_log">LOG OUT</string>
+    <string name="contact_us">Contact us</string>
+    <string name="terms_of_service">Terms of service</string>
+    <string name="personal_information">Personal Information</string>
+    <string name="username">Username</string>
+    <string name="hello_">Hello ,</string>
 </resources>

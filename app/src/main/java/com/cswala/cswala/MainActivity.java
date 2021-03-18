@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.cswala.cswala.Activities.LoginActivity;
 import com.cswala.cswala.Fragments.CommunityFragment;
@@ -28,54 +29,53 @@ public class MainActivity extends AppCompatActivity {
         bt = findViewById(R.id.bottom_navigation);
         bt.setItemSelected(R.id.explore, true);
 
+        Fragment fragment= new ExploreFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
+
         bt.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener() {
             @Override
             public void onItemSelected(int i) {
 
                 Fragment fragment = null;
+                switch(i){
 
-                switch(i) {
-
-                    case R.id.explore:
+                    case (R.id.explore):
                         fragment = new ExploreFragment();
                         break;
 
-                    case R.id.jobhunt:
+                    case (R.id.jobhunt):
                         fragment = new JobHunt();
                         break;
 
-                    case R.id.hackfeed:
+                    case (R.id.hackfeed):
                         fragment = new NewsFragment();
                         break;
 
-                    case R.id.communtiy:
+                    case (R.id.communtiy):
                         fragment = new CommunityFragment();
                         break;
 
-                    case R.id.profile:
+                    case (R.id.profile):
                         fragment = new ProfileFragment();
                         break;
                 }
 
-                if(fragment != null) {
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,fragment).commit();
+                if (fragment != null) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
                 }
             }
         });
-
         TextView tv = findViewById(R.id.logout);
 
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 firebaseAuth.signOut();
                 startActivity(new Intent(MainActivity.this, LoginActivity.class));
 
             }
         });
     }
-
     @Override
     public void onBackPressed() {
         finishAffinity();
