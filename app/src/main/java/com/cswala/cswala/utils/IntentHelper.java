@@ -4,8 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
-import com.cswala.cswala.Activities.IntroClass;
-import com.cswala.cswala.Activities.LoginActivity;
+import com.cswala.cswala.IntroClass;
+import com.cswala.cswala.LoginActivity;
 import com.cswala.cswala.MainActivity;
 
 public class IntentHelper {

@@ -1,4 +1,4 @@
-package com.cswala.cswala.Activities;
+package com.cswala.cswala;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -15,8 +15,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.cswala.cswala.MainActivity;
-import com.cswala.cswala.R;
 import com.cswala.cswala.utils.IntentHelper;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;

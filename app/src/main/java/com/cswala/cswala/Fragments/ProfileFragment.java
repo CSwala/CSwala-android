@@ -11,12 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.airbnb.lottie.L;
-import com.cswala.cswala.Activities.LoginActivity;
-import com.cswala.cswala.Activities.Splashscreen;
-import com.cswala.cswala.MainActivity;
+import com.cswala.cswala.LoginActivity;
 import com.cswala.cswala.R;
-import com.cswala.cswala.utils.IntentHelper;
 import com.google.firebase.auth.FirebaseAuth;
 
 import de.hdodenhof.circleimageview.CircleImageView;

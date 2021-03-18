@@ -7,9 +7,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
-import com.cswala.cswala.Activities.LoginActivity;
 import com.cswala.cswala.Fragments.CommunityFragment;
 import com.cswala.cswala.Fragments.ExploreFragment;
 import com.cswala.cswala.Fragments.JobHunt;
