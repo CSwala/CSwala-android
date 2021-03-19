@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId "com.cswala.cswala"
-        minSdkVersion 26
+        minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -76,6 +76,13 @@ dependencies {
     //custom Bottom nav bar
     implementation 'com.ismaeldivita.chipnavigation:chip-navigation-bar:1.3.4'
     implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.4.21'
+
+    //App Intro
+    implementation 'com.github.AppIntro:AppIntro:6.1.0'
+    //EasyPref
+    implementation 'com.pixplicity.easyprefs:library:1.9.0'
+    //Animatoo Library
+    implementation 'com.github.mohammadatif:Animatoo:master'
 
 
 }

@@ -1,6 +1,5 @@
-package com.cswala.cswala;
+package com.cswala.cswala.Activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
@@ -9,6 +8,12 @@ import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.cswala.cswala.R;
+import com.cswala.cswala.utils.IntentHelper;
+
+import com.pixplicity.easyprefs.library.Prefs;
+
 
 public class Splashscreen extends AppCompatActivity {
 
@@ -28,8 +33,11 @@ public class Splashscreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(Splashscreen.this, LoginActivity.class));
-                finish();
+                //Don't use Intent, use this helper class
+                IntentHelper intentHelper=new IntentHelper(Splashscreen.this);
+                //Checking if our user is for first time or not...
+                if (Prefs.getBoolean("isFirstTime",true)) intentHelper.GoToIntro();
+                else intentHelper.GoToLogin();
             }
         }, SPLASH);
     }

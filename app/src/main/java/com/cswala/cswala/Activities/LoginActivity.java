@@ -1,7 +1,6 @@
-package com.cswala.cswala;
+package com.cswala.cswala.Activities;
 
 import android.annotation.SuppressLint;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,34 +9,35 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.cswala.cswala.MainActivity;
+import com.cswala.cswala.R;
+import com.cswala.cswala.utils.IntentHelper;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
-import com.google.firebase.auth.OAuthProvider;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;
-    private ProgressDialog progressDialog;
+    private LinearLayout progressBarLayout;
     private static final int RC_SIGN_IN = 1;
     private GoogleSignInClient mGoogleSignInClient;
     private static final String TAG = "Login";
@@ -61,8 +61,12 @@ public class LoginActivity extends AppCompatActivity {
         final Button github = findViewById(R.id.github);
         firebaseAuth = FirebaseAuth.getInstance();
 
-        progressDialog = new ProgressDialog(this);
 
+        progressBarLayout=findViewById(R.id.progresslayout);
+        progressBarLayout.setVisibility(View.INVISIBLE);
+
+        // Buttons Fade-in Animation's Method
+        timer();
 
         // Configure Google Sign In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -95,16 +99,14 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-
-
     private void updateUI(FirebaseUser user) {
 
         {
             if (user == null) {
                 Toast.makeText(this, "Please Login ", Toast.LENGTH_SHORT);
             } else {
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
-
+                IntentHelper intentHelper=new IntentHelper(LoginActivity.this);
+                intentHelper.GoToHome();
             }
 
 
@@ -114,15 +116,16 @@ public class LoginActivity extends AppCompatActivity {
 
     private void validate(String userEmail, String userPassword) {
 
-        progressDialog.setMessage("Hey! By using this app you can find Great workspaces.");
-        progressDialog.show();
-        firebaseAuth.signInWithEmailAndPassword(userEmail, userPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+    progressBarLayout.setVisibility(View.VISIBLE);
+      firebaseAuth.signInWithEmailAndPassword(userEmail, userPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    progressDialog.dismiss();
-                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    progressBarLayout.setVisibility(View.INVISIBLE);
+                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    IntentHelper intentHelper=new IntentHelper(LoginActivity.this);
+                    intentHelper.GoToHome();
                     Toast.makeText(LoginActivity.this, "Welcome back", Toast.LENGTH_SHORT).show();
 
                 } else {
@@ -169,8 +172,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
-        Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
-
+        Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());  
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         firebaseAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -191,6 +193,32 @@ public class LoginActivity extends AppCompatActivity {
                         // ...
                     }
                 });
+    }
+
+    // Timer for Fade-in Animation of Buttons ( T1 - Google Button; T2 - GitHub Button )
+    private void timer() {
+        Timer t1, t2;
+        t1 = new Timer();
+        t2 = new Timer();
+        final Button google = findViewById(R.id.google);
+        final Button github = findViewById(R.id.github);
+
+        google.animate().alpha(0f).setDuration(1);
+        github.animate().alpha(0f).setDuration(1);
+
+        t1.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                google.animate().alpha(1f).setDuration(500);
+            }
+        },500);
+
+        t2.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                github.animate().alpha(1f).setDuration(500);
+            }
+        },1000);
     }
 }
 
