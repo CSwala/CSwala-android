@@ -19,4 +19,5 @@
     <string name="personal_information">Personal Information</string>
     <string name="username">Username</string>
     <string name="hello_">Hello ,</string>
+    <string name="background">background</string>
 </resources>
