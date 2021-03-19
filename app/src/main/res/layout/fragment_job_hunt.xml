@@ -10,10 +10,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:fontFamily="@font/press_start_2p"
+        android:padding="16sp"
         android:text="@string/jobhunt"
         android:textColor="@color/colorPrimary"
-        android:textSize="32sp"
-        android:padding="16sp"
-        />
+        android:textSize="32sp" />
 
 </FrameLayout>
