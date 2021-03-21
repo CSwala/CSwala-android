@@ -20,5 +20,4 @@
 - [ ] The PR creator have carefully read & adher to the contributing guidelines of the project.
 - [ ] The PR is made to the branch that's **called** "develop".
 - [ ] The PR is made from a branch that is up-to-date with "develop".
-- [ ] The PR's branch is based on "main" and not on any other branch.
 
