@@ -5,15 +5,14 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.CommunityFragment">
 
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/community"
-        android:gravity="center_horizontal"
-        android:textSize="32sp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/press_start_2p"
+        android:gravity="center_horizontal"
+        android:text="@string/community"
         android:textColor="@color/colorPrimary"
-        android:layout_marginTop="10dp"/>
+        android:textSize="32sp" />
 
 </FrameLayout>

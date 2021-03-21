@@ -8,11 +8,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/press_start_2p"
+        android:gravity="center_horizontal"
         android:text="@string/explore"
         android:textColor="@color/colorPrimary"
-        android:textSize="32sp"
-        android:gravity="center_horizontal"
-        android:fontFamily="@font/press_start_2p"
-        android:layout_marginTop="10dp"/>
+        android:textSize="32sp" />
 
 </FrameLayout>
