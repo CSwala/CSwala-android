@@ -3,19 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
-    <TextView
-        android:id="@+id/explore_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:fontFamily="@font/press_start_2p"
-        android:text="@string/explore"
-        android:textColor="@color/colorPrimary"
-        android:textSize="32sp"
-        android:paddingTop="16sp"
-        />
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,6 +13,7 @@
         <androidx.appcompat.widget.SearchView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
             android:id="@+id/tech_search"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             />
@@ -31,6 +22,5 @@
         android:id="@+id/tech_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/explore_text"
         />
 </LinearLayout>

@@ -17,7 +17,9 @@ import android.widget.Toast;
 import com.cswala.cswala.Activities.TechDataActivity;
 import com.cswala.cswala.Adapters.TechListAdapter;
 import com.cswala.cswala.Adapters.techItemClicked;
+import com.cswala.cswala.MainActivity;
 import com.cswala.cswala.R;
+import com.cswala.cswala.utils.IntentHelper;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
@@ -86,8 +88,7 @@ public class ExploreFragment extends Fragment implements techItemClicked {
     }
     @Override
     public void onItemClicked(String item) {
-        Intent transfer=new Intent(getContext(), TechDataActivity.class);
-        transfer.putExtra("tech",item);
-        startActivity(transfer);
+        IntentHelper transfer=new IntentHelper(getContext());
+        transfer.GoToTechData(item);
     }
 }

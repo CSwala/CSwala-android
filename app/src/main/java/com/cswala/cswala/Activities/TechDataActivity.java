@@ -20,7 +20,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import org.jetbrains.annotations.NotNull;
 
 public class TechDataActivity extends AppCompatActivity {
-    TextView documentationView,titleView,youtubeView,websiteView,githubView,coursesView,tipsView;
+    TextView documentationView,titleView,youtubeView,websiteView,githubView,coursesView,tipsView,tagView;
     FirebaseFirestore firestore;
     DocumentReference documentReference;
     @Override
@@ -38,6 +38,7 @@ public class TechDataActivity extends AppCompatActivity {
         githubView=(TextView) findViewById(R.id.github_links);
         coursesView=(TextView) findViewById(R.id.best_courses);
         tipsView=(TextView) findViewById(R.id.tips);
+        tagView=(TextView) findViewById(R.id.tag);
         getData();
     }
 
@@ -52,6 +53,7 @@ public class TechDataActivity extends AppCompatActivity {
                 String tips=documentSnapshot.getString("Tips1");
                 String website=documentSnapshot.getString("Website1");
                 String youtube=documentSnapshot.getString("YT1 ");
+                String tag=documentSnapshot.getString("Tag");
                 if(youtube==null)
                 {
                     youtube=documentSnapshot.getString("YT1");
@@ -121,6 +123,7 @@ public class TechDataActivity extends AppCompatActivity {
                         break;
                     }
                 }
+                tagView.setText(tag);
                 youtubeView.setText(youtube);
                 websiteView.setText(website);
                 tipsView.setText(tips);
