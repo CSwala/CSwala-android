@@ -35,6 +35,7 @@ For more information, refer to <a href = "https://docs.github.com/en" target = "
 <br>
 ## GIT AND GITHUB
 
+
 Before continuing we want to clarify the difference between Git and Github. Git is a version control system(VCS) which is a tool to manage the history of our Source Code. GitHub is a hosting service for Git projects.
 
 We assume you have created an account on Github and installed Git on your System.
