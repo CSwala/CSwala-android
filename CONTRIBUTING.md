@@ -131,7 +131,7 @@ Now you are ready to help the project by opening a pull request means you now te
 
 Remember your upstream base branch should be master and source should be your feature branch. Click on create pull request and add a name to your pull request. You can also describe your feature.
 
-Awesome! You have made your first contribution. If you have any doubts please let me know in the comments.
+Awesome! You have made your first contribution. For any queries join our Discord server [here](https://discord.com/invite/rAz3Eb8fsN) .
 
 #### BE OPEN!
 <br>
