@@ -33,6 +33,7 @@ For more information, refer to <a href = "https://docs.github.com/en" target = "
 
 10. That's it! You have successfully made your contribution to the project.
 <br>
+
 ## GIT AND GITHUB
 
 
@@ -137,4 +138,5 @@ Awesome! You have made your first contribution. For any queries join our Discord
 #### BE OPEN!
 <br>
 -----------------
-#### **Note**: Always comment and provide apt descriptions wherever necessary for efficient running of the project.
+
+### **Note**: Always comment and provide apt descriptions wherever necessary for efficient running of the project.
