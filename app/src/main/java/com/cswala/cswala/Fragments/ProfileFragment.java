@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.cswala.cswala.Activities.LoginActivity;
@@ -24,7 +25,7 @@ public class ProfileFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
-        TextView tv = view.findViewById(R.id.logout);
+        Button tv = view.findViewById(R.id.btnLogout);
 
         tv.setOnClickListener(new View.OnClickListener() {
             @Override

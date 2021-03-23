@@ -12,4 +12,5 @@
     <string name="GitLogin">Continue with Github</string>
     <string name="ErrorLogin">Invalid Email or Password</string>
     <string name="tech_data">Tech Data</string>
+    <string name="my_profile">MY PROFILE</string>
 </resources>
