@@ -24,6 +24,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(savedInstanceState==null)
+        {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ExploreFragment()).commit();
+        }
         setContentView(R.layout.activity_main);
         bt = findViewById(R.id.bottom_navigation);
         bt.setItemSelected(R.id.explore, true);
