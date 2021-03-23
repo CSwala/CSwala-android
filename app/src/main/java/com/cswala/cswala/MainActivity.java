@@ -59,6 +59,11 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.profile:
                         fragment = new ProfileFragment();
                         break;
+
+                    default:
+                        fragment = new ExploreFragment();
+                        break;
+
                 }
 
                 if(fragment != null) {
