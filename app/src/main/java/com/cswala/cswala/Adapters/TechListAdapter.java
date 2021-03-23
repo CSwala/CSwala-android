@@ -1,5 +1,6 @@
 package com.cswala.cswala.Adapters;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.cswala.cswala.Activities.TechDataActivity;
+import com.cswala.cswala.Models.TechListElement;
 import com.cswala.cswala.R;
 
 import org.jetbrains.annotations.NotNull;
@@ -18,12 +21,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TechListAdapter extends RecyclerView.Adapter<TechListAdapter.TechHolder> implements Filterable {
-
-    ArrayList<String> data=new ArrayList<>();
-    ArrayList<String> dataFull;
+    ArrayList<TechListElement> data=new ArrayList<>();
+    ArrayList<TechListElement> dataFull;
 
     techItemClicked listener;
-    public TechListAdapter(ArrayList<String> data,techItemClicked listener) {
+    public TechListAdapter(ArrayList<TechListElement> data,techItemClicked listener) {
         this.data = data;
         this.listener=listener;
         dataFull=new ArrayList<>(data);
@@ -36,7 +38,7 @@ public class TechListAdapter extends RecyclerView.Adapter<TechListAdapter.TechHo
         myView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.onItemClicked(data.get(holder.getAdapterPosition()));
+                listener.onItemClicked(data.get(holder.getAdapterPosition()).getTechName());
             }
         });
         return holder;
@@ -44,7 +46,8 @@ public class TechListAdapter extends RecyclerView.Adapter<TechListAdapter.TechHo
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull TechHolder holder, int position) {
-        holder.data.setText(data.get(position));
+        holder.data.setText(data.get(position).getTechName());
+        holder.tag.setText(data.get(position).getTechTag());
     }
 
     @Override
@@ -59,18 +62,19 @@ public class TechListAdapter extends RecyclerView.Adapter<TechListAdapter.TechHo
     private Filter exampleFilter=new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
-            ArrayList<String> sample=new ArrayList<>();
+            ArrayList<TechListElement> sample=new ArrayList<>();
             if(constraint==null || constraint.length()==0)
             {
                 sample.addAll(dataFull);
             }
             else {
                 String pattern=constraint.toString().toLowerCase().trim();
-                for(String item: dataFull)
+                for(TechListElement data: dataFull)
                 {
+                    String item=data.getTechName();
                     if(item.toLowerCase().contains(pattern))
                     {
-                        sample.add(item);
+                        sample.add(data);
                     }
                 }
             }
@@ -89,9 +93,11 @@ public class TechListAdapter extends RecyclerView.Adapter<TechListAdapter.TechHo
 
     public class TechHolder extends RecyclerView.ViewHolder {
         TextView data;
+        TextView tag;
         public TechHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             data=itemView.findViewById(R.id.tech_data);
+            tag=itemView.findViewById(R.id.tag_element);
         }
     }
 }
