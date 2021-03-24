@@ -35,6 +35,7 @@ dependencies {
     implementation 'com.firebaseui:firebase-ui-firestore:6.2.1'
     implementation 'com.google.firebase:firebase-database:19.6.0'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.github.cachapa:ExpandableLayout:2.9.2'
 
     implementation platform('com.google.firebase:firebase-bom:26.1.0')
     implementation 'com.squareup.picasso:picasso:2.71828'

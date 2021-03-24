@@ -13,4 +13,9 @@
     <string name="ErrorLogin">Invalid Email or Password</string>
     <string name="tech_data">Tech Data</string>
     <string name="my_profile">MY PROFILE</string>
+    <string name="hello">Hello ,</string>
+    <string name="username">Username</string>
+    <string name="personal_information">Personal Information</string>
+    <string name="terms_of_service">TERMS OF SERVICE</string>
+    <string name="documentation">Documentation</string>
 </resources>

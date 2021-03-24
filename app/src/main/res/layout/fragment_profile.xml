@@ -43,7 +43,7 @@
             android:id="@+id/materialTextView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello ,"
+            android:text="@string/hello"
             android:textColor="@color/colorPrimary"
             android:textSize="25sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -57,7 +57,7 @@
             android:id="@+id/txtUsername"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Username"
+            android:text="@string/username"
             android:textColor="@color/colorPrimary"
             android:textSize="25sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -73,51 +73,117 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="72dp"
             android:background="@color/colorPrimary"
-            android:text="Personal Information"
+            android:text="@string/personal_information"
             android:textColor="@color/colorPrimaryDark"
             app:layout_constraintEnd_toEndOf="@+id/txtUsername"
             app:layout_constraintHorizontal_bias="0.46"
             app:layout_constraintStart_toStartOf="@+id/materialTextView2"
             app:layout_constraintTop_toBottomOf="@+id/txtUsername" />
 
-        <Button
+        <LinearLayout
+            app:layout_constraintHorizontal_bias="0.55"
             android:id="@+id/btnTerms"
             android:layout_width="250dp"
+            android:layout_marginTop="20dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:background="@color/colorPrimary"
-            android:text="Terms of Service"
-            android:textColor="@color/colorPrimaryDark"
-            app:layout_constraintEnd_toEndOf="@+id/txtUsername"
-            app:layout_constraintHorizontal_bias="0.47"
-            app:layout_constraintStart_toStartOf="@+id/materialTextView2"
-            app:layout_constraintTop_toBottomOf="@+id/btnPersonalInfo" />
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnPersonalInfo">
 
-        <Button
+            <TextView
+                android:id="@+id/expand_button"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:elevation="6dp"
+                android:foreground="?selectableItemBackground"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="@string/terms_of_service"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <net.cachapa.expandablelayout.ExpandableLayout
+                android:id="@+id/expandable_layout_0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:el_duration="1000"
+             >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:elevation="4dp"
+                    android:gravity="center"
+                    android:text="@string/documentation"
+                    android:textColor="@color/colorPrimary" />
+            </net.cachapa.expandablelayout.ExpandableLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/btnContact"
             android:layout_width="250dp"
+            android:layout_marginTop="20dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:background="@color/colorPrimary"
-            android:text="Contact Us"
-            android:textColor="@color/colorPrimaryDark"
-            app:layout_constraintEnd_toEndOf="@+id/txtUsername"
-            app:layout_constraintHorizontal_bias="0.47"
-            app:layout_constraintStart_toStartOf="@+id/materialTextView2"
-            app:layout_constraintTop_toBottomOf="@+id/btnTerms" />
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.55"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnTerms">
+
+            <TextView
+                android:id="@+id/expand_button1"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:elevation="6dp"
+                android:foreground="?selectableItemBackground"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="Contact Us"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <net.cachapa.expandablelayout.ExpandableLayout
+                android:id="@+id/expandable_layout_01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                app:el_duration="1000"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:elevation="4dp"
+                    android:gravity="center"
+                    android:text="@string/documentation"
+                    android:textColor="@color/colorPrimary" />
+            </net.cachapa.expandablelayout.ExpandableLayout>
+
+        </LinearLayout>
+
 
         <Button
             android:id="@+id/btnLogout"
             android:layout_width="250dp"
+            android:layout_marginTop="20dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="96dp"
             android:background="@color/colorAccent"
-            android:text="LOG OUT"
+            android:text="@string/log_out"
             android:textColor="@color/colorPrimaryDark"
             app:layout_constraintEnd_toEndOf="@+id/txtUsername"
             app:layout_constraintHorizontal_bias="0.47"
             app:layout_constraintStart_toStartOf="@+id/materialTextView2"
-            app:layout_constraintTop_toBottomOf="@+id/btnTerms" />
+            app:layout_constraintTop_toBottomOf="@+id/btnContact" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
