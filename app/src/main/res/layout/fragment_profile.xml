@@ -1,28 +1,190 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.ProfileFragment">
+    tools:context=".Fragments.ProfileFragment"
+    android:background="@color/colorPrimaryDark">
 
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/press_start_2p"
-        android:gravity="center_horizontal"
-        android:text="@string/profile"
-        android:textColor="@color/colorPrimary"
-        android:textSize="32sp" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:fontFamily="@font/press_start_2p"
-        android:text="@string/log_out"
-        android:textColor="@color/colorPrimary"
-        android:textSize="24sp" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/press_start_2p"
+            android:text="@string/my_profile"
+            android:textColor="@color/colorPrimary"
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/ic_baseline_person_24"
+            app:civ_border_color="@color/colorPrimary"
+            app:civ_border_overlay="true"
+            app:civ_border_width="2dp"
+            app:layout_constraintEnd_toEndOf="@+id/textView"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/materialTextView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hello"
+            android:textColor="@color/colorPrimary"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/circleImageView"
+            app:layout_constraintHorizontal_bias="0.478"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/circleImageView"
+            app:layout_constraintVertical_bias="0.093" />
+
+        <TextView
+            android:id="@+id/txtUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/username"
+            android:textColor="@color/colorPrimary"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/textView"
+            app:layout_constraintHorizontal_bias="0.437"
+            app:layout_constraintStart_toStartOf="@+id/circleImageView"
+            app:layout_constraintTop_toBottomOf="@+id/circleImageView"
+            app:layout_constraintVertical_bias="0.093" />
+
+        <Button
+            android:id="@+id/btnPersonalInfo"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="72dp"
+            android:background="@color/colorPrimary"
+            android:text="@string/personal_information"
+            android:textColor="@color/colorPrimaryDark"
+            app:layout_constraintEnd_toEndOf="@+id/txtUsername"
+            app:layout_constraintHorizontal_bias="0.46"
+            app:layout_constraintStart_toStartOf="@+id/materialTextView2"
+            app:layout_constraintTop_toBottomOf="@+id/txtUsername" />
+
+        <LinearLayout
+            app:layout_constraintHorizontal_bias="0.55"
+            android:id="@+id/btnTerms"
+            android:layout_width="250dp"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnPersonalInfo">
+
+            <TextView
+                android:id="@+id/expand_button"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:elevation="6dp"
+                android:foreground="?selectableItemBackground"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="@string/terms_of_service"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <net.cachapa.expandablelayout.ExpandableLayout
+                android:id="@+id/expandable_layout_0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:el_duration="1000"
+             >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:elevation="4dp"
+                    android:gravity="center"
+                    android:text="@string/documentation"
+                    android:textColor="@color/colorPrimary" />
+            </net.cachapa.expandablelayout.ExpandableLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnContact"
+            android:layout_width="250dp"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.55"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnTerms">
+
+            <TextView
+                android:id="@+id/expand_button1"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:elevation="6dp"
+                android:foreground="?selectableItemBackground"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="Contact Us"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <net.cachapa.expandablelayout.ExpandableLayout
+                android:id="@+id/expandable_layout_01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                app:el_duration="1000"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:elevation="4dp"
+                    android:gravity="center"
+                    android:text="@string/documentation"
+                    android:textColor="@color/colorPrimary" />
+            </net.cachapa.expandablelayout.ExpandableLayout>
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="250dp"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:text="@string/log_out"
+            android:textColor="@color/colorPrimaryDark"
+            app:layout_constraintEnd_toEndOf="@+id/txtUsername"
+            app:layout_constraintHorizontal_bias="0.47"
+            app:layout_constraintStart_toStartOf="@+id/materialTextView2"
+            app:layout_constraintTop_toBottomOf="@+id/btnContact" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
