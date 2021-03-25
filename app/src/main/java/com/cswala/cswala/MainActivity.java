@@ -1,10 +1,15 @@
 package com.cswala.cswala;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.cswala.cswala.Activities.LoginActivity;
+import com.google.firebase.auth.FirebaseAuth;
 import com.cswala.cswala.Fragments.CommunityFragment;
 import com.cswala.cswala.Fragments.ExploreFragment;
 import com.cswala.cswala.Fragments.JobHunt;
