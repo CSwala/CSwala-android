@@ -140,9 +140,11 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void signIn() {
+        progressBarLayout.setVisibility(View.VISIBLE);
         mGoogleSignInClient.signOut().addOnSuccessListener(this, new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(@NonNull Void aVoid) {
+                progressBarLayout.setVisibility(View.INVISIBLE);
                 Intent signInIntent = mGoogleSignInClient.getSignInIntent();
                 startActivityForResult(signInIntent, RC_SIGN_IN);
             }
@@ -191,6 +193,7 @@ public class LoginActivity extends AppCompatActivity {
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
+                            progressBarLayout.setVisibility(View.INVISIBLE);
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
                             Toast.makeText(LoginActivity.this, "Authentication Failed.", Toast.LENGTH_SHORT).show();
                             updateUI(null);
