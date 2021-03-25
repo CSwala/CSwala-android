@@ -1,20 +1,15 @@
 package com.cswala.cswala;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import com.cswala.cswala.Activities.LoginActivity;
 import com.cswala.cswala.Fragments.CommunityFragment;
 import com.cswala.cswala.Fragments.ExploreFragment;
 import com.cswala.cswala.Fragments.JobHunt;
 import com.cswala.cswala.Fragments.NewsFragment;
 import com.cswala.cswala.Fragments.ProfileFragment;
-import com.google.firebase.auth.FirebaseAuth;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
 public class MainActivity extends AppCompatActivity {
@@ -52,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                         fragment = new NewsFragment();
                         break;
 
-                    case R.id.communtiy:
+                    case R.id.community:
                         fragment = new CommunityFragment();
                         break;
 
