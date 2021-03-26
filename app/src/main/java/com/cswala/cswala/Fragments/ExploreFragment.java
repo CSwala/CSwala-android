@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -52,14 +54,18 @@ public class ExploreFragment extends Fragment implements techItemClicked {
                              Bundle savedInstanceState) {
 
         View view=inflater.inflate(R.layout.fragment_explore, container, false);
+
         firestore=FirebaseFirestore.getInstance();
         reference=firestore.collection("Dictionary");
         techListView=(RecyclerView) view.findViewById(R.id.tech_list);
         manager=new LinearLayoutManager(getContext());
         techListView.setLayoutManager(manager);
+        LayoutAnimationController layoutAnimationController = AnimationUtils.loadLayoutAnimation(getContext(), R.anim.layout_anim_fall_down);
+        techListView.setLayoutAnimation(layoutAnimationController);
         fetchData();
         searchTech=(SearchView) view.findViewById(R.id.tech_search);
         setSearchViewParameters();
+
         return view;
     }
 
@@ -98,6 +104,7 @@ public class ExploreFragment extends Fragment implements techItemClicked {
                 }
                 adapter=new TechListAdapter(data,ExploreFragment.this);
                 techListView.setAdapter(adapter);
+                techListView.scheduleLayoutAnimation();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
