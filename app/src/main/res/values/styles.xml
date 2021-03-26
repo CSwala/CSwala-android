@@ -5,8 +5,12 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="font" > @font/press_start_2p</item>
+        <item name="font">@font/press_start_2p</item>
     </style>
 
+    <style name="customfontstyle" parent="@android:style/TextAppearance.Small">
+        <!-- For tab layout in jobHunt need separate style font wont work with that !-->
+        <item name="android:fontFamily">@font/press_start_2p</item>
+    </style>
 
 </resources>
