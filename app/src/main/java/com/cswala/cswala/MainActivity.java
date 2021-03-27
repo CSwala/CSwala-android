@@ -67,7 +67,10 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if(fragment != null) {
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,fragment).commit();
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .setCustomAnimations(R.anim.frag_fade_in, R.anim.frag_fade_out, R.anim.fade_in, R.anim.fade_out)
+                            .replace(R.id.fragment_container,fragment).commit();
                 }
             }
         });
