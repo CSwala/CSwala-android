@@ -226,5 +226,9 @@ public class LoginActivity extends AppCompatActivity {
             }
         },1000);
     }
+
+    public void open_login_form(View view) {
+        startActivity(new Intent(this, LoginWithEmail.class));
+    }
 }
 
