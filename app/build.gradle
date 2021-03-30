@@ -27,12 +27,16 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.13.1'
     implementation 'com.airbnb.android:lottie:3.4.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'com.firebaseui:firebase-ui-firestore:6.2.1'
     implementation 'com.google.firebase:firebase-database:19.6.0'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.github.cachapa:ExpandableLayout:2.9.2'
 
     implementation platform('com.google.firebase:firebase-bom:26.1.0')
     implementation 'com.squareup.picasso:picasso:2.71828'
@@ -77,6 +81,10 @@ dependencies {
     implementation 'com.ismaeldivita.chipnavigation:chip-navigation-bar:1.3.4'
     implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.4.21'
 
+    //App Intro
+    implementation 'com.github.AppIntro:AppIntro:6.1.0'
+    //EasyPref
+    implementation 'com.pixplicity.easyprefs:library:1.9.0'
     //Animatoo Library
     implementation 'com.github.mohammadatif:Animatoo:master'
 
