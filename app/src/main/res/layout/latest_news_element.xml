@@ -44,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/rounded_corners_button"
             android:gravity="center"
             android:paddingStart="10sp"
             android:paddingEnd="10sp"
