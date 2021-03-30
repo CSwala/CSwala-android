@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import com.cswala.cswala.utils.IntentHelper;
 import com.cswala.cswala.MainActivity;
 import com.cswala.cswala.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -55,13 +55,15 @@ public class LoginWithEmail extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.lregister:
-                startActivity(new Intent(this, Register.class));
+                IntentHelper intentHelper=new IntentHelper(LoginWithEmail.this);
+                intentHelper.GoToRegister();
                 break;
             case R.id.login:
                 userLogin();
                 break;
             case R.id.forgotpassword:
-                startActivity(new Intent(this, ResetPassword.class ));
+                IntentHelper intentHelper1=new IntentHelper(LoginWithEmail.this);
+                intentHelper1.GoToRegister();
                 break;
         }
     }
@@ -106,9 +108,9 @@ public class LoginWithEmail extends AppCompatActivity implements View.OnClickLis
 
                     if(user.isEmailVerified())
                     {
-                        startActivity(new Intent(LoginWithEmail.this, MainActivity.class));
+                        IntentHelper intentHelper=new IntentHelper(LoginWithEmail.this);
+                        intentHelper.GoToHome();
                         progressBar.setVisibility(View.GONE);
-                        startActivity(new Intent(LoginWithEmail.this, MainActivity.class));
                     }else{
                         user.sendEmailVerification();
                         Toast.makeText(LoginWithEmail.this,"Check your email to verify your account!", Toast.LENGTH_LONG).show();

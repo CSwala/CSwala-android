@@ -228,7 +228,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void open_login_form(View view) {
-        startActivity(new Intent(this, LoginWithEmail.class));
+        IntentHelper intentHelper=new IntentHelper(LoginActivity.this);
+        intentHelper.GoToLoginWithEmail();
     }
 }
 
