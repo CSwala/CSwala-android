@@ -1,0 +1,104 @@
+package com.cswala.cswala.Adapters;
+
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+import com.cswala.cswala.R;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class LatestNewsAdapter extends RecyclerView.Adapter<LatestNewsAdapter.ViewHolder> {
+    private Context context;
+    private JSONArray results;
+
+    public LatestNewsAdapter(Context context, JSONArray results){
+        this.context = context;
+        this.results = results;
+    }
+
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.latest_news_element, parent, false);
+        return new ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        JSONObject obj = null;
+        try {
+            obj = results.getJSONObject(position);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        final JSONObject finalObj = obj;
+        holder.readMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent external_link = null;
+                try {
+                    external_link = new Intent(Intent.ACTION_VIEW,
+                            Uri.parse(finalObj.getString("url")));
+                    external_link.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                context.startActivity(external_link);
+            }
+        });
+
+        if(obj!=null){
+            try {
+                holder.title.setText(obj.getString("title"));
+                holder.description.setText(obj.getString("abstract"));
+                Glide.with(context)
+                        .load(obj.getJSONArray("multimedia")
+                                .getJSONObject(2)
+                                .getString("url")).into(holder.imageView);
+
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return results.length();
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder{
+        public TextView title, description;
+        public ImageView imageView;
+        public Button readMore;
+
+        public ViewHolder(@NonNull View itemView){
+            super(itemView);
+
+            title = itemView.findViewById(R.id.textView1_row_hf);
+            description = itemView.findViewById(R.id.textView2_row_hf);
+            imageView = itemView.findViewById(R.id.image_row_hf);
+            readMore = itemView.findViewById(R.id.read_more_hf);
+
+        }
+    }
+
+}
