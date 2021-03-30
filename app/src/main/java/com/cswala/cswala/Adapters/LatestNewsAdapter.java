@@ -66,6 +66,9 @@ public class LatestNewsAdapter extends RecyclerView.Adapter<LatestNewsAdapter.Vi
             try {
                 holder.title.setText(obj.getString("title"));
                 holder.description.setText(obj.getString("abstract"));
+                String date_raw = obj.getString("updated_date");
+                holder.date.setText(date_raw.substring(0, 10).concat("  ")
+                        .concat(date_raw.substring(11, 16)));
                 Glide.with(context)
                         .load(obj.getJSONArray("multimedia")
                                 .getJSONObject(2)
@@ -86,7 +89,7 @@ public class LatestNewsAdapter extends RecyclerView.Adapter<LatestNewsAdapter.Vi
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        public TextView title, description;
+        public TextView title, description, date;
         public ImageView imageView;
         public Button readMore;
 
@@ -95,6 +98,7 @@ public class LatestNewsAdapter extends RecyclerView.Adapter<LatestNewsAdapter.Vi
 
             title = itemView.findViewById(R.id.textView1_row_hf);
             description = itemView.findViewById(R.id.textView2_row_hf);
+            date = itemView.findViewById(R.id.textView3_row_hf);
             imageView = itemView.findViewById(R.id.image_row_hf);
             readMore = itemView.findViewById(R.id.read_more_hf);
 

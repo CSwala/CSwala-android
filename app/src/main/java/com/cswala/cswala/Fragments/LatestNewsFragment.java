@@ -55,7 +55,6 @@ public class LatestNewsFragment extends Fragment {
     }
 
     public void load_hackfeed() {
-
         // Instantiate the RequestQueue.
         queue = Volley.newRequestQueue(requireContext());
         String url = "https://api.nytimes.com/svc/topstories/v2/technology.json?api-key=cOqDp0g8yPJ1oDHi64TB3YPm74L2LiJV";

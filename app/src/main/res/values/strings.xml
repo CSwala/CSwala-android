@@ -24,5 +24,6 @@
     <string name="main_title">Main Title</string>
     <string name="sub_title">Sub Title</string>
     <string name="read_more">Read More</string>
+    <string name="date">Date</string>
 
 </resources>

@@ -38,19 +38,37 @@
             android:textSize="15sp"
             android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/read_more_hf"
-            style="@style/customfontstyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:background="@drawable/rounded_corners_button"
-            android:gravity="center"
-            android:paddingStart="10sp"
-            android:paddingEnd="10sp"
-            android:text="@string/read_more"
-            android:textSize="12sp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="42dp">
 
+            <TextView
+                android:id="@+id/textView3_row_hf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="10dp"
+                android:text="@string/date"
+                android:textColor="#a9a9a9"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/read_more_hf"
+                style="@style/customfontstyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/rounded_corners_button"
+                android:paddingStart="10sp"
+                android:paddingEnd="10sp"
+                android:text="@string/read_more"
+                android:textSize="12sp" />
+
+
+        </RelativeLayout>
     </LinearLayout>
 
 
