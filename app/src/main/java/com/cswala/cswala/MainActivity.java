@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.cswala.cswala.Activities.LoginActivity;
+import com.cswala.cswala.Services.NotificationService;
 import com.google.firebase.auth.FirebaseAuth;
 import com.cswala.cswala.Fragments.CommunityFragment;
 import com.cswala.cswala.Fragments.ExploreFragment;
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         bt = findViewById(R.id.bottom_navigation);
         bt.setItemSelected(R.id.explore, true);
-
+        startService(new Intent(this, NotificationService.class));
         bt.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener() {
             @Override
             public void onItemSelected(int i) {
