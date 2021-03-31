@@ -20,4 +20,5 @@
     <string name="documentation">Documentation</string>
     <string name="channel_name">CS Wala Notification</string>
     <string name="channel_description">default notification channel for CS wala app</string>
+    <string name="TITLES">Titles</string>
 </resources>
