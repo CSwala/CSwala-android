@@ -1,18 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
     tools:context=".Fragments.NewsFragment">
 
-    <TextView
+    <FrameLayout
+        android:id="@+id/fragment_container_hackfeed"
         android:layout_width="match_parent"
-        android:layout_height="718dp"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/press_start_2p"
-        android:gravity="center_horizontal"
-        android:text="@string/news"
-        android:textColor="@color/colorPrimary"
-        android:textSize="32sp" />
+        android:layout_height="match_parent"
+        android:layout_below="@id/tab_hf">
 
-</FrameLayout>
+    </FrameLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_hf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tabBackground="@color/colorPrimary"
+        app:tabTextAppearance="@style/customfontstyle"
+        app:tabGravity="fill"
+        app:tabMode="fixed">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/latest_news_hf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/latest_news" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/events_hf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/events" />
+
+    </com.google.android.material.tabs.TabLayout>
+
+
+</RelativeLayout>
