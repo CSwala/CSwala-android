@@ -8,4 +8,22 @@
     <string name="community">COMMUNITY</string>
     <string name="jobhunt">JOBHUNT</string>
     <string name="news">HACKFEED</string>
+    <string name="GLogin">Continue with google</string>
+    <string name="GitLogin">Continue with Github</string>
+    <string name="ErrorLogin">Invalid Email or Password</string>
+    <string name="tech_data">Tech Data</string>
+    <string name="my_profile">MY PROFILE</string>
+    <string name="hello">Hello ,</string>
+    <string name="username">Username</string>
+    <string name="personal_information">Personal Information</string>
+    <string name="terms_of_service">TERMS OF SERVICE</string>
+    <string name="documentation">Documentation</string>
+    <string name="latest_news">Latest News</string>
+    <string name="events">Events</string>
+    <string name="todo">TODO</string>
+    <string name="main_title">Main Title</string>
+    <string name="sub_title">Sub Title</string>
+    <string name="read_more">Read More</string>
+    <string name="date">Date</string>
+
 </resources>

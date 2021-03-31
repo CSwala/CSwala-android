@@ -8,26 +8,25 @@
         app:cnb_iconColor="@color/colorPrimaryDark" />
 
     <item
-        android:id="@+id/saved"
+        android:id="@+id/jobhunt"
         android:icon="@drawable/ic_job"
         android:title="@string/jobhunt"
         app:cnb_iconColor="@color/colorPrimaryDark" />
     <item
-        android:id="@+id/news"
+        android:id="@+id/hackfeed"
         android:icon="@drawable/ic_news"
         android:title="@string/news"
         app:cnb_iconColor="@color/colorPrimaryDark" />
     <item
-        android:id="@+id/inbox"
+        android:id="@+id/community"
         android:icon="@drawable/ic_community"
         android:iconTint="@color/colorPrimaryDark"
         android:title="@string/community"
         app:cnb_iconColor="@color/colorPrimaryDark" />
     <item
-        android:id="@+id/account"
+        android:id="@+id/profile"
         android:icon="@drawable/ic_account"
         android:title="@string/profile"
         app:cnb_iconColor="@color/colorPrimaryDark" />
-
 
 </menu>
