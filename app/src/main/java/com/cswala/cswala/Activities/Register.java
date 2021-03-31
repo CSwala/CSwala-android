@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 
 import com.cswala.cswala.MainActivity;
 import com.cswala.cswala.R;
+import com.cswala.cswala.utils.IntentHelper;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -92,25 +94,19 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
 
                         if(task.isSuccessful()){
                             User user = new User(email);
+                            Toast.makeText(Register.this, "User has been Registered Successfully!", Toast.LENGTH_LONG).show();
+                            txtemail.setText("");
+                            txtpassword.setText("");
+                            progressBar.setVisibility(View.GONE);
+                            IntentHelper intentHelper=new IntentHelper(Register.this);
+                            intentHelper.GoToLoginWithEmail();
 
-                            FirebaseDatabase.getInstance().getReference("Users")
-                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                    .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-
-                                    if(task.isSuccessful()){
-                                        Toast.makeText(Register.this, "User has been Registered Successfully!", Toast.LENGTH_LONG).show();
-                                        progressBar.setVisibility(View.GONE);
-                                    }else{
-                                        Toast.makeText(Register.this, "Failed to Register! Try Again!", Toast.LENGTH_LONG).show();
-                                        progressBar.setVisibility(View.GONE);
-                                    }
-                                }
-                            });
                         }else{
                             Toast.makeText(Register.this, "Failed to Register! Try Again!", Toast.LENGTH_LONG).show();
+                            txtemail.setText("");
+                            txtpassword.setText("");
                             progressBar.setVisibility(View.GONE);
+
                         }
                     }
                 });
