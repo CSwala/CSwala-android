@@ -96,7 +96,7 @@ public class ExploreFragment extends Fragment implements techItemClicked {
                 {
                     String tech= snapshot.getId();
                     String tag=snapshot.getString("Tag");
-                    if(tag.length()>12)
+                    if(tag != null && tag.length()>12)
                     {
                         tag=tag.substring(0,12)+"...";
                     }

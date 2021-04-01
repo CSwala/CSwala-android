@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +18,11 @@ import com.pixplicity.easyprefs.library.Prefs;
 
 public class Splashscreen extends AppCompatActivity {
 
+    private static int SPLASH= 3000;
+    Animation topanim, bottomanim;
+    ImageView imageView;
+    TextView tv, tv1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,12 +30,17 @@ public class Splashscreen extends AppCompatActivity {
 
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        TextView tv = findViewById(R.id.tv);
-        TextView tv1 = findViewById(R.id.textView2);
-        int SPLASH = 3000;
-        Animation animation = AnimationUtils.loadAnimation(Splashscreen.this, R.anim.text_anim);
-        tv.startAnimation(animation);
-        tv1.startAnimation(animation);
+        imageView = (ImageView)findViewById(R.id.gifImageView);
+        tv =(TextView) findViewById(R.id.tv);
+        tv1 = (TextView)findViewById(R.id.textView2);
+
+        topanim = AnimationUtils.loadAnimation(this, R.anim.top_animation);
+        bottomanim = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
+
+        imageView.setAnimation(topanim);
+        tv.setAnimation(topanim);
+        tv1.setAnimation(bottomanim);
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

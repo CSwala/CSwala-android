@@ -18,4 +18,14 @@
     <string name="personal_information">Personal Information</string>
     <string name="terms_of_service">TERMS OF SERVICE</string>
     <string name="documentation">Documentation</string>
+    <string name="latest_news">Latest News</string>
+    <string name="events">Events</string>
+    <string name="todo">TODO</string>
+    <string name="main_title">Main Title</string>
+    <string name="sub_title">Sub Title</string>
+    <string name="read_more">Read More</string>
+    <string name="date">Date</string>
+    <string name="channel_name">CS Wala Notification</string>
+    <string name="channel_description">default notification channel for CS wala app</string>
+    <string name="TITLES">Title</string>
 </resources>

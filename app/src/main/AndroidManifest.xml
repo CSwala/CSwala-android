@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cswala.cswala">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".utils.MyApplication"
         android:allowBackup="true"
@@ -10,7 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.TechDataActivity"></activity>
+        <service
+            android:name=".Services.NotificationService"
+            android:enabled="true"
+            android:exported="true"/>
+        <activity android:name=".Activities.TechDataActivity" />
         <activity android:name=".Activities.LoginActivity" />
         <activity android:name=".Activities.IntroClass" />
         <activity android:name=".MainActivity" />
