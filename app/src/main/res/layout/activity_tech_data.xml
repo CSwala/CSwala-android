@@ -71,14 +71,21 @@
             android:layout_marginBottom="5dp"
 
             />
-        <TextView
+
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/documentation"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:paddingLeft="10dp"
-            android:autoLink="web"
-            />
+            android:layout_height="wrap_content">
+
+        </androidx.recyclerview.widget.RecyclerView>
+<!--        <TextView-->
+<!--            android:id="@+id/documentation"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textSize="20sp"-->
+<!--            android:paddingLeft="10dp"-->
+<!--            android:autoLink="web"-->
+<!--            />-->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

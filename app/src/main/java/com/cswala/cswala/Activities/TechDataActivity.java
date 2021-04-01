@@ -2,6 +2,8 @@ package com.cswala.cswala.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +13,8 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cswala.cswala.Adapters.WebAdapter;
+import com.cswala.cswala.Models.WebModel;
 import com.cswala.cswala.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -20,8 +24,14 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TechDataActivity extends AppCompatActivity {
-    TextView documentationView,titleView,youtubeView,websiteView,githubView,coursesView,tipsView,tagView;
+    TextView titleView,youtubeView,websiteView,githubView,coursesView,tipsView,tagView;
+    RecyclerView documentationView;
+    List<WebModel> webModelList;
+    WebAdapter webAdapter;
     FirebaseFirestore firestore;
     DocumentReference documentReference;
     @Override
@@ -32,7 +42,7 @@ public class TechDataActivity extends AppCompatActivity {
         String tech=data.getStringExtra("tech");
         firestore=FirebaseFirestore.getInstance();
         documentReference=firestore.collection("Dictionary").document(tech);
-        documentationView=(TextView) findViewById(R.id.documentation);
+        documentationView=(RecyclerView) findViewById(R.id.documentation);
         titleView=(TextView) findViewById(R.id.title);
         youtubeView=(TextView) findViewById(R.id.yotube_links);
         websiteView=(TextView) findViewById(R.id.website_links);
@@ -40,6 +50,8 @@ public class TechDataActivity extends AppCompatActivity {
         coursesView=(TextView) findViewById(R.id.best_courses);
         tipsView=(TextView) findViewById(R.id.tips);
         tagView=(TextView) findViewById(R.id.tag);
+
+        webModelList=new ArrayList<>();
         getData();
     }
 
@@ -48,7 +60,14 @@ public class TechDataActivity extends AppCompatActivity {
             @Override
             public void onSuccess(@NonNull @NotNull DocumentSnapshot documentSnapshot) {
                 String title=documentSnapshot.getString("Title");
-                String data=documentSnapshot.getString("Documentation");
+//                String data=documentSnapshot.getString("Documentation");
+                WebModel webModel=new WebModel();
+                webModel.setWebUrl(documentSnapshot.getString("Documentation"));
+                webModelList.add(webModel);
+                documentationView.setLayoutManager(new LinearLayoutManager(TechDataActivity.this,RecyclerView.HORIZONTAL,false));
+                webAdapter=new WebAdapter(webModelList,TechDataActivity.this);
+                documentationView.setAdapter(webAdapter);
+                webAdapter.notifyDataSetChanged();
                 String courseLinks=documentSnapshot.getString("Course1");
                 String github=documentSnapshot.getString("Dedicated GH page1");
                 String tips=documentSnapshot.getString("Tips1");
@@ -130,7 +149,7 @@ public class TechDataActivity extends AppCompatActivity {
                 tipsView.setText(tips);
                 githubView.setText(github);
                 coursesView.setText(courseLinks);
-                documentationView.setText(data);
+//                documentationView.setText(data);
                 titleView.setText(title);
             }
         }).addOnFailureListener(new OnFailureListener() {

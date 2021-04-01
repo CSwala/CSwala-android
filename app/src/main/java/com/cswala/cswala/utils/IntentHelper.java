@@ -7,6 +7,7 @@ import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.cswala.cswala.Activities.IntroClass;
 import com.cswala.cswala.Activities.LoginActivity;
 import com.cswala.cswala.Activities.TechDataActivity;
+import com.cswala.cswala.Activities.WebActivity;
 import com.cswala.cswala.MainActivity;
 
 public class IntentHelper {
@@ -34,5 +35,12 @@ public class IntentHelper {
         Intent transfer=new Intent(context, TechDataActivity.class);
         transfer.putExtra("tech",item);
         context.startActivity(transfer);
+    }
+
+    public void GoToWeb(String WebUrl)
+    {
+        Intent intent=new Intent(context, WebActivity.class);
+        intent.putExtra("URL",WebUrl);
+        context.startActivity(intent);
     }
 }
