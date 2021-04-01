@@ -63,7 +63,7 @@ public class LoginWithEmail extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.forgotpassword:
                 IntentHelper intentHelper1=new IntentHelper(LoginWithEmail.this);
-                intentHelper1.GoToRegister();
+                intentHelper1.GoToForgetPassword();
                 break;
         }
     }

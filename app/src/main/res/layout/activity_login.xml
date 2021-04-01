@@ -92,6 +92,7 @@
         android:layout_width="350dp"
         android:layout_height="60dp"
         android:background="@drawable/custom_button"
+        android:drawableStart="@drawable/ic_mail"
         android:drawableTint="@color/colorAccent"
         android:fontFamily="@font/press_start_2p"
         android:padding="15sp"
@@ -104,6 +105,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.932"
-        android:onClick="open_login_form"/>
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
