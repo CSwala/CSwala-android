@@ -105,7 +105,7 @@ public class TechDataActivity extends AppCompatActivity {
             if(yt!=null)
             {
                 WebModel webModel=new WebModel();
-                webModel.setWebUrl(documentSnapshot.getString("YT"+i+" "));
+                webModel.setWebUrl(yt);
                 youtubeList.add(webModel);
             }
             else
