@@ -65,95 +65,14 @@ public class TechDataActivity extends AppCompatActivity {
             @Override
             public void onSuccess(@NonNull @NotNull DocumentSnapshot documentSnapshot) {
                 String title=documentSnapshot.getString("Title");
-//                String data=documentSnapshot.getString("Documentation");
                 getDocumentationList(documentSnapshot);
                 getYoutubeList(documentSnapshot);
                 getWebsiteList(documentSnapshot);
                 getGithubList(documentSnapshot);
                 getCourseList(documentSnapshot);
                 getTipsList(documentSnapshot);
-                String courseLinks=documentSnapshot.getString("Course1");
-                String github=documentSnapshot.getString("Dedicated GH page1");
-                String tips=documentSnapshot.getString("Tips1");
-                String website=documentSnapshot.getString("Website1");
-                String youtube=documentSnapshot.getString("YT1 ");
                 String tag=documentSnapshot.getString("Tag");
-                if(youtube==null)
-                {
-                    youtube=documentSnapshot.getString("YT1");
-                }
-                for(int i=2;;i++)
-                {
-                    String cr=documentSnapshot.getString("Course"+i);
-                    String gh=documentSnapshot.getString("Dedicated GH page"+i);
-                    if(cr!=null)
-                    {
-                        courseLinks=courseLinks+"\n\n"+cr;
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-                for(int i=2;;i++)
-                {
-                    String gh=documentSnapshot.getString("Dedicated GH page"+i);
-                    if(gh!=null)
-                    {
-                        github=github+"\n\n"+gh;
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-                for(int i=2;;i++)
-                {
-                    String tip=documentSnapshot.getString("Tips"+i);
-                    if(tip!=null)
-                    {
-                        tips=tips+"\n\n"+tip;
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-                for(int i=2;;i++)
-                {
-                    String web=documentSnapshot.getString("Website"+i);
-                    if(web!=null)
-                    {
-                        website=website+"\n\n"+web;
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-                for(int i=2;;i++)
-                {
-                    String yt=documentSnapshot.getString("YT"+i+" ");
-                    if(yt==null)
-                    {
-                        yt=documentSnapshot.getString("YT"+i);
-                    }
-                    if(yt!=null)
-                    {
-                        youtube=youtube+"\n\n"+yt;
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
                 tagView.setText(tag);
-//                youtubeView.setText(youtube);
-//                websiteView.setText(website);
-//                tipsView.setText(tips);
-//                githubView.setText(github);
-//                coursesView.setText(courseLinks);
-//                documentationView.setText(data);
                 titleView.setText(title);
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -188,7 +107,6 @@ public class TechDataActivity extends AppCompatActivity {
                 WebModel webModel=new WebModel();
                 webModel.setWebUrl(documentSnapshot.getString("YT"+i+" "));
                 youtubeList.add(webModel);
-//                youtube=youtube+"\n\n"+yt;
             }
             else
             {
@@ -215,7 +133,6 @@ public class TechDataActivity extends AppCompatActivity {
                 WebModel webModel=new WebModel();
                 webModel.setWebUrl(documentSnapshot.getString("Website"+i));
                 websiteList.add(webModel);
-//                youtube=youtube+"\n\n"+yt;
             }
             else
             {
@@ -242,7 +159,6 @@ public class TechDataActivity extends AppCompatActivity {
                 WebModel webModel=new WebModel();
                 webModel.setWebUrl(documentSnapshot.getString("Dedicated GH page"+i));
                 githubList.add(webModel);
-//                youtube=youtube+"\n\n"+yt;
             }
             else
             {
@@ -269,7 +185,6 @@ public class TechDataActivity extends AppCompatActivity {
                 WebModel webModel=new WebModel();
                 webModel.setWebUrl(documentSnapshot.getString("Course"+i));
                 courseList.add(webModel);
-//                youtube=youtube+"\n\n"+yt;
             }
             else
             {
@@ -296,7 +211,6 @@ public class TechDataActivity extends AppCompatActivity {
                 WebModel webModel=new WebModel();
                 webModel.setWebUrl(documentSnapshot.getString("Tips"+i));
                 tipList.add(webModel);
-//                youtube=youtube+"\n\n"+yt;
             }
             else
             {
