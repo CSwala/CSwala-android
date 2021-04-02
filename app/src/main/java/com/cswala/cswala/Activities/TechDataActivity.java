@@ -28,9 +28,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TechDataActivity extends AppCompatActivity {
-    TextView titleView,youtubeView,websiteView,githubView,coursesView,tipsView,tagView;
-    RecyclerView documentationView;
-    List<WebModel> webModelList;
+    TextView titleView,tagView;
+    RecyclerView documentationView,youtubeView,websiteView,githubView,coursesView,tipsView;
+    List<WebModel> documentationList,youtubeList,websiteList,githubList,courseList,tipList;
     WebAdapter webAdapter;
     FirebaseFirestore firestore;
     DocumentReference documentReference;
@@ -44,14 +44,19 @@ public class TechDataActivity extends AppCompatActivity {
         documentReference=firestore.collection("Dictionary").document(tech);
         documentationView=(RecyclerView) findViewById(R.id.documentation);
         titleView=(TextView) findViewById(R.id.title);
-        youtubeView=(TextView) findViewById(R.id.yotube_links);
-        websiteView=(TextView) findViewById(R.id.website_links);
-        githubView=(TextView) findViewById(R.id.github_links);
-        coursesView=(TextView) findViewById(R.id.best_courses);
-        tipsView=(TextView) findViewById(R.id.tips);
+        youtubeView=(RecyclerView) findViewById(R.id.yotube_links);
+        websiteView=(RecyclerView) findViewById(R.id.website_links);
+        githubView=(RecyclerView) findViewById(R.id.github_links);
+        coursesView=(RecyclerView) findViewById(R.id.best_courses);
+        tipsView=(RecyclerView) findViewById(R.id.tips);
         tagView=(TextView) findViewById(R.id.tag);
 
-        webModelList=new ArrayList<>();
+        documentationList=new ArrayList<>();
+        youtubeList=new ArrayList<>();
+        websiteList=new ArrayList<>();
+        githubList=new ArrayList<>();
+        courseList=new ArrayList<>();
+        tipList=new ArrayList<>();
         getData();
     }
 
@@ -61,13 +66,12 @@ public class TechDataActivity extends AppCompatActivity {
             public void onSuccess(@NonNull @NotNull DocumentSnapshot documentSnapshot) {
                 String title=documentSnapshot.getString("Title");
 //                String data=documentSnapshot.getString("Documentation");
-                WebModel webModel=new WebModel();
-                webModel.setWebUrl(documentSnapshot.getString("Documentation"));
-                webModelList.add(webModel);
-                documentationView.setLayoutManager(new LinearLayoutManager(TechDataActivity.this,RecyclerView.HORIZONTAL,false));
-                webAdapter=new WebAdapter(webModelList,TechDataActivity.this);
-                documentationView.setAdapter(webAdapter);
-                webAdapter.notifyDataSetChanged();
+                getDocumentationList(documentSnapshot);
+                getYoutubeList(documentSnapshot);
+                getWebsiteList(documentSnapshot);
+                getGithubList(documentSnapshot);
+                getCourseList(documentSnapshot);
+                getTipsList(documentSnapshot);
                 String courseLinks=documentSnapshot.getString("Course1");
                 String github=documentSnapshot.getString("Dedicated GH page1");
                 String tips=documentSnapshot.getString("Tips1");
@@ -144,11 +148,11 @@ public class TechDataActivity extends AppCompatActivity {
                     }
                 }
                 tagView.setText(tag);
-                youtubeView.setText(youtube);
-                websiteView.setText(website);
-                tipsView.setText(tips);
-                githubView.setText(github);
-                coursesView.setText(courseLinks);
+//                youtubeView.setText(youtube);
+//                websiteView.setText(website);
+//                tipsView.setText(tips);
+//                githubView.setText(github);
+//                coursesView.setText(courseLinks);
 //                documentationView.setText(data);
                 titleView.setText(title);
             }
@@ -158,5 +162,150 @@ public class TechDataActivity extends AppCompatActivity {
                 Toast.makeText(TechDataActivity.this, "Something went wrong...", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+    private void getDocumentationList(DocumentSnapshot documentSnapshot)
+    {
+        WebModel webModel=new WebModel();
+        webModel.setWebUrl(documentSnapshot.getString("Documentation"));
+        documentationList.add(webModel);
+        documentationView.setLayoutManager(new LinearLayoutManager(TechDataActivity.this,RecyclerView.HORIZONTAL,false));
+        webAdapter=new WebAdapter(documentationList,TechDataActivity.this);
+        documentationView.setAdapter(webAdapter);
+        webAdapter.notifyDataSetChanged();
+    }
+
+    private void getYoutubeList(DocumentSnapshot documentSnapshot)
+    {
+        for(int i=1;;i++)
+        {
+            String yt=documentSnapshot.getString("YT"+i+" ");
+            if(yt==null)
+            {
+                yt=documentSnapshot.getString("YT"+i);
+            }
+            if(yt!=null)
+            {
+                WebModel webModel=new WebModel();
+                webModel.setWebUrl(documentSnapshot.getString("YT"+i+" "));
+                youtubeList.add(webModel);
+//                youtube=youtube+"\n\n"+yt;
+            }
+            else
+            {
+                break;
+            }
+        }
+        youtubeView.setLayoutManager(new LinearLayoutManager(TechDataActivity.this,RecyclerView.HORIZONTAL,false));
+        webAdapter=new WebAdapter(youtubeList,TechDataActivity.this);
+        youtubeView.setAdapter(webAdapter);
+        webAdapter.notifyDataSetChanged();
+    }
+
+    private void getWebsiteList(DocumentSnapshot documentSnapshot)
+    {
+        for(int i=1;;i++)
+        {
+            String yt=documentSnapshot.getString("Website"+i);
+            if(yt==null)
+            {
+                yt=documentSnapshot.getString("YT"+i);
+            }
+            if(yt!=null)
+            {
+                WebModel webModel=new WebModel();
+                webModel.setWebUrl(documentSnapshot.getString("Website"+i));
+                websiteList.add(webModel);
+//                youtube=youtube+"\n\n"+yt;
+            }
+            else
+            {
+                break;
+            }
+        }
+        websiteView.setLayoutManager(new LinearLayoutManager(TechDataActivity.this,RecyclerView.HORIZONTAL,false));
+        webAdapter=new WebAdapter(websiteList,TechDataActivity.this);
+        websiteView.setAdapter(webAdapter);
+        webAdapter.notifyDataSetChanged();
+    }
+
+    private void getGithubList(DocumentSnapshot documentSnapshot)
+    {
+        for(int i=1;;i++)
+        {
+            String yt=documentSnapshot.getString("Dedicated GH page"+i);
+            if(yt==null)
+            {
+                yt=documentSnapshot.getString("YT"+i);
+            }
+            if(yt!=null)
+            {
+                WebModel webModel=new WebModel();
+                webModel.setWebUrl(documentSnapshot.getString("Dedicated GH page"+i));
+                githubList.add(webModel);
+//                youtube=youtube+"\n\n"+yt;
+            }
+            else
+            {
+                break;
+            }
+        }
+        githubView.setLayoutManager(new LinearLayoutManager(TechDataActivity.this,RecyclerView.HORIZONTAL,false));
+        webAdapter=new WebAdapter(githubList,TechDataActivity.this);
+        githubView.setAdapter(webAdapter);
+        webAdapter.notifyDataSetChanged();
+    }
+
+    private void getCourseList(DocumentSnapshot documentSnapshot)
+    {
+        for(int i=1;;i++)
+        {
+            String yt=documentSnapshot.getString("Course"+i);
+            if(yt==null)
+            {
+                yt=documentSnapshot.getString("YT"+i);
+            }
+            if(yt!=null)
+            {
+                WebModel webModel=new WebModel();
+                webModel.setWebUrl(documentSnapshot.getString("Course"+i));
+                courseList.add(webModel);
+//                youtube=youtube+"\n\n"+yt;
+            }
+            else
+            {
+                break;
+            }
+        }
+        coursesView.setLayoutManager(new LinearLayoutManager(TechDataActivity.this,RecyclerView.HORIZONTAL,false));
+        webAdapter=new WebAdapter(courseList,TechDataActivity.this);
+        coursesView.setAdapter(webAdapter);
+        webAdapter.notifyDataSetChanged();
+    }
+
+    private void getTipsList(DocumentSnapshot documentSnapshot)
+    {
+        for(int i=1;;i++)
+        {
+            String yt=documentSnapshot.getString("Tips"+i);
+            if(yt==null)
+            {
+                yt=documentSnapshot.getString("YT"+i);
+            }
+            if(yt!=null)
+            {
+                WebModel webModel=new WebModel();
+                webModel.setWebUrl(documentSnapshot.getString("Tips"+i));
+                tipList.add(webModel);
+//                youtube=youtube+"\n\n"+yt;
+            }
+            else
+            {
+                break;
+            }
+        }
+        tipsView.setLayoutManager(new LinearLayoutManager(TechDataActivity.this,RecyclerView.HORIZONTAL,false));
+        webAdapter=new WebAdapter(tipList,TechDataActivity.this);
+        tipsView.setAdapter(webAdapter);
+        webAdapter.notifyDataSetChanged();
     }
 }

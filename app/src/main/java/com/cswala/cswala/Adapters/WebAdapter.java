@@ -1,6 +1,7 @@
 package com.cswala.cswala.Adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,12 @@ import com.cswala.cswala.R;
 import com.cswala.cswala.utils.IntentHelper;
 
 import java.util.List;
+
+import io.github.ponnamkarthik.richlinkpreview.MetaData;
+import io.github.ponnamkarthik.richlinkpreview.RichLinkListener;
+import io.github.ponnamkarthik.richlinkpreview.RichLinkView;
+import io.github.ponnamkarthik.richlinkpreview.RichLinkViewSkype;
+import io.github.ponnamkarthik.richlinkpreview.ViewListener;
 
 public class WebAdapter extends RecyclerView.Adapter<WebAdapter.ViewHolder> {
     List<WebModel> webModelList;
@@ -37,13 +44,29 @@ public class WebAdapter extends RecyclerView.Adapter<WebAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final WebModel webModel=webModelList.get(position);
-        holder.cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                IntentHelper intentHelper=new IntentHelper(context);
-                intentHelper.GoToWeb(webModel.getWebUrl().toString());
-            }
-        });
+        final String URL=webModel.getWebUrl().toString().trim();
+        if(!URL.isEmpty()) {
+            holder.richLinkView.setLink(URL, new ViewListener() {
+
+                @Override
+                public void onSuccess(boolean status) {
+                    Toast.makeText(context, webModel.getWebUrl(), Toast.LENGTH_LONG).show();
+                }
+
+                @Override
+                public void onError(Exception e) {
+
+                }
+            });
+            holder.richLinkView.setDefaultClickListener(false);
+            holder.richLinkView.setClickListener(new RichLinkListener() {
+                @Override
+                public void onClicked(View view, MetaData meta) {
+                    IntentHelper intentHelper=new IntentHelper(context);
+                    intentHelper.GoToWeb(URL);
+                }
+            });
+        }
     }
 
     @Override
@@ -52,10 +75,12 @@ public class WebAdapter extends RecyclerView.Adapter<WebAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        CardView cardView;
+//        CardView cardView;
+        RichLinkViewSkype richLinkView;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            cardView=itemView.findViewById(R.id.cardSmallView);
+//            cardView=itemView.findViewById(R.id.cardSmallView);
+            richLinkView=(RichLinkViewSkype) itemView.findViewById(R.id.richLinkView);
         }
     }
 }

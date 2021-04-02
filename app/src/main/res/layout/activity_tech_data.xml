@@ -96,13 +96,19 @@
             android:layout_marginBottom="5dp"
 
             />
-        <TextView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/yotube_links"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:paddingLeft="10dp"
-            android:autoLink="web"
+            android:layout_height="wrap_content">
+
+        </androidx.recyclerview.widget.RecyclerView>
+<!--        <TextView-->
+<!--            android:id="@+id/yotube_links"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textSize="20sp"-->
+<!--            android:paddingLeft="10dp"-->
+<!--            android:autoLink="web"-->
             />
         <TextView
             android:layout_width="match_parent"
@@ -114,14 +120,20 @@
             android:layout_marginBottom="5dp"
 
             />
-        <TextView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/website_links"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:paddingLeft="10dp"
-            android:autoLink="web"
-            />
+            android:layout_height="wrap_content">
+
+        </androidx.recyclerview.widget.RecyclerView>
+<!--        <TextView-->
+<!--            android:id="@+id/website_links"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textSize="20sp"-->
+<!--            android:paddingLeft="10dp"-->
+<!--            android:autoLink="web"-->
+<!--            />-->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -132,14 +144,20 @@
             android:layout_marginBottom="5dp"
 
             />
-        <TextView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/github_links"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:paddingLeft="10dp"
-            android:autoLink="web"
-            />
+            android:layout_height="wrap_content">
+
+        </androidx.recyclerview.widget.RecyclerView>
+<!--        <TextView-->
+<!--            android:id="@+id/github_links"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textSize="20sp"-->
+<!--            android:paddingLeft="10dp"-->
+<!--            android:autoLink="web"-->
+<!--            />-->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -150,13 +168,19 @@
             android:layout_marginBottom="5dp"
 
             />
-        <TextView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/best_courses"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:paddingLeft="10dp"
-            android:autoLink="web"
+            android:layout_height="wrap_content">
+
+        </androidx.recyclerview.widget.RecyclerView>
+<!--        <TextView-->
+<!--            android:id="@+id/best_courses"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textSize="20sp"-->
+<!--            android:paddingLeft="10dp"-->
+<!--            android:autoLink="web"-->
             />
         <TextView
             android:layout_width="match_parent"
@@ -168,14 +192,20 @@
             android:layout_marginBottom="5dp"
 
             />
-        <TextView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/tips"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:paddingLeft="10dp"
-            android:autoLink="web"
-            />
+            android:layout_height="wrap_content">
+
+        </androidx.recyclerview.widget.RecyclerView>
+<!--        <TextView-->
+<!--            android:id="@+id/tips"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textSize="20sp"-->
+<!--            android:paddingLeft="10dp"-->
+<!--            android:autoLink="web"-->
+<!--            />-->
     </LinearLayout>
 
 </ScrollView>
