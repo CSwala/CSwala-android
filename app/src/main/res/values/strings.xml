@@ -25,5 +25,7 @@
     <string name="sub_title">Sub Title</string>
     <string name="read_more">Read More</string>
     <string name="date">Date</string>
-
+    <string name="channel_name">CS Wala Notification</string>
+    <string name="channel_description">default notification channel for CS wala app</string>
+    <string name="TITLES">Title</string>
 </resources>
