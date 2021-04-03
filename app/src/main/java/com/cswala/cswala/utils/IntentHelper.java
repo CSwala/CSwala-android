@@ -10,6 +10,7 @@ import com.cswala.cswala.Activities.LoginWithEmail;
 import com.cswala.cswala.Activities.Register;
 import com.cswala.cswala.Activities.ResetPassword;
 import com.cswala.cswala.Activities.TechDataActivity;
+import com.cswala.cswala.Activities.WebActivity;
 import com.cswala.cswala.MainActivity;
 
 public class IntentHelper {
@@ -51,5 +52,12 @@ public class IntentHelper {
         Intent transfer=new Intent(context, TechDataActivity.class);
         transfer.putExtra("tech",item);
         context.startActivity(transfer);
+    }
+
+    public void GoToWeb(String WebUrl)
+    {
+        Intent intent=new Intent(context, WebActivity.class);
+        intent.putExtra("URL",WebUrl);
+        context.startActivity(intent);
     }
 }

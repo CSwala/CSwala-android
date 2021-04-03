@@ -57,7 +57,6 @@ public class LoginActivity extends AppCompatActivity {
 
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-
         final Button google = findViewById(R.id.google);
         final Button github = findViewById(R.id.github);
         final Button email = findViewById(R.id.login_with_email);
