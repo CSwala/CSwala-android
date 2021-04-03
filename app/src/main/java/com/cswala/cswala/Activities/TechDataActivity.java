@@ -124,10 +124,6 @@ public class TechDataActivity extends AppCompatActivity {
         for(int i=1;;i++)
         {
             String yt=documentSnapshot.getString("Website"+i);
-            if(yt==null)
-            {
-                yt=documentSnapshot.getString("YT"+i);
-            }
             if(yt!=null)
             {
                 WebModel webModel=new WebModel();
@@ -150,10 +146,6 @@ public class TechDataActivity extends AppCompatActivity {
         for(int i=1;;i++)
         {
             String yt=documentSnapshot.getString("Dedicated GH page"+i);
-            if(yt==null)
-            {
-                yt=documentSnapshot.getString("YT"+i);
-            }
             if(yt!=null)
             {
                 WebModel webModel=new WebModel();
@@ -176,10 +168,6 @@ public class TechDataActivity extends AppCompatActivity {
         for(int i=1;;i++)
         {
             String yt=documentSnapshot.getString("Course"+i);
-            if(yt==null)
-            {
-                yt=documentSnapshot.getString("YT"+i);
-            }
             if(yt!=null)
             {
                 WebModel webModel=new WebModel();
@@ -202,10 +190,6 @@ public class TechDataActivity extends AppCompatActivity {
         for(int i=1;;i++)
         {
             String yt=documentSnapshot.getString("Tips"+i);
-            if(yt==null)
-            {
-                yt=documentSnapshot.getString("YT"+i);
-            }
             if(yt!=null)
             {
                 WebModel webModel=new WebModel();
