@@ -6,7 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.ProfileFragment"
     android:background="@color/colorPrimaryDark">
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -75,9 +77,9 @@
             android:background="@color/colorPrimary"
             android:text="@string/personal_information"
             android:textColor="@color/colorPrimaryDark"
-            app:layout_constraintEnd_toEndOf="@+id/txtUsername"
+            app:layout_constraintEnd_toEndOf="@+id/btnTerms"
             app:layout_constraintHorizontal_bias="0.46"
-            app:layout_constraintStart_toStartOf="@+id/materialTextView2"
+            app:layout_constraintStart_toStartOf="@+id/btnTerms"
             app:layout_constraintTop_toBottomOf="@+id/txtUsername" />
 
         <LinearLayout
@@ -180,11 +182,11 @@
             android:background="@color/colorAccent"
             android:text="@string/log_out"
             android:textColor="@color/colorPrimaryDark"
-            app:layout_constraintEnd_toEndOf="@+id/txtUsername"
+            app:layout_constraintEnd_toEndOf="@+id/btnTerms"
             app:layout_constraintHorizontal_bias="0.47"
-            app:layout_constraintStart_toStartOf="@+id/materialTextView2"
+            app:layout_constraintStart_toStartOf="@+id/btnTerms"
             app:layout_constraintTop_toBottomOf="@+id/btnContact" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
+</ScrollView>
 </FrameLayout>
