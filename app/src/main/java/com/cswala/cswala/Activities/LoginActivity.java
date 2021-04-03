@@ -9,7 +9,7 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -38,7 +38,7 @@ import java.util.TimerTask;
 public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;
-    private LinearLayout progressBarLayout;
+    private ProgressBar progressBarLayout;
     private static final int RC_SIGN_IN = 1;
     private GoogleSignInClient mGoogleSignInClient;
     private static final String TAG = "Login";
@@ -62,8 +62,7 @@ public class LoginActivity extends AppCompatActivity {
         final Button email = findViewById(R.id.login_with_email);
         firebaseAuth = FirebaseAuth.getInstance();
 
-
-        progressBarLayout=findViewById(R.id.progresslayout);
+        progressBarLayout = findViewById(R.id.ProgressBar);
         progressBarLayout.setVisibility(View.INVISIBLE);
 
         // Buttons Fade-in Animation's Method
@@ -84,6 +83,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Animation animation = AnimationUtils.loadAnimation(LoginActivity.this, R.anim.blink_anim);
                 google.startAnimation(animation);
+                progressBarLayout.setVisibility(View.VISIBLE);
                 signIn();
             }
         });
@@ -93,6 +93,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Animation animation = AnimationUtils.loadAnimation(LoginActivity.this, R.anim.blink_anim);
                 github.startAnimation(animation);
+                //progressBarLayout.setVisibility(View.VISIBLE);
                // githubSignIn();
             }
         });
@@ -102,7 +103,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Animation animation = AnimationUtils.loadAnimation(LoginActivity.this, R.anim.blink_anim);
                 email.startAnimation(animation);
-                IntentHelper intentHelper=new IntentHelper(LoginActivity.this);
+                IntentHelper intentHelper = new IntentHelper(LoginActivity.this);
                 intentHelper.GoToLoginWithEmail();
             }
         });
@@ -138,8 +139,8 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this, "Welcome back", Toast.LENGTH_SHORT).show();
 
                 } else {
+                    progressBarLayout.setVisibility(View.INVISIBLE);
                     Toast.makeText(LoginActivity.this, "Invalid Email or Password", Toast.LENGTH_SHORT).show();
-
                 }
             }
         });
@@ -172,6 +173,7 @@ public class LoginActivity extends AppCompatActivity {
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
                 Log.w(TAG, "Google sign in failed", e);
+                progressBarLayout.setVisibility(View.INVISIBLE);
                 // ...
             }
         }
@@ -196,10 +198,12 @@ public class LoginActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = firebaseAuth.getCurrentUser();
+                            progressBarLayout.setVisibility(View.INVISIBLE);
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
+                            progressBarLayout.setVisibility(View.INVISIBLE);
                             Toast.makeText(LoginActivity.this, "Authentication Failed.", Toast.LENGTH_SHORT).show();
                             updateUI(null);
                         }
