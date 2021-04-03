@@ -59,6 +59,7 @@ public class LoginActivity extends AppCompatActivity {
 
         final Button google = findViewById(R.id.google);
         final Button github = findViewById(R.id.github);
+        final Button email = findViewById(R.id.login_with_email);
         firebaseAuth = FirebaseAuth.getInstance();
 
 
@@ -96,7 +97,15 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-
+        email.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Animation animation = AnimationUtils.loadAnimation(LoginActivity.this, R.anim.blink_anim);
+                email.startAnimation(animation);
+                IntentHelper intentHelper=new IntentHelper(LoginActivity.this);
+                intentHelper.GoToLoginWithEmail();
+            }
+        });
     }
 
     private void updateUI(FirebaseUser user) {
@@ -202,11 +211,13 @@ public class LoginActivity extends AppCompatActivity {
 
     // Timer for Fade-in Animation of Buttons ( T1 - Google Button; T2 - GitHub Button )
     private void timer() {
-        Timer t1, t2;
+        Timer t1, t2, t3;
         t1 = new Timer();
         t2 = new Timer();
+        t3 = new Timer();
         final Button google = findViewById(R.id.google);
         final Button github = findViewById(R.id.github);
+        final Button email = findViewById(R.id.login_with_email);
 
         google.animate().alpha(0f).setDuration(1);
         github.animate().alpha(0f).setDuration(1);
@@ -224,6 +235,15 @@ public class LoginActivity extends AppCompatActivity {
                 github.animate().alpha(1f).setDuration(500);
             }
         },1000);
+
+        t3.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                email.animate().alpha(1f).setDuration(500);
+                //Log.d("Success", "Animation Set");
+            }
+        },500);
     }
+
 }
 
