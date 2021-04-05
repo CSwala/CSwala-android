@@ -6,66 +6,68 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.ProfileFragment"
     android:background="@color/colorPrimaryDark">
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/press_start_2p"
-            android:text="@string/my_profile"
-            android:textColor="@color/colorPrimary"
-            android:textSize="32sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.494"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/circleImageView"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginTop="40dp"
             android:src="@drawable/ic_baseline_person_24"
             app:civ_border_color="@color/colorPrimary"
             app:civ_border_overlay="true"
             app:civ_border_width="2dp"
-            app:layout_constraintEnd_toEndOf="@+id/textView"
+            android:layout_marginTop="100dp"
+            android:foregroundGravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
-            app:layout_constraintStart_toStartOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/materialTextView2"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/LinearLayout_text_userName"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:text="@string/hello"
-            android:textColor="@color/colorPrimary"
-            android:textSize="25sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/circleImageView"
-            app:layout_constraintHorizontal_bias="0.478"
-            app:layout_constraintStart_toStartOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/circleImageView"
-            app:layout_constraintVertical_bias="0.093" />
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            app:layout_constraintBottom_toTopOf="@+id/btnPersonalInfo"
+            app:layout_constraintEnd_toEndOf="@+id/btnPersonalInfo"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/btnPersonalInfo"
+            app:layout_constraintTop_toBottomOf="@+id/circleImageView">
 
-        <TextView
-            android:id="@+id/txtUsername"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/username"
-            android:textColor="@color/colorPrimary"
-            android:textSize="25sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/textView"
-            app:layout_constraintHorizontal_bias="0.437"
-            app:layout_constraintStart_toStartOf="@+id/circleImageView"
-            app:layout_constraintTop_toBottomOf="@+id/circleImageView"
-            app:layout_constraintVertical_bias="0.093" />
+            <TextView
+                android:id="@+id/materialTextView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hello"
+                android:textColor="@color/colorPrimary"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.478"
+
+                app:layout_constraintTop_toBottomOf="@+id/circleImageView"
+                app:layout_constraintVertical_bias="0.093" />
+
+            <TextView
+                android:id="@+id/txtUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/username"
+                android:textColor="@color/colorPrimary"
+                android:textSize="25sp"
+                android:layout_marginStart="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/circleImageView"
+                app:layout_constraintHorizontal_bias="0.437"
+                app:layout_constraintStart_toStartOf="@+id/materialTextView2"
+                app:layout_constraintTop_toBottomOf="@+id/circleImageView"
+                app:layout_constraintVertical_bias="0.093" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/btnPersonalInfo"
@@ -75,10 +77,10 @@
             android:background="@color/colorPrimary"
             android:text="@string/personal_information"
             android:textColor="@color/colorPrimaryDark"
-            app:layout_constraintEnd_toEndOf="@+id/txtUsername"
+            app:layout_constraintEnd_toEndOf="@+id/btnTerms"
             app:layout_constraintHorizontal_bias="0.46"
-            app:layout_constraintStart_toStartOf="@+id/materialTextView2"
-            app:layout_constraintTop_toBottomOf="@+id/txtUsername" />
+            app:layout_constraintStart_toStartOf="@+id/btnTerms"
+            app:layout_constraintTop_toBottomOf="@+id/LinearLayout_text_userName" />
 
         <LinearLayout
             app:layout_constraintHorizontal_bias="0.55"
@@ -177,14 +179,14 @@
             android:layout_width="250dp"
             android:layout_marginTop="20dp"
             android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
+            android:background="@color/colorPrimary"
             android:text="@string/log_out"
             android:textColor="@color/colorPrimaryDark"
-            app:layout_constraintEnd_toEndOf="@+id/txtUsername"
+            app:layout_constraintEnd_toEndOf="@+id/btnTerms"
             app:layout_constraintHorizontal_bias="0.47"
-            app:layout_constraintStart_toStartOf="@+id/materialTextView2"
+            app:layout_constraintStart_toStartOf="@+id/btnTerms"
             app:layout_constraintTop_toBottomOf="@+id/btnContact" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
+</ScrollView>
 </FrameLayout>
