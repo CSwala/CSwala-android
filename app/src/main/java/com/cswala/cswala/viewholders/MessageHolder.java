@@ -15,7 +15,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cswala.cswala.R;
-import com.cswala.cswala.pojos.Message;
+import com.cswala.cswala.Models.Message;
 import com.goodayapps.widget.AvatarView;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

@@ -1,4 +1,4 @@
-package com.cswala.cswala.pojos;
+package com.cswala.cswala.Models;
 
 
 public class Message {

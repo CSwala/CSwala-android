@@ -20,9 +20,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cswala.cswala.R;
-import com.cswala.cswala.adapter.MessageAdapter;
+import com.cswala.cswala.Adapters.MessageAdapter;
 import com.cswala.cswala.observer.ScrollToBottomObserver;
-import com.cswala.cswala.pojos.Message;
+import com.cswala.cswala.Models.Message;
 import com.cswala.cswala.utils.MessageListener;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.snackbar.Snackbar;

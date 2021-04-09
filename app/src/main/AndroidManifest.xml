@@ -11,6 +11,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Activities.ResetPassword"></activity>
+        <activity android:name=".Activities.Register" />
+        <activity android:name=".Activities.LoginWithEmail" />
+
+        <service
+            android:name=".Services.NotificationService"
+            android:enabled="true"
+            android:exported="true"/>
+
+        <activity android:name=".Activities.WebActivity"></activity>
+
+        <activity android:name=".Activities.TechDataActivity" />
         <activity android:name=".Activities.LoginActivity" />
         <activity android:name=".Activities.IntroClass" />
         <activity android:name=".MainActivity" />

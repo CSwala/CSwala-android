@@ -18,7 +18,7 @@
         android:title="@string/news"
         app:cnb_iconColor="@color/colorPrimaryDark" />
     <item
-        android:id="@+id/communtiy"
+        android:id="@+id/community"
         android:icon="@drawable/ic_community"
         android:iconTint="@color/colorPrimaryDark"
         android:title="@string/community"

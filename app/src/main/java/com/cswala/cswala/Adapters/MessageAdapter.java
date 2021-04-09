@@ -1,4 +1,4 @@
-package com.cswala.cswala.adapter;
+package com.cswala.cswala.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 
 import com.cswala.cswala.R;
-import com.cswala.cswala.pojos.Message;
+import com.cswala.cswala.Models.Message;
 import com.cswala.cswala.utils.MessageListener;
 import com.cswala.cswala.viewholders.MessageHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;

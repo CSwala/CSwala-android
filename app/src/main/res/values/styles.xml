@@ -9,4 +9,8 @@
         <item name="colorControlHighlight">#80B3B3B3</item>
     </style>
 
+    <style name="customfontstyle" parent="@android:style/TextAppearance.Small">
+        <!-- For tab layout in jobHunt need separate style font wont work with that !-->
+        <item name="android:fontFamily">@font/press_start_2p</item>
+    </style>
 </resources>
