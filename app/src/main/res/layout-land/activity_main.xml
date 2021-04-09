@@ -12,21 +12,23 @@
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/bottom" />
+        android:layout_marginStart="0dp"
+        android:layout_toEndOf="@+id/bottom" />
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/bottom"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/colorPrimaryDark">
+        android:background="@color/colorPrimaryDark"
+        android:layout_centerVertical="true">
 
         <com.ismaeldivita.chipnavigation.ChipNavigationBar
             android:id="@+id/bottom_navigation"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="@drawable/navbar_backgroung"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/navbar_background_land"
             android:padding="2dp"
+            app:cnb_orientationMode="vertical"
             app:cnb_badgeColor="@color/colorPrimaryDark"
             app:cnb_iconSize="30dp"
             app:cnb_menuResource="@menu/bottom_navigation"
