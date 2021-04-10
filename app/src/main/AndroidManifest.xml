@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cswala.cswala">
 
+
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <uses-feature android:name="android.hardware.type.watch" />
@@ -21,6 +22,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+
     <application
 
         android:name=".utils.MyApplication"
@@ -31,10 +33,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-
         <meta-data
             android:name="com.google.android.wearable.standalone"
             android:value="true" />
+
+        <activity android:name=".Activities.ResetPassword"></activity>
+        <activity android:name=".Activities.Register" />
+        <activity android:name=".Activities.LoginWithEmail" />
+
 
         <service
             android:name=".Services.NotificationService"

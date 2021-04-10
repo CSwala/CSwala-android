@@ -29,4 +29,7 @@
     <string name="channel_name">CS Wala Notification</string>
     <string name="channel_description">default notification channel for CS wala app</string>
     <string name="TITLES">Title</string>
+    <string name="insert_emoji">Insert emoji</string>
+    <string name="msg_hint">Say hi to the world</string>
+    <string name="long_text">Hey hows going.... I am fine u.. Bye good... justice leaguw DC MCU wowoowowoo hhjadgdgLoong... Long.... Long.... Longg</string>
 </resources>
