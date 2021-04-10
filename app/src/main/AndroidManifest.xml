@@ -2,9 +2,27 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cswala.cswala">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-feature android:name="android.hardware.type.watch" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
+
         android:name=".utils.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,20 +31,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".Activities.ResetPassword"></activity>
-        <activity android:name=".Activities.Register" />
-        <activity android:name=".Activities.LoginWithEmail" />
+
+        <meta-data
+            android:name="com.google.android.wearable.standalone"
+            android:value="true" />
 
         <service
             android:name=".Services.NotificationService"
             android:enabled="true"
-            android:exported="true"/>
-
-        <activity android:name=".Activities.WebActivity"></activity>
+            android:exported="true" />
 
         <activity android:name=".Activities.TechDataActivity" />
         <activity android:name=".Activities.LoginActivity" />
         <activity android:name=".Activities.IntroClass" />
+        <activity android:name=".Activities.editProfile" />
         <activity android:name=".MainActivity" />
         <activity android:name=".Activities.Splashscreen">
             <intent-filter>
