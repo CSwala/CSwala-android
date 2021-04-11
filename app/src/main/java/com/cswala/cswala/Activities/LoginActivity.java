@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.cswala.cswala.MainActivity;
 import com.cswala.cswala.R;
 import com.cswala.cswala.utils.IntentHelper;
+import com.cswala.cswala.utils.NetworkConnection;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -42,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 1;
     private GoogleSignInClient mGoogleSignInClient;
     private static final String TAG = "Login";
+    private NetworkConnection networkConnection;
 
 
     @Override
@@ -66,6 +68,9 @@ public class LoginActivity extends AppCompatActivity {
         progressBarLayout=findViewById(R.id.progresslayout);
         progressBarLayout.setVisibility(View.INVISIBLE);
 
+        View parentLayout = findViewById(android.R.id.content);
+        networkConnection = new NetworkConnection(parentLayout);
+
         // Buttons Fade-in Animation's Method
         timer();
 
@@ -84,7 +89,12 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Animation animation = AnimationUtils.loadAnimation(LoginActivity.this, R.anim.blink_anim);
                 google.startAnimation(animation);
-                signIn();
+                if (networkConnection.isConnected(LoginActivity.this)) {
+                    signIn();
+                } else {
+                    networkConnection.ShowNoConnection();
+                }
+
             }
         });
 
@@ -93,7 +103,11 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Animation animation = AnimationUtils.loadAnimation(LoginActivity.this, R.anim.blink_anim);
                 github.startAnimation(animation);
-               // githubSignIn();
+                if (networkConnection.isConnected(LoginActivity.this)) {
+                    // githubSignIn();
+                } else {
+                    networkConnection.ShowNoConnection();
+                }
             }
         });
 
@@ -160,6 +174,11 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
+        if (!networkConnection.isConnected(LoginActivity.this)) {
+            networkConnection.ShowNoConnection();
+            return;
+        }
 
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {

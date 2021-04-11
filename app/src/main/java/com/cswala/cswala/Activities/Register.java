@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.cswala.cswala.MainActivity;
 import com.cswala.cswala.R;
 import com.cswala.cswala.utils.IntentHelper;
+import com.cswala.cswala.utils.NetworkConnection;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -30,6 +31,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
     ProgressBar progressBar;
     ImageView banner;
     private FirebaseAuth firebaseAuth;
+    private NetworkConnection networkConnection;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,9 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
 
         btn_register = (Button)findViewById(R.id.buttonRegister);
         btn_register.setOnClickListener(this);
+
+        View parentLayout = findViewById(android.R.id.content);
+        networkConnection = new NetworkConnection(parentLayout);
     }
 
     @Override
@@ -86,7 +91,13 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
             return;
         }
 
+        if (!networkConnection.isConnected(Register.this)) {
+            networkConnection.ShowNoConnection();
+            return;
+        }
+
         progressBar.setVisibility(View.VISIBLE);
+
         firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override

@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.cswala.cswala.utils.IntentHelper;
 import com.cswala.cswala.MainActivity;
 import com.cswala.cswala.R;
+import com.cswala.cswala.utils.NetworkConnection;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -26,6 +27,8 @@ public class LoginWithEmail extends AppCompatActivity implements View.OnClickLis
     TextView forgot_password;
     EditText email_id, password;
     private Button login, register;
+
+    private NetworkConnection networkConnection;
 
     private FirebaseAuth mAuth;
     private ProgressBar progressBar;
@@ -47,6 +50,9 @@ public class LoginWithEmail extends AppCompatActivity implements View.OnClickLis
         email_id = (EditText) findViewById(R.id.lemail);
         password = (EditText) findViewById(R.id.lpassword);
         progressBar = (ProgressBar) findViewById(R.id.lproressBar);
+
+        View parentLayout = findViewById(android.R.id.content);
+        networkConnection = new NetworkConnection(parentLayout);
 
         mAuth = FirebaseAuth.getInstance();
     }
@@ -94,6 +100,11 @@ public class LoginWithEmail extends AppCompatActivity implements View.OnClickLis
         if(password_.length() < 6){
             password.setError("Min Password length should be 6 characters!");
             password.requestFocus();
+            return;
+        }
+
+        if (!networkConnection.isConnected(LoginWithEmail.this)) {
+            networkConnection.ShowNoConnection();
             return;
         }
 

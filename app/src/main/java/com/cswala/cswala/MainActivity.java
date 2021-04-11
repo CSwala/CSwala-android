@@ -2,12 +2,15 @@ package com.cswala.cswala;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.cswala.cswala.Activities.LoginActivity;
 import com.cswala.cswala.Services.NotificationService;
+import com.cswala.cswala.utils.NetworkConnection;
 import com.google.firebase.auth.FirebaseAuth;
 import com.cswala.cswala.Fragments.CommunityFragment;
 import com.cswala.cswala.Fragments.ExploreFragment;
@@ -20,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
 
     ChipNavigationBar bt;
 
+    private NetworkConnection networkConnection;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +33,14 @@ public class MainActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ExploreFragment()).commit();
         }
         setContentView(R.layout.activity_main);
+
+        View parentLayout = findViewById(android.R.id.content);
+        networkConnection = new NetworkConnection(parentLayout);
+
+        if (!networkConnection.isConnected(MainActivity.this)) {
+            Toast.makeText(MainActivity.this, "No connection", Toast.LENGTH_SHORT).show();
+        }
+
         bt = findViewById(R.id.bottom_navigation);
         bt.setItemSelected(R.id.explore, true);
         startService(new Intent(this, NotificationService.class));
