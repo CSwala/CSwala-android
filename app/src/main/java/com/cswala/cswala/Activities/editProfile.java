@@ -198,8 +198,7 @@ public class editProfile extends AppCompatActivity implements AdapterView.OnItem
                                                 @Override
                                                 public void run() {
                                                     progressbar.setVisibility(View.GONE);
-                                                    getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-
+                                                    getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                                                 }
                                             });
                                         }
