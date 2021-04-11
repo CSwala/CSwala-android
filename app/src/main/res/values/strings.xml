@@ -33,4 +33,23 @@
     <string name="msg_hint">Say hi to the world</string>
     <string name="no_connection">No Connection</string>
     <string name="long_text">Hey hows going.... I am fine u.. Bye good... justice leaguw DC MCU wowoowowoo hhjadgdgLoong... Long.... Long.... Longg</string>
+    <string name="name">Name</string>
+    <string name="edit">Edit Profile</string>
+    <string name="enter_name">Enter Your Name</string>
+    <string name="email">Email</string>
+    <string name="enter_email">Enter Your Email</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="enter_phone_number">Enter Your Phone Number</string>
+    <string name="gender">Gender</string>
+    <string name="date_of_birth">Date Of Birth</string>
+    <string name="select_date">Select Date</string>
+    <string name="save">save</string>
+    <string-array name="gender1">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+    <string-array name="gender2">
+        <item>Female</item>
+        <item>Male</item>
+    </string-array>
 </resources>

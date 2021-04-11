@@ -13,4 +13,9 @@
         <!-- For tab layout in jobHunt need separate style font wont work with that !-->
         <item name="android:fontFamily">@font/press_start_2p</item>
     </style>
+
+    <style name="DatePickerDialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/colorPrimary
+        </item>
+    </style>
 </resources>
