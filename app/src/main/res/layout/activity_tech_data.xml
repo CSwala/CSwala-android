@@ -4,70 +4,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
     tools:context=".Activities.TechDataActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimaryDark"
+
         android:orientation="vertical"
         android:paddingTop="5dp"
         android:paddingBottom="20dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.4"
-                android:text="Tag:"
-                android:textColor="@color/colorPrimary"
-                android:textSize="25sp" />
-
-            <TextView
-                android:id="@+id/tag"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="sample"
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
-
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:paddingLeft="10dp"
-            android:text="Title:"
-            android:textColor="@color/colorPrimary"
-
-            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20sp" />
+            android:paddingTop="20dp"
+            android:layout_margin="10dp"
+            android:textColor="@color/buttontext"
+            android:fontFamily="@font/press_start_2p"
+            android:textSize="30sp" />
+
+
+            <TextView
+                android:id="@+id/tag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="40dp"
+                android:textColor="@color/colorAccent"
+                android:fontFamily="@font/press_start_2p"
+                android:textSize="14sp" />
+
+
+
+
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
             android:paddingLeft="10dp"
             android:text="Documentation:"
             android:textColor="@color/colorPrimary"
 
-            android:textSize="25sp" />
+            android:fontFamily="@font/press_start_2p"
+            android:textSize="14sp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/documentation"
@@ -79,13 +63,14 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
             android:paddingLeft="10dp"
             android:text="Best Youtube Creators:"
             android:textColor="@color/colorPrimary"
 
-            android:textSize="25sp" />
+            android:fontFamily="@font/press_start_2p"
+            android:textSize="14sp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/yotube_links"
@@ -97,13 +82,14 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
             android:paddingLeft="10dp"
             android:text="Useful Websites:"
             android:textColor="@color/colorPrimary"
 
-            android:textSize="25sp" />
+            android:fontFamily="@font/press_start_2p"
+            android:textSize="14sp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/website_links"
@@ -115,13 +101,14 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
             android:paddingLeft="10dp"
             android:text="Dedicated Github Pages:"
             android:textColor="@color/colorPrimary"
 
-            android:textSize="25sp" />
+            android:fontFamily="@font/press_start_2p"
+            android:textSize="14sp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/github_links"
@@ -133,13 +120,14 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
             android:paddingLeft="10dp"
             android:text="Best Courses:"
             android:textColor="@color/colorPrimary"
 
-            android:textSize="25sp" />
+            android:fontFamily="@font/press_start_2p"
+            android:textSize="14sp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/best_courses"
@@ -151,13 +139,14 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
             android:paddingLeft="10dp"
             android:text="Other Tips/Hacks"
             android:textColor="@color/colorPrimary"
 
-            android:textSize="25sp" />
+            android:fontFamily="@font/press_start_2p"
+            android:textSize="14sp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/tips"
