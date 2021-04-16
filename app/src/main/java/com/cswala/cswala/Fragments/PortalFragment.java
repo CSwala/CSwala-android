@@ -1,6 +1,7 @@
 package com.cswala.cswala.Fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,6 +63,7 @@ public class PortalFragment extends Fragment {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
+                Log.d("PORTALFRAGMENT", "onFailure: "+e.getMessage());
                 Toast.makeText(getContext(), "Some error occurred !", Toast.LENGTH_SHORT).show();
             }
         });

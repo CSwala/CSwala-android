@@ -44,6 +44,7 @@
     <string name="date_of_birth">Date Of Birth</string>
     <string name="select_date">Select Date</string>
     <string name="save">save</string>
+    <string name="contact_us">CONTACT US</string>
     <string-array name="gender1">
         <item>Male</item>
         <item>Female</item>

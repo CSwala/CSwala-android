@@ -1,6 +1,5 @@
 package com.cswala.cswala.Adapters;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +10,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.cswala.cswala.Activities.TechDataActivity;
 import com.cswala.cswala.Models.TechListElement;
 import com.cswala.cswala.R;
 
@@ -21,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TechListAdapter extends RecyclerView.Adapter<TechListAdapter.TechHolder> implements Filterable {
-    ArrayList<TechListElement> data=new ArrayList<>();
+    ArrayList<TechListElement> data;
     ArrayList<TechListElement> dataFull;
 
     techItemClicked listener;
@@ -31,10 +29,11 @@ public class TechListAdapter extends RecyclerView.Adapter<TechListAdapter.TechHo
         dataFull=new ArrayList<>(data);
     }
 
+    @NotNull
     @Override
     public TechHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
         View myView= LayoutInflater.from(parent.getContext()).inflate(R.layout.tech_list_element,parent,false);
-        final TechHolder holder=new TechHolder(myView);
+        final TechHolder holder= new TechHolder(myView);
         myView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,7 +58,7 @@ public class TechListAdapter extends RecyclerView.Adapter<TechListAdapter.TechHo
     public Filter getFilter() {
         return exampleFilter;
     }
-    private Filter exampleFilter=new Filter() {
+    private final Filter exampleFilter=new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
             ArrayList<TechListElement> sample=new ArrayList<>();
@@ -91,7 +90,7 @@ public class TechListAdapter extends RecyclerView.Adapter<TechListAdapter.TechHo
         }
     };
 
-    public class TechHolder extends RecyclerView.ViewHolder {
+    public static class TechHolder extends RecyclerView.ViewHolder {
         TextView data;
         TextView tag;
         public TechHolder(@NonNull @NotNull View itemView) {

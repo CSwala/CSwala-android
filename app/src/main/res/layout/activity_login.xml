@@ -44,7 +44,7 @@
         android:fontFamily="@font/press_start_2p"
         android:padding="15sp"
         android:text="@string/GLogin"
-        android:textColor="#388AFC"
+        android:textColor="@color/buttontext"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,7 +62,7 @@
         android:fontFamily="@font/press_start_2p"
         android:padding="15sp"
         android:text="@string/GitLogin"
-        android:textColor="#388AFC"
+        android:textColor="@color/buttontext"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,7 +71,7 @@
         app:layout_constraintVertical_bias="0.777" />
 
     <Button
-        android:id="@+id/login_with_email"
+        android:id="@+id/email"
         android:layout_width="350dp"
         android:layout_height="60dp"
         android:background="@drawable/custom_button"
@@ -80,7 +80,7 @@
         android:fontFamily="@font/press_start_2p"
         android:padding="15sp"
         android:text="@string/EmailLogin"
-        android:textColor="#388AFC"
+        android:textColor="@color/buttontext"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

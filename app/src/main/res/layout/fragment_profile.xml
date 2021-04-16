@@ -47,8 +47,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/hello"
+                    android:fontFamily="@font/press_start_2p"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="25sp"
+                    android:textSize="15sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintHorizontal_bias="0.478"
 
@@ -62,7 +63,8 @@
                     android:layout_marginStart="15dp"
                     android:text="@string/username"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="25sp"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/press_start_2p"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/circleImageView"
                     app:layout_constraintHorizontal_bias="0.437"
@@ -73,12 +75,14 @@
 
             <Button
                 android:id="@+id/btnPersonalInfo"
-                android:layout_width="250dp"
+                android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="72dp"
-                android:background="@color/colorPrimary"
+                android:textSize="12sp"
+                android:fontFamily="@font/press_start_2p"
+                android:background="@drawable/custom_button"
                 android:text="@string/personal_information"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/buttontext"
                 app:layout_constraintEnd_toEndOf="@+id/btnTerms"
                 app:layout_constraintHorizontal_bias="0.46"
                 app:layout_constraintStart_toStartOf="@+id/btnTerms"
@@ -86,7 +90,7 @@
 
             <LinearLayout
                 android:id="@+id/btnTerms"
-                android:layout_width="250dp"
+                android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:orientation="vertical"
@@ -100,15 +104,16 @@
                     style="@style/TextAppearance.AppCompat.Medium"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/colorPrimary"
+                    android:fontFamily="@font/press_start_2p"
+                    android:background="@drawable/custom_button"
                     android:elevation="6dp"
                     android:foreground="?selectableItemBackground"
                     android:padding="16dp"
                     android:gravity="center
 "
                     android:text="@string/terms_of_service"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="14sp"
+                    android:textColor="@color/buttontext"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
 
                 <net.cachapa.expandablelayout.ExpandableLayout
@@ -131,7 +136,7 @@
 
             <LinearLayout
                 android:id="@+id/btnContact"
-                android:layout_width="250dp"
+                android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:orientation="vertical"
@@ -145,14 +150,16 @@
                     style="@style/TextAppearance.AppCompat.Medium"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/colorPrimary"
+                    android:background="@drawable/custom_button"
                     android:elevation="6dp"
+                    android:fontFamily="@font/press_start_2p"
                     android:foreground="?selectableItemBackground"
                     android:gravity="center"
                     android:padding="16dp"
-                    android:text="Contact Us"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="14sp"
+
+                    android:text="@string/contact_us"
+                    android:textColor="@color/buttontext"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
 
                 <net.cachapa.expandablelayout.ExpandableLayout
@@ -177,24 +184,28 @@
 
             <Button
                 android:id="@+id/btnLogout"
-                android:layout_width="250dp"
+                android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:background="@color/colorAccent"
+                android:textSize="14sp"
+                android:background="@drawable/logout_button"
                 android:text="@string/log_out"
-                android:textColor="@color/colorPrimaryDark"
+                android:fontFamily="@font/press_start_2p"
+                android:textColor="@color/colorAccent"
                 app:layout_constraintEnd_toEndOf="@+id/btnPersonalInfo"
                 app:layout_constraintStart_toStartOf="@+id/btnPersonalInfo"
                 app:layout_constraintTop_toBottomOf="@+id/btneditprofile" />
 
             <Button
                 android:id="@+id/btneditprofile"
-                android:layout_width="250dp"
+                android:layout_width="280dp"
+                android:textSize="12sp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:background="@color/colorPrimary"
+                android:background="@drawable/custom_button"
                 android:text="edit profile"
-                android:textColor="@color/colorPrimaryDark"
+                android:fontFamily="@font/press_start_2p"
+                android:textColor="@color/buttontext"
                 app:layout_constraintEnd_toEndOf="@+id/btnPersonalInfo"
                 app:layout_constraintStart_toStartOf="@+id/btnPersonalInfo"
                 app:layout_constraintTop_toBottomOf="@+id/btnContact" />

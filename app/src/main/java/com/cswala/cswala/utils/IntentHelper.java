@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
-import com.cswala.cswala.Activities.IntroClass;
+import com.cswala.cswala.Activities.IntroActivity;
 import com.cswala.cswala.Activities.LoginActivity;
 import com.cswala.cswala.Activities.LoginWithEmail;
 import com.cswala.cswala.Activities.Register;
@@ -29,7 +29,7 @@ public class IntentHelper {
         Animatoo.animateSlideLeft(context);
     }
     public void GoToIntro() {
-        context.startActivity(new Intent(context, IntroClass.class));
+        context.startActivity(new Intent(context, IntroActivity.class));
         Animatoo.animateSlideLeft(context);
     }
 

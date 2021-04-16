@@ -1,6 +1,5 @@
 package com.cswala.cswala.Activities;
 
-import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,7 +13,7 @@ import com.pixplicity.easyprefs.library.Prefs;
 
 import org.jetbrains.annotations.Nullable;
 
-public class IntroClass extends AppIntro2 {
+public class IntroActivity extends AppIntro2 {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,9 +25,9 @@ public class IntroClass extends AppIntro2 {
         //For first slide
         addSlide(AppIntroFragment.newInstance("CS-Wala 1", "Description", R.drawable.ic_intro_one, getColor(R.color.appintro_background_color)));
         //For second slide
-        addSlide(AppIntroFragment.newInstance("CS-Wala 2", "Description",R.drawable.ic_intro_one, getColor(R.color.appintro_background_color)));
+        addSlide(AppIntroFragment.newInstance("CS-Wala 2", "Description", R.drawable.ic_intro_one, getColor(R.color.appintro_background_color)));
         //For third slide
-        addSlide(AppIntroFragment.newInstance("CS-Wala 3", "Description",R.drawable.ic_intro_one, getColor(R.color.appintro_background_color)));
+        addSlide(AppIntroFragment.newInstance("CS-Wala 3", "Description", R.drawable.ic_intro_one, getColor(R.color.appintro_background_color)));
         //Supported properties
         /*
          title = "The title of your slide",
@@ -46,7 +45,7 @@ public class IntroClass extends AppIntro2 {
     @Override
     protected void onSkipPressed(@Nullable Fragment currentFragment) {
         super.onSkipPressed(currentFragment);
-        IntentHelper intentHelper=new IntentHelper(this);
+        IntentHelper intentHelper = new IntentHelper(this);
         intentHelper.GoToLogin();
     }
 
@@ -54,7 +53,7 @@ public class IntroClass extends AppIntro2 {
     protected void onDonePressed(@Nullable Fragment currentFragment) {
         super.onDonePressed(currentFragment);
         //Making Intro-class flag boolean to false
-        IntentHelper intentHelper=new IntentHelper(this);
+        IntentHelper intentHelper = new IntentHelper(this);
         intentHelper.GoToLogin();
         Prefs.putBoolean("isFirstTime", false);
     }
