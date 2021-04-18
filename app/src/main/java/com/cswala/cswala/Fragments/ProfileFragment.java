@@ -24,6 +24,7 @@ import android.widget.Toast;
 
 import com.cswala.cswala.Activities.LoginActivity;
 import com.cswala.cswala.Activities.EditProfile;
+import com.cswala.cswala.Activities.PersonalInformation;
 import com.cswala.cswala.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -182,8 +183,15 @@ public class ProfileFragment extends Fragment {
         info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Toast.makeText(getActivity(), "You have Clicked personal information", Toast.LENGTH_SHORT).show();
+                Intent i=new Intent(getContext(), PersonalInformation.class);
+                i.putExtra("name", user_val[0]);
+                i.putExtra("email", user_val[1]);
+                i.putExtra("phone", user_val[2]);
+                i.putExtra("gender", user_val[3]);
+                i.putExtra("dob", user_val[4]);
+                String str = imageLink[0].toString();
+                i.putExtra("image", str);
+                startActivity(i);
             }
         });
 
