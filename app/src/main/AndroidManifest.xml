@@ -35,9 +35,10 @@
             android:name="com.google.android.wearable.standalone"
             android:value="true" />
 
-        <activity android:name=".Activities.ResetPassword"></activity>
+        <activity android:name=".Activities.ResetPassword" />
         <activity android:name=".Activities.Register" />
         <activity android:name=".Activities.LoginWithEmail" />
+        <activity android:name=".Activities.WebActivity" />
 
 
         <service
