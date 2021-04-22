@@ -1,13 +1,17 @@
 package com.cswala.cswala.Fragments;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SearchView;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -28,6 +32,7 @@ public class PortalFragment extends Fragment {
     FirebaseFirestore firestore;
     CollectionReference reference;
     RecyclerView portalListView;
+    SearchView searchTech;
     RecyclerView.LayoutManager manager;
     PortalListAdapter adapter;
 
@@ -42,7 +47,27 @@ public class PortalFragment extends Fragment {
         manager = new LinearLayoutManager(getContext());
         portalListView.setLayoutManager(manager);
         fetchData();
+        searchTech = (SearchView) view.findViewById(R.id.portal_search);
+        setSearchViewParameters();
         return view;
+    }
+
+    private void setSearchViewParameters() {
+        TextView text = (TextView) searchTech.findViewById(androidx.appcompat.R.id.search_src_text);
+        Typeface type = ResourcesCompat.getFont(getContext(), R.font.press_start_2p);
+        text.setTypeface(type);
+        searchTech.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adapter.getFilter().filter(newText);
+                return false;
+            }
+        });
     }
 
     private void fetchData() {
@@ -63,7 +88,7 @@ public class PortalFragment extends Fragment {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Log.d("PORTALFRAGMENT", "onFailure: "+e.getMessage());
+                Log.d("PORTALFRAGMENT", "onFailure: " + e.getMessage());
                 Toast.makeText(getContext(), "Some error occurred !", Toast.LENGTH_SHORT).show();
             }
         });
