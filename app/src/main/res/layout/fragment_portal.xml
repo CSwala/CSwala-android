@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,11 +17,24 @@
         android:textColor="@color/colorPrimary"
         android:textSize="16sp" />
 
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/portal_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/heading"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/search_background"
+        android:gravity="center_vertical"
+        app:iconifiedByDefault="false"
+        app:queryHint="Search..." />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/heading"
+        android:layout_below="@+id/portal_search"
         android:layout_marginTop="10dp" />
 
 </RelativeLayout>
