@@ -82,7 +82,9 @@ public class ExploreFragment extends Fragment implements techItemClicked {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                adapter.getFilter().filter(newText);
+                if(!newText.isEmpty()) {
+                    adapter.getFilter().filter(newText);
+                }
                 return false;
             }
         });
