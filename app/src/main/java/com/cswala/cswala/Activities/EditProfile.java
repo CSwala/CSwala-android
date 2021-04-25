@@ -39,6 +39,8 @@ import com.cswala.cswala.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -67,7 +69,7 @@ public class EditProfile extends AppCompatActivity implements AdapterView.OnItem
     StorageReference storageRef;
 
 
-    String userid = "MXI98RSrX20WFPbkh9y";
+    String userid = FirebaseAuth.getInstance().getUid();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,8 +118,11 @@ public class EditProfile extends AppCompatActivity implements AdapterView.OnItem
         String user_gndr = data.getStringExtra("gender");
         String user_dob = data.getStringExtra("dob");
         String imageLink = data.getStringExtra("image");
-        Uri uri = Uri.parse(imageLink);
-        Picasso.get().load(uri).into(imageView);
+        if(!imageLink.equals("none")) {
+            Uri uri = Uri.parse(imageLink);
+            Picasso.get().load(uri).into(imageView);
+        }
+
 
 
         txtname.setText(user_name);
