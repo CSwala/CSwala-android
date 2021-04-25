@@ -2,12 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cswala.cswala">
 
-
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <uses-permission android:name="android.permission.CAMERA" />
 
     <uses-feature
@@ -20,9 +17,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-
     <application
-
         android:name=".utils.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -30,6 +25,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Activities.PersonalInformation"></activity>
 
         <meta-data
             android:name="com.google.android.wearable.standalone"
@@ -39,7 +35,6 @@
         <activity android:name=".Activities.Register" />
         <activity android:name=".Activities.LoginWithEmail" />
         <activity android:name=".Activities.WebActivity" />
-
 
         <service
             android:name=".Services.NotificationService"
