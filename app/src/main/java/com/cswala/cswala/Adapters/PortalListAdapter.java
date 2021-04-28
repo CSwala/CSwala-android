@@ -15,14 +15,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.cswala.cswala.Models.PortalListElement;
 import com.cswala.cswala.R;
+import com.cswala.cswala.utils.IntentHelper;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class PortalListAdapter extends RecyclerView.Adapter<PortalListAdapter.PortalHolder> implements Filterable {
-    ArrayList<PortalListElement> data;
-    ArrayList<PortalListElement> dataFull;
-    Context ctx;
+    private ArrayList<PortalListElement> data;
+    private ArrayList<PortalListElement> dataFull;
+    private Context ctx;
+    private IntentHelper intentHelper;
 
     public PortalListAdapter(Context ctx, ArrayList<PortalListElement> data) {
         this.data = data;
@@ -43,10 +45,10 @@ public class PortalListAdapter extends RecyclerView.Adapter<PortalListAdapter.Po
         holder.companyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ctx.startActivity(
-                        new Intent(
-                                Intent.ACTION_VIEW,
-                                Uri.parse(data.get(position).getLink())));
+
+                intentHelper = new IntentHelper(ctx);
+                intentHelper.GoToWeb(data.get(position).getLink());
+
             }
         });
     }
