@@ -13,11 +13,7 @@
 ![contributions welcome](https://img.shields.io/static/v1.svg?label=Contributions&message=Welcome&color=0059b3&style=flat-square) 
 ![Maintenance](https://img.shields.io/maintenance/yes/2021)
 
-<br>
-<a href="https://play.google.com/store/apps/details?id=com.cswala.android">
-    <img align="center" height="85" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png">
-</a>
-<br>
+
 <img align="center" src="https://github.com/CSwala/CSwala-android/blob/main/images/ss.jpg">
 <br>
 
