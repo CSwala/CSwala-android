@@ -4,8 +4,8 @@
 
 💻💻Follow us on [LinkedIn](https://www.linkedin.com/company/cswala)
 
-![GitHub forks](https://img.shields.io/github/forks/CSwala/CSwala-website) 
-![GitHub Repo stars](https://img.shields.io/github/stars/CSwala/CSwala-website)
+![GitHub forks](https://img.shields.io/github/forks/CSwala/CSwala-android) 
+![GitHub Repo stars](https://img.shields.io/github/stars/CSwala/CSwala-android)
 <br>
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
 [![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/) 
