@@ -15,7 +15,8 @@ import com.cswala.cswala.Activities.BegineerActivity;
 import com.cswala.cswala.Models.Begineer;
 import com.cswala.cswala.R;
 import com.cswala.cswala.utils.IntentHelper;
-
+import com.cswala.cswala.Models.Begineer;
+import com.cswala.cswala.R;
 import java.util.List;
 
 public class BestPracticeAdapter extends RecyclerView.Adapter<BestPracticeAdapter.ViewHolder> {
