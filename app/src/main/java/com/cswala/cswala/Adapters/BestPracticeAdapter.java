@@ -1,6 +1,7 @@
 package com.cswala.cswala.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +11,10 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.cswala.cswala.Activities.BegineerActivity;
 import com.cswala.cswala.Models.Begineer;
 import com.cswala.cswala.R;
+import com.cswala.cswala.utils.IntentHelper;
 
 import java.util.List;
 
@@ -39,7 +42,8 @@ public class BestPracticeAdapter extends RecyclerView.Adapter<BestPracticeAdapte
         holder.cardViewBegineer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                IntentHelper intentHelper=new IntentHelper(context);
+                intentHelper.GoToBegineer();
             }
         });
     }

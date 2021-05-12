@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
+import com.cswala.cswala.Activities.BegineerActivity;
 import com.cswala.cswala.Activities.IntroActivity;
 import com.cswala.cswala.Activities.LoginActivity;
 import com.cswala.cswala.Activities.LoginWithEmail;
@@ -58,6 +59,11 @@ public class IntentHelper {
     {
         Intent intent=new Intent(context, WebActivity.class);
         intent.putExtra("URL",WebUrl);
+        context.startActivity(intent);
+    }
+    public void GoToBegineer()
+    {
+        Intent intent=new Intent(context, BegineerActivity.class);
         context.startActivity(intent);
     }
 }
