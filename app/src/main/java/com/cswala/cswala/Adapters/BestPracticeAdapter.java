@@ -1,7 +1,6 @@
 package com.cswala.cswala.Adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,12 +10,10 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.cswala.cswala.Activities.BegineerActivity;
 import com.cswala.cswala.Models.Begineer;
 import com.cswala.cswala.R;
 import com.cswala.cswala.utils.IntentHelper;
-import com.cswala.cswala.Models.Begineer;
-import com.cswala.cswala.R;
+
 import java.util.List;
 
 public class BestPracticeAdapter extends RecyclerView.Adapter<BestPracticeAdapter.ViewHolder> {
@@ -32,19 +29,19 @@ public class BestPracticeAdapter extends RecyclerView.Adapter<BestPracticeAdapte
     @NonNull
     @Override
     public BestPracticeAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(context).inflate(R.layout.beginner_layout,parent,false);
+        View view= LayoutInflater.from(context).inflate(R.layout.bestpractice_layout,parent,false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull BestPracticeAdapter.ViewHolder holder, int position) {
-        Begineer begineer=begineerList.get(position);
+        final Begineer begineer=begineerList.get(position);
         holder.title.setText(begineer.getTitle());
         holder.cardViewBegineer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 IntentHelper intentHelper=new IntentHelper(context);
-                intentHelper.GoToBegineer();
+                intentHelper.GoToBegineer(begineer.getTitle());
             }
         });
     }

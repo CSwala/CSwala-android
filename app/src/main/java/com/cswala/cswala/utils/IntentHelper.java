@@ -61,9 +61,10 @@ public class IntentHelper {
         intent.putExtra("URL",WebUrl);
         context.startActivity(intent);
     }
-    public void GoToBegineer()
+    public void GoToBegineer(String Heading)
     {
         Intent intent=new Intent(context, BegineerActivity.class);
+        intent.putExtra("heading",Heading);
         context.startActivity(intent);
     }
 }
