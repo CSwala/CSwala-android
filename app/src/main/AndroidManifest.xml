@@ -46,6 +46,7 @@
         <activity android:name=".Activities.LoginActivity" />
         <activity android:name=".Activities.IntroActivity" />
         <activity android:name=".Activities.EditProfile" />
+        <activity android:name=".Activities.contestCalendar"/>
         <activity android:name=".MainActivity" />
         <activity android:name=".Activities.Splashscreen">
             <intent-filter>

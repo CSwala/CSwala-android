@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#0D1117</color>
     <color name="colorAccent">#F44336</color>
 
+    <color name="gray">#9E9E9E</color>
     <color name="buttontext">#388AFC</color>
+    <color name="line_color">#444</color>
 
 </resources>
