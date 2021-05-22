@@ -45,6 +45,9 @@
     <string name="select_date">Select Date</string>
     <string name="save">save</string>
     <string name="contact_us">CONTACT US</string>
+    <string name="desktopView">Desktop site</string>
+    <string name="zoomControls">Zoom controls</string>
+    <string name="exit">Exit</string>
     <string-array name="gender1">
         <item>Male</item>
         <item>Female</item>
