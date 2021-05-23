@@ -53,4 +53,24 @@
         <item>Female</item>
         <item>Male</item>
     </string-array>
+
+
+    <string name="title_activity_contest_calendar">contestCalendar</string>
+    <string name="codeforces">codeforces</string>
+    <string name="codechef">codechef</string>
+    <string name="topcoder">Topcoder</string>
+    <string name="atcoder">Atcoder</string>
+    <string name="hacker_rank">Hacker Rank</string>
+    <string name="hacker_earth">Hacker Earth</string>
+    <string name="leetcode">Leetcode</string>
+    <string name="google_kickstart">Google Kickstart</string>
+    <string name="status">Status</string>
+    <string name="duration">Duration</string>
+    <string name="Duration">DURATION :</string>
+    <string name="end_time">End Time</string>
+    <string name="end">END</string>
+    <string name="start_time">Start time</string>
+    <string name="start">START</string>
+    <string name="url">URL</string>
+    <string name="faang">faang</string>
 </resources>
