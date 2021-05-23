@@ -11,6 +11,7 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -27,6 +28,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
@@ -34,7 +36,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.auth.OAuthProvider;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -46,6 +51,8 @@ public class LoginActivity extends AppCompatActivity {
     private GoogleSignInClient mGoogleSignInClient;
     private static final String TAG = "Login";
     private NetworkConnection networkConnection;
+    private String github_email;
+//    private AuthCredential git_accessToken = null;
 
 
     @Override
@@ -126,8 +133,7 @@ public class LoginActivity extends AppCompatActivity {
                 Animation animation = AnimationUtils.loadAnimation(LoginActivity.this, R.anim.blink_anim);
                 github.startAnimation(animation);
                 if (networkConnection.isConnected(LoginActivity.this)) {
-                    //progressBarLayout.setVisibility(View.VISIBLE)
-                    // githubSignIn();
+                    gitLoginDialog();
                 } else {
                     networkConnection.ShowNoConnection();
                 }
@@ -146,17 +152,12 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void updateUI(FirebaseUser user) {
-
-        {
-            if (user == null) {
+        if (user == null) {
                 Toast.makeText(this, "Please Login ", Toast.LENGTH_SHORT);
             } else {
                 IntentHelper intentHelper = new IntentHelper(LoginActivity.this);
                 intentHelper.GoToHome();
             }
-
-
-        }
     }
 
 
@@ -254,6 +255,125 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
     }
+
+    private void gitLoginDialog() {
+        final AlertDialog.Builder alert = new AlertDialog.Builder(LoginActivity.this);
+        View mView = getLayoutInflater().inflate(R.layout.dialog_githublogin,null);
+
+        final EditText gitEmail = (EditText)mView.findViewById(R.id.email_git);
+        Button loginBtn_git = (Button)mView.findViewById(R.id.login_git);
+        Button cancelBtn_git = (Button)mView.findViewById(R.id.cancel_git);
+
+        alert.setView(mView);
+        final AlertDialog alertDialog = alert.create();
+        alertDialog.setCanceledOnTouchOutside(false);
+
+        cancelBtn_git.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();
+            }
+        });
+        loginBtn_git.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                github_email = gitEmail.getText().toString();
+                progressBarLayout.setVisibility(View.VISIBLE);
+                githubSignIn(github_email);
+                alertDialog.dismiss();
+            }
+        });
+
+        alertDialog.show();
+    }
+
+    private void githubSignIn(String email_github) {
+        Log.i(TAG, "Inside githubSignIn");
+        OAuthProvider.Builder provider = OAuthProvider.newBuilder("github.com", firebaseAuth);
+
+        provider.addCustomParameter("login", email_github); /* if the user is not already signed-in on github through his/her device,
+                                                                  the email id entered in the dialog box will be sent along with
+                                                                  the auth request. */
+        List<String> scopes =
+                new ArrayList<String>() {
+                    {
+                        add("user:email");
+                    }
+                };
+
+        Log.i(TAG, "Before setting scopes github");
+
+        provider.setScopes(scopes);
+
+        Log.i(TAG, "After setting scopes github");
+
+        Task<AuthResult> pendingResultTask = firebaseAuth.getPendingAuthResult();
+
+        Log.i(TAG, "After getting pendingResult github");
+
+        if (pendingResultTask != null) {
+            Log.i(TAG, "Inside if block of pendingResult github");
+            pendingResultTask
+                    .addOnSuccessListener(
+                            new OnSuccessListener<AuthResult>() {
+                                @Override
+                                public void onSuccess(AuthResult authResult) {
+                                    // User is signed in.
+                                    // IdP data available in
+                                    // authResult.getAdditionalUserInfo().getProfile().
+                                    // The OAuth access token can also be retrieved:
+                                    // authResult.getCredential().getAccessToken().
+                                    Log.i(TAG, "Signing in github");
+                                    Toast.makeText(getApplicationContext(), "Signing in...", Toast.LENGTH_SHORT).show();
+                                    FirebaseUser user = authResult.getUser();
+                                    updateUI(user);
+                                }
+                            })
+                    .addOnFailureListener(
+                            new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    // Handle failure.
+                                    progressBarLayout.setVisibility(View.GONE);
+                                    Log.i(TAG, "failed signing in github 1");
+                                    Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            });
+        } else {
+//            if (git_accessToken == null) {
+            Log.i(TAG, "Inside else block of pendingResult github");
+            firebaseAuth
+                    .startActivityForSignInWithProvider(/* activity= */ LoginActivity.this, provider.build())
+                    .addOnSuccessListener(
+                            new OnSuccessListener<AuthResult>() {
+                                @Override
+                                public void onSuccess(AuthResult authResult) {
+                                    // User is signed in.
+                                    // IdP data available in
+                                    // authResult.getAdditionalUserInfo().getProfile().
+                                    // The OAuth access token can also be retrieved:
+                                    // authResult.getCredential().getAccessToken().
+                                    Log.i(TAG, "Signed in using github" + authResult.getUser().getDisplayName());
+                                    Toast.makeText(getApplicationContext(), "Signed in successfully", Toast.LENGTH_SHORT).show();
+//                                        git_accessToken = authResult.getCredential();
+                                    FirebaseUser user = authResult.getUser();
+                                    updateUI(user);
+                                }
+                            })
+                    .addOnFailureListener(
+                            new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    // Handle failure.
+                                    progressBarLayout.setVisibility(View.GONE);
+                                    Log.i(TAG, "Failed to sign in using github: " + e.getMessage());
+                                    Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            });
+//            }
+        }
+    }
+
 
     // Timer for Fade-in Animation of Buttons ( T1 - Google Button; T2 - GitHub Button )
     private void timer() {
