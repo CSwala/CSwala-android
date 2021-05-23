@@ -18,7 +18,7 @@ import java.util.List;
 
 public class BegineerActivity extends AppCompatActivity {
 
-    private TextView tvHead;
+//    private TextView tvHead;
     private RecyclerView rvBegineer;
     private List<Pair<String,String>> stringList;
     BegineerAdapter begineerAdapter;
@@ -28,10 +28,10 @@ public class BegineerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_begineer);
 
-        tvHead=findViewById(R.id.tvHead);
+//        tvHead=findViewById(R.id.tvHead);
         rvBegineer=findViewById(R.id.rvBegineer);
         String Heading=getIntent().getStringExtra("heading");
-        tvHead.setText(Heading);
+//        tvHead.setText(Heading);
         stringList=new ArrayList<Pair<String,String>>();
         begineerAdapter=new BegineerAdapter(BegineerActivity.this,stringList);
         rvBegineer.setLayoutManager(new LinearLayoutManager(getApplicationContext(),RecyclerView.VERTICAL,false));
