@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:background="@color/colorPrimaryDark"
     android:orientation="horizontal"
-    android:padding="16dp">
+    android:padding="5dp">
 
     <ImageView
         android:id="@+id/image_row_hf"
@@ -59,15 +59,16 @@
                 android:id="@+id/read_more_hf"
                 style="@style/customfontstyle"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:layout_alignParentEnd="true"
                 android:background="@drawable/custom_button"
-                android:text="@string/read_more"
-                android:textSize="12sp"
-                android:textColor="#388AFC"
                 android:drawableTint="@color/colorAccent"
                 android:fontFamily="@font/press_start_2p"
-                android:padding="10sp"/>
+                android:padding="10dp"
+                android:text="@string/read_more"
+                android:textColor="#388AFC"
+                android:textSize="12sp"
+                android:layout_marginTop="10dp"/>
 
 
         </RelativeLayout>

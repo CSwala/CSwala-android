@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -81,7 +82,9 @@ public class ExploreFragment extends Fragment implements techItemClicked {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                adapter.getFilter().filter(newText);
+                if(!newText.isEmpty()) {
+                    adapter.getFilter().filter(newText);
+                }
                 return false;
             }
         });
@@ -109,6 +112,7 @@ public class ExploreFragment extends Fragment implements techItemClicked {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull @NotNull Exception e) {
+                Log.d("EXPLOREFRAGMENT", "onFailure: "+e.getMessage());
                 Toast.makeText(getContext(), "Something went wrong...", Toast.LENGTH_SHORT).show();
             }
         });

@@ -1,6 +1,8 @@
 package com.cswala.cswala.Activities;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,7 +11,7 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -39,7 +41,7 @@ import java.util.TimerTask;
 public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;
-    private LinearLayout progressBarLayout;
+    private ProgressBar progressBarLayout;
     private static final int RC_SIGN_IN = 1;
     private GoogleSignInClient mGoogleSignInClient;
     private static final String TAG = "Login";
@@ -48,8 +50,28 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        finishAffinity();
+        ExitDialog();
+    }
+
+    public void ExitDialog(){
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Do you want exit?")
+                .setCancelable(true)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                        finishAffinity();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                }).create().show();
+
     }
 
     @Override
@@ -61,11 +83,10 @@ public class LoginActivity extends AppCompatActivity {
 
         final Button google = findViewById(R.id.google);
         final Button github = findViewById(R.id.github);
-        final Button email = findViewById(R.id.login_with_email);
+        final Button email = findViewById(R.id.email);
         firebaseAuth = FirebaseAuth.getInstance();
 
-
-        progressBarLayout=findViewById(R.id.progresslayout);
+        progressBarLayout = findViewById(R.id.ProgressBar);
         progressBarLayout.setVisibility(View.INVISIBLE);
 
         View parentLayout = findViewById(android.R.id.content);
@@ -90,6 +111,7 @@ public class LoginActivity extends AppCompatActivity {
                 Animation animation = AnimationUtils.loadAnimation(LoginActivity.this, R.anim.blink_anim);
                 google.startAnimation(animation);
                 if (networkConnection.isConnected(LoginActivity.this)) {
+                    progressBarLayout.setVisibility(View.VISIBLE);
                     signIn();
                 } else {
                     networkConnection.ShowNoConnection();
@@ -104,6 +126,7 @@ public class LoginActivity extends AppCompatActivity {
                 Animation animation = AnimationUtils.loadAnimation(LoginActivity.this, R.anim.blink_anim);
                 github.startAnimation(animation);
                 if (networkConnection.isConnected(LoginActivity.this)) {
+                    //progressBarLayout.setVisibility(View.VISIBLE)
                     // githubSignIn();
                 } else {
                     networkConnection.ShowNoConnection();
@@ -116,7 +139,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Animation animation = AnimationUtils.loadAnimation(LoginActivity.this, R.anim.blink_anim);
                 email.startAnimation(animation);
-                IntentHelper intentHelper=new IntentHelper(LoginActivity.this);
+                IntentHelper intentHelper = new IntentHelper(LoginActivity.this);
                 intentHelper.GoToLoginWithEmail();
             }
         });
@@ -128,7 +151,7 @@ public class LoginActivity extends AppCompatActivity {
             if (user == null) {
                 Toast.makeText(this, "Please Login ", Toast.LENGTH_SHORT);
             } else {
-                IntentHelper intentHelper=new IntentHelper(LoginActivity.this);
+                IntentHelper intentHelper = new IntentHelper(LoginActivity.this);
                 intentHelper.GoToHome();
             }
 
@@ -139,19 +162,20 @@ public class LoginActivity extends AppCompatActivity {
 
     private void validate(String userEmail, String userPassword) {
 
-    progressBarLayout.setVisibility(View.VISIBLE);
-      firebaseAuth.signInWithEmailAndPassword(userEmail, userPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        progressBarLayout.setVisibility(View.VISIBLE);
+        firebaseAuth.signInWithEmailAndPassword(userEmail, userPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     progressBarLayout.setVisibility(View.INVISIBLE);
-                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                    IntentHelper intentHelper=new IntentHelper(LoginActivity.this);
+                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    IntentHelper intentHelper = new IntentHelper(LoginActivity.this);
                     intentHelper.GoToHome();
                     Toast.makeText(LoginActivity.this, "Welcome back", Toast.LENGTH_SHORT).show();
 
                 } else {
+                    progressBarLayout.setVisibility(View.INVISIBLE);
                     Toast.makeText(LoginActivity.this, "Invalid Email or Password", Toast.LENGTH_SHORT).show();
 
                 }
@@ -191,6 +215,7 @@ public class LoginActivity extends AppCompatActivity {
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
                 Log.w(TAG, "Google sign in failed", e);
+                progressBarLayout.setVisibility(View.INVISIBLE);
                 // ...
             }
         }
@@ -205,7 +230,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
-        Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());  
+        Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         firebaseAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -215,11 +240,13 @@ public class LoginActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = firebaseAuth.getCurrentUser();
+                            progressBarLayout.setVisibility(View.INVISIBLE);
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
                             Toast.makeText(LoginActivity.this, "Authentication Failed.", Toast.LENGTH_SHORT).show();
+                            progressBarLayout.setVisibility(View.INVISIBLE);
                             updateUI(null);
                         }
 
@@ -236,32 +263,34 @@ public class LoginActivity extends AppCompatActivity {
         t3 = new Timer();
         final Button google = findViewById(R.id.google);
         final Button github = findViewById(R.id.github);
-        final Button email = findViewById(R.id.login_with_email);
+        final Button email = findViewById(R.id.email);
 
         google.animate().alpha(0f).setDuration(1);
         github.animate().alpha(0f).setDuration(1);
+        email.animate().alpha(0f).setDuration(1);
 
         t1.schedule(new TimerTask() {
             @Override
             public void run() {
                 google.animate().alpha(1f).setDuration(500);
             }
-        },500);
+        }, 500);
 
         t2.schedule(new TimerTask() {
             @Override
             public void run() {
                 github.animate().alpha(1f).setDuration(500);
+
             }
-        },1000);
+        }, 1000);
 
         t3.schedule(new TimerTask() {
             @Override
             public void run() {
                 email.animate().alpha(1f).setDuration(500);
-                //Log.d("Success", "Animation Set");
+
             }
-        },500);
+        }, 1500);
     }
 
 }

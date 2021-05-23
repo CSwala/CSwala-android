@@ -1,26 +1,16 @@
 package com.cswala.cswala.Fragments;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
-import android.os.Handler;
 import android.text.TextUtils;
-import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,10 +23,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cswala.cswala.Activities.LoginActivity;
-import com.cswala.cswala.Activities.editProfile;
-import com.cswala.cswala.MainActivity;
+import com.cswala.cswala.Activities.EditProfile;
+import com.cswala.cswala.Activities.PersonalInformation;
 import com.cswala.cswala.R;
-import com.firebase.client.Firebase;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -45,28 +34,20 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import net.cachapa.expandablelayout.ExpandableLayout;
 
-import java.io.ByteArrayOutputStream;
-
 public class ProfileFragment extends Fragment {
 
 
-    String userid = "MXI98RSrX20WFPbkh9y";
+    String userid = FirebaseAuth.getInstance().getUid();
     private ImageView imageView;
     private TextView username;
 
     ProgressBar mProgressBar;
-
 
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
@@ -83,9 +64,9 @@ public class ProfileFragment extends Fragment {
 
         mProgressBar = (ProgressBar) view.findViewById(R.id.progressBar);
         mProgressBar.setVisibility(view.VISIBLE);
-        final FragmentActivity fragmentActivity = (FragmentActivity) getContext();
+        /*final FragmentActivity fragmentActivity = (FragmentActivity) getContext();
         fragmentActivity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
-                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);*/
 
 
         final Button tv = view.findViewById(R.id.btnLogout);
@@ -106,12 +87,42 @@ public class ProfileFragment extends Fragment {
 
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.child("User").child(userid).exists())
+                {
+                    user_val[0] = dataSnapshot.child("User").child(userid).child("name").getValue().toString();
+                    user_val[1] = dataSnapshot.child("User").child(userid).child("email").getValue().toString();
+                    user_val[2] = dataSnapshot.child("User").child(userid).child("phone").getValue().toString();
+                    user_val[3] = dataSnapshot.child("User").child(userid).child("gender").getValue().toString();
+                    user_val[4] = dataSnapshot.child("User").child(userid).child("dob").getValue().toString();
+                }
+                else
+                {
+                    mProgressBar.setVisibility(View.GONE);
+//                    fragmentActivity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                }
 
-                user_val[0] = dataSnapshot.child("User").child(userid).child("name").getValue().toString();
-                user_val[1] = dataSnapshot.child("User").child(userid).child("email").getValue().toString();
-                user_val[2] = dataSnapshot.child("User").child(userid).child("phone").getValue().toString();
-                user_val[3] = dataSnapshot.child("User").child(userid).child("gender").getValue().toString();
-                user_val[4] = dataSnapshot.child("User").child(userid).child("dob").getValue().toString();
+
+                    StorageReference storageRef;
+                    storageRef = FirebaseStorage.getInstance().getReference();
+                    StorageReference sr = storageRef.child(userid);
+                    sr.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(@NonNull Uri uri) {
+                            Picasso.get().load(uri).into(imageView);
+                            imageLink[0] = uri;
+
+                            mProgressBar.setVisibility(view.GONE);
+
+
+
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(getContext(), "Failed to get profile image", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
 
 
                 if (TextUtils.isEmpty(user_val[0]))
@@ -130,25 +141,7 @@ public class ProfileFragment extends Fragment {
 
 
 
-                StorageReference storageRef;
-                storageRef = FirebaseStorage.getInstance().getReference();
-                StorageReference sr = storageRef.child(userid);
-                sr.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(@NonNull Uri uri) {
-                        Picasso.get().load(uri).into(imageView);
-                        imageLink[0] = uri;
 
-                        mProgressBar.setVisibility(view.GONE);
-                        fragmentActivity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(getContext(), "Failed to get profile image", Toast.LENGTH_SHORT).show();
-                    }
-                });
 
             }
 
@@ -201,8 +194,24 @@ public class ProfileFragment extends Fragment {
         info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Toast.makeText(getActivity(), "You have Clicked personal information", Toast.LENGTH_SHORT).show();
+                if(mProgressBar.getVisibility()==View.GONE) {
+                    Intent i = new Intent(getContext(), PersonalInformation.class);
+                    i.putExtra("name", user_val[0]);
+                    i.putExtra("email", user_val[1]);
+                    i.putExtra("phone", user_val[2]);
+                    i.putExtra("gender", user_val[3]);
+                    i.putExtra("dob", user_val[4]);
+                    String str = "none";
+                    if (imageLink[0] != null) {
+                        str = imageLink[0].toString();
+                    }
+                    i.putExtra("image", str);
+                    startActivity(i);
+                }
+                else
+                {
+                    Toast.makeText(getContext(), "Preparing...", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -219,16 +228,24 @@ public class ProfileFragment extends Fragment {
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent i = new Intent(getActivity(), editProfile.class);
-                i.putExtra("name", user_val[0]);
-                i.putExtra("email", user_val[1]);
-                i.putExtra("phone", user_val[2]);
-                i.putExtra("gender", user_val[3]);
-                i.putExtra("dob", user_val[4]);
-                String str = imageLink[0].toString();
-                i.putExtra("image", str);
-                startActivity(i);
+                if(mProgressBar.getVisibility()==View.GONE) {
+                    Intent i = new Intent(getActivity(), EditProfile.class);
+                    i.putExtra("name", user_val[0]);
+                    i.putExtra("email", user_val[1]);
+                    i.putExtra("phone", user_val[2]);
+                    i.putExtra("gender", user_val[3]);
+                    i.putExtra("dob", user_val[4]);
+                    String str = "none";
+                    if (imageLink[0] != null) {
+                        str = imageLink[0].toString();
+                    }
+                    i.putExtra("image", str);
+                    startActivity(i);
+                }
+                else
+                {
+                    Toast.makeText(getContext(), "Preparing...", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });

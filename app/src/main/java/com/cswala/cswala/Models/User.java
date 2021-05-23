@@ -1,4 +1,4 @@
-package com.cswala.cswala.Activities;
+package com.cswala.cswala.Models;
 
 public class User {
 

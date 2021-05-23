@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.cswala.cswala.Activities.LoginActivity;
+import com.cswala.cswala.Activities.WebActivity;
 import com.cswala.cswala.R;
 
 import org.json.JSONArray;
@@ -56,10 +57,13 @@ public class LatestNewsAdapter extends RecyclerView.Adapter<LatestNewsAdapter.Vi
                 Animation animation = AnimationUtils.loadAnimation(context, R.anim.blink_anim);
                 holder.readMore.startAnimation(animation);
                 Intent external_link = null;
+                String url=null;
                 try {
-                    external_link = new Intent(Intent.ACTION_VIEW,
-                            Uri.parse(finalObj.getString("url")));
-                    external_link.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    url=finalObj.getString("url");
+                    external_link = new Intent(context,
+                            WebActivity.class);
+                    external_link.putExtra("URL",url);
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

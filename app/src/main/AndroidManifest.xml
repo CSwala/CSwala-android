@@ -2,14 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cswala.cswala">
 
-
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-
-    <uses-feature android:name="android.hardware.type.watch" />
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <uses-permission android:name="android.permission.CAMERA" />
 
     <uses-feature
@@ -22,25 +17,25 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-
     <application
-
         android:name=".utils.MyApplication"
         android:allowBackup="true"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Activities.PersonalInformation"></activity>
 
         <meta-data
             android:name="com.google.android.wearable.standalone"
             android:value="true" />
 
-        <activity android:name=".Activities.ResetPassword"></activity>
+        <activity android:name=".Activities.ResetPassword" />
         <activity android:name=".Activities.Register" />
         <activity android:name=".Activities.LoginWithEmail" />
-
+        <activity android:name=".Activities.WebActivity" />
 
         <service
             android:name=".Services.NotificationService"
@@ -49,8 +44,9 @@
 
         <activity android:name=".Activities.TechDataActivity" />
         <activity android:name=".Activities.LoginActivity" />
-        <activity android:name=".Activities.IntroClass" />
-        <activity android:name=".Activities.editProfile" />
+        <activity android:name=".Activities.IntroActivity" />
+        <activity android:name=".Activities.EditProfile" />
+        <activity android:name=".Activities.contestCalendar"/>
         <activity android:name=".MainActivity" />
         <activity android:name=".Activities.Splashscreen">
             <intent-filter>

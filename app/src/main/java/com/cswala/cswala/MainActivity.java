@@ -1,5 +1,8 @@
 package com.cswala.cswala;
 
+import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -8,22 +11,18 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import com.cswala.cswala.Activities.LoginActivity;
-import com.cswala.cswala.Services.NotificationService;
-import com.cswala.cswala.utils.NetworkConnection;
-import com.google.firebase.auth.FirebaseAuth;
 import com.cswala.cswala.Fragments.CommunityFragment;
 import com.cswala.cswala.Fragments.ExploreFragment;
 import com.cswala.cswala.Fragments.JobHunt;
 import com.cswala.cswala.Fragments.NewsFragment;
 import com.cswala.cswala.Fragments.ProfileFragment;
+import com.cswala.cswala.Services.NotificationService;
+import com.cswala.cswala.utils.NetworkConnection;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
 public class MainActivity extends AppCompatActivity {
 
     ChipNavigationBar bt;
-
-    private NetworkConnection networkConnection;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         View parentLayout = findViewById(android.R.id.content);
-        networkConnection = new NetworkConnection(parentLayout);
+        NetworkConnection networkConnection = new NetworkConnection(parentLayout);
 
         if (!networkConnection.isConnected(MainActivity.this)) {
             Toast.makeText(MainActivity.this, "No connection", Toast.LENGTH_SHORT).show();
@@ -45,16 +44,13 @@ public class MainActivity extends AppCompatActivity {
         bt.setItemSelected(R.id.explore, true);
         startService(new Intent(this, NotificationService.class));
         bt.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener() {
+            @SuppressLint("NonConstantResourceId")
             @Override
             public void onItemSelected(int i) {
 
-                Fragment fragment = null;
+                Fragment fragment;
 
                 switch(i) {
-
-                    case R.id.explore:
-                        fragment = new ExploreFragment();
-                        break;
 
                     case R.id.jobhunt:
                         fragment = new JobHunt();
@@ -78,18 +74,39 @@ public class MainActivity extends AppCompatActivity {
 
                 }
 
-                if(fragment != null) {
-                    getSupportFragmentManager()
-                            .beginTransaction()
-                            .setCustomAnimations(R.anim.frag_fade_in, R.anim.frag_fade_out, R.anim.fade_in, R.anim.fade_out)
-                            .replace(R.id.fragment_container,fragment).commit();
-                }
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .setCustomAnimations(R.anim.frag_fade_in, R.anim.frag_fade_out, R.anim.fade_in, R.anim.fade_out)
+                        .replace(R.id.fragment_container,fragment).commit();
             }
         });
     }
 
     @Override
     public void onBackPressed() {
-        finishAffinity();
+        ExitDialog();
+    }
+
+    public void ExitDialog(){
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Do you want exit?")
+                .setCancelable(true)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        finishAffinity();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }

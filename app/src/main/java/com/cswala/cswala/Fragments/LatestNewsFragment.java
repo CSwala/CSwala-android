@@ -93,7 +93,7 @@ public class LatestNewsFragment extends Fragment {
             Log.d("results_arr json fail", "results_arr json fail");
         else {
             progressBar.setVisibility(View.INVISIBLE);
-            recyclerViewAdapter = new LatestNewsAdapter(getContext(), results_arr);
+            recyclerViewAdapter = new LatestNewsAdapter(getActivity(), results_arr);
             recyclerView.setAdapter(recyclerViewAdapter);
 
         }
