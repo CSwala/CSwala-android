@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:background="@color/colorPrimary">
+
+    <TextView
+        android:id="@+id/dialog_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/press_start_2p"
+        android:text="Enter email"
+        android:textColor="@color/md_black_1000"
+        android:textSize="20dp"
+        android:padding="10dp"/>
+
+    <EditText
+        android:id="@+id/email_git"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20dp"
+        android:paddingHorizontal="10dp"
+        android:layout_marginVertical="10dp"/>
+
+    <Button
+        android:id="@+id/login_git"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_button"
+        android:fontFamily="@font/press_start_2p"
+        android:text="Login"
+        android:textColor="#388AFC"
+        android:textSize="12sp"/>
+
+    <Button
+        android:id="@+id/cancel_git"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_button"
+        android:fontFamily="@font/press_start_2p"
+        android:text="Cancel"
+        android:textColor="#388AFC"
+        android:textSize="12sp"/>
+</LinearLayout>

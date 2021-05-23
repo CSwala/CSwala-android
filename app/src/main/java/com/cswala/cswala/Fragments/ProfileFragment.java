@@ -219,7 +219,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                firebaseAuth.signOut();
+                firebaseAuth.getInstance().signOut();
                 startActivity(new Intent(getActivity(), LoginActivity.class));
 
             }
