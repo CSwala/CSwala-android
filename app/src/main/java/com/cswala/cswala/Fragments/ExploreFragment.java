@@ -92,9 +92,9 @@ public class ExploreFragment extends Fragment implements techItemClicked {
 
     private void setBeginnerOptions() {
         begineerList=new ArrayList<>();
-        Begineer begineer=new Begineer();
-        begineer.setTitle("Best Practice");
-        begineerList.add(begineer);
+//        Begineer begineer=new Begineer();
+//        begineer.setTitle("Best Practice");
+//        begineerList.add(begineer);
         Begineer begineer1=new Begineer();
         begineer1.setTitle("Beginner friendly");
         begineerList.add(begineer1);
