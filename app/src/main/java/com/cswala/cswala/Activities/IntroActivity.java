@@ -25,11 +25,11 @@ public class IntroActivity extends AppIntro2 {
         //Explore slide
         addSlide(AppIntroFragment.newInstance("Explore", "Discover everything in CS in the form of a Dicitionary", R.drawable.explore, getColor(R.color.appintro_background_color)));
         //Job Portal & Opportunities slide
-        addSlide(AppIntroFragment.newInstance("Job-Portals & Job Opportunities", "Get latest information about upcoming job opportunities. Here you can also explore Job Portals of top MNCs", R.drawable.job, getColor(R.color.appintro_background_color)));
+        addSlide(AppIntroFragment.newInstance("JobHunt", "Get latest information about upcoming job opportunities. Here you can also explore Job Portals of top MNCs", R.drawable.job, getColor(R.color.appintro_background_color)));
         //News slide
-        addSlide(AppIntroFragment.newInstance("Latest News", "Get Latest News related to different Tech. ", R.drawable.news, getColor(R.color.appintro_background_color)));
+        addSlide(AppIntroFragment.newInstance("HackFeed(News)", "Get Latest News related to different Tech. ", R.drawable.news, getColor(R.color.appintro_background_color)));
         // Events slide
-        addSlide(AppIntroFragment.newInstance("Upcoming Events", "Get Information about the upcoming Tech events like Hackathon, Coding Contests and many more., ", R.drawable.events, getColor(R.color.appintro_background_color)));
+        addSlide(AppIntroFragment.newInstance("HackFeed(Events)", "Get Information about the upcoming Tech events like Hackathon, Coding Contests and many more., ", R.drawable.events, getColor(R.color.appintro_background_color)));
         // Community slide
         addSlide(AppIntroFragment.newInstance("Community", "Connect with Community", R.drawable.community, getColor(R.color.appintro_background_color)));
         //Supported properties
