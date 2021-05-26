@@ -22,12 +22,16 @@ public class IntroActivity extends AppIntro2 {
         setImmersive(true);
         //For parallax effect
         setTransformer(new AppIntroPageTransformerType.Parallax(1, -1, 2));
-        //For first slide
-        addSlide(AppIntroFragment.newInstance("CS-Wala 1", "Description", R.drawable.ic_intro_one, getColor(R.color.appintro_background_color)));
-        //For second slide
-        addSlide(AppIntroFragment.newInstance("CS-Wala 2", "Description", R.drawable.ic_intro_one, getColor(R.color.appintro_background_color)));
-        //For third slide
-        addSlide(AppIntroFragment.newInstance("CS-Wala 3", "Description", R.drawable.ic_intro_one, getColor(R.color.appintro_background_color)));
+        //Explore slide
+        addSlide(AppIntroFragment.newInstance("Explore", "Discover everything in CS in the form of a Dicitionary", R.drawable.explore, getColor(R.color.appintro_background_color)));
+        //Job Portal & Opportunities slide
+        addSlide(AppIntroFragment.newInstance("JobHunt", "Get latest information about upcoming job opportunities. Here you can also explore Job Portals of top MNCs", R.drawable.job, getColor(R.color.appintro_background_color)));
+        //News slide
+        addSlide(AppIntroFragment.newInstance("Hackfeed", "Get Latest News related to different Tech. ", R.drawable.news, getColor(R.color.appintro_background_color)));
+        // Events slide
+        addSlide(AppIntroFragment.newInstance("Hackevents", "Get Information about the upcoming Tech events like Hackathon, Coding Contests and many more., ", R.drawable.events, getColor(R.color.appintro_background_color)));
+        // Community slide
+        addSlide(AppIntroFragment.newInstance("Community", "Connect with Community", R.drawable.community, getColor(R.color.appintro_background_color)));
         //Supported properties
         /*
          title = "The title of your slide",
