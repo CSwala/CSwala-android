@@ -26,7 +26,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.PersonalInformation"></activity>
+        <activity android:name=".Activities.BegineerActivity"></activity>
+        <activity android:name=".Activities.PersonalInformation" />
 
         <meta-data
             android:name="com.google.android.wearable.standalone"

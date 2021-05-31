@@ -12,6 +12,7 @@ import com.cswala.cswala.R;
 public class WebActivity extends AppCompatActivity {
 
     private WebView myWebView;
+    String WebUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +21,7 @@ public class WebActivity extends AppCompatActivity {
         myWebView=findViewById(R.id.webView);
         WebSettings webSettings=myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        String WebUrl=getIntent().getStringExtra("URL");
+        WebUrl=getIntent().getStringExtra("URL");
         myWebView.loadUrl(WebUrl);
         myWebView.setWebViewClient(new WebViewClient());
     }
