@@ -1,5 +1,7 @@
 package com.cswala.cswala.Models;
 
+import org.jetbrains.annotations.NotNull;
+
 public class PortalListElement {
     String title, link;
     boolean isCompany;
@@ -34,6 +36,7 @@ public class PortalListElement {
         isCompany = company;
     }
 
+    @NotNull
     @Override
     public String toString() {
         return "PortalListElement{" +
