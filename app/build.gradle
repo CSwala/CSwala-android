@@ -103,4 +103,7 @@ dependencies {
     //noinspection GradleCompatible
     implementation 'com.android.support:design:28.0.0'
 
+    //paging library
+    implementation 'androidx.paging:paging-runtime:2.1.2'
+
 }

@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
+import androidx.paging.PagedList;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,6 +22,7 @@ import android.view.animation.LayoutAnimationController;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,10 +35,14 @@ import com.cswala.cswala.Models.Begineer;
 import com.cswala.cswala.Models.TechListElement;
 import com.cswala.cswala.R;
 import com.cswala.cswala.utils.IntentHelper;
+import com.firebase.ui.firestore.SnapshotParser;
+import com.firebase.ui.firestore.paging.FirestorePagingOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -52,12 +58,15 @@ public class ExploreFragment extends Fragment implements techItemClicked {
     RecyclerView.LayoutManager manager;
     SearchView searchTech;
     FirebaseFirestore firestore;
-    CollectionReference reference;
+    Query reference;
     TechListAdapter adapter;
     BestPracticeAdapter bestPracticeAdapter;
     List<Begineer> begineerList;
     ImageView ivClose;
     LinearLayout llbeginner;
+    private ProgressBar progressBar_loadMoreTechLists;
+    private ArrayList<TechListElement> data = new ArrayList<>();
+    private ArrayList<TechListElement> filteredData = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -68,8 +77,10 @@ public class ExploreFragment extends Fragment implements techItemClicked {
         firestore=FirebaseFirestore.getInstance();
         reference=firestore.collection("Dictionary");
         techListView=(RecyclerView) view.findViewById(R.id.tech_list);
+        progressBar_loadMoreTechLists = view.findViewById(R.id.paginationLoadingTechList);
         rvBestPractice=view.findViewById(R.id.rvBestPractice);
         manager=new LinearLayoutManager(getContext());
+        techListView.setHasFixedSize(true);
         techListView.setLayoutManager(manager);
         ivClose=view.findViewById(R.id.ivClose);
         ivClose.setOnClickListener(new View.OnClickListener() {
@@ -82,7 +93,9 @@ public class ExploreFragment extends Fragment implements techItemClicked {
         llbeginner.setVisibility(View.VISIBLE);
         LayoutAnimationController layoutAnimationController = AnimationUtils.loadLayoutAnimation(getContext(), R.anim.layout_anim_fall_down);
         techListView.setLayoutAnimation(layoutAnimationController);
+
         fetchData();
+
         searchTech=(SearchView) view.findViewById(R.id.tech_search);
         setSearchViewParameters();
         setBeginnerOptions();
@@ -103,6 +116,42 @@ public class ExploreFragment extends Fragment implements techItemClicked {
         rvBestPractice.setAdapter(bestPracticeAdapter);
     }
 
+    private void fetchData() {
+        Query query = reference.orderBy("Title", Query.Direction.ASCENDING);
+
+        PagedList.Config config = new PagedList.Config.Builder()
+                .setEnablePlaceholders(false)
+                .setInitialLoadSizeHint(25)
+                .setPrefetchDistance(2)
+                .setPageSize(15)
+                .build();
+
+        FirestorePagingOptions<TechListElement> options = new FirestorePagingOptions.Builder<TechListElement>()
+                .setLifecycleOwner(this)
+                .setQuery(query, config, new SnapshotParser<TechListElement>() {
+                    @NonNull
+                    @Override
+                    public TechListElement parseSnapshot(@NonNull DocumentSnapshot snapshot) {
+                        String tech = snapshot.getId();
+                        String tag = snapshot.getString("Tag");
+                        if(tag != null && tag.length() > 12) {
+                            tag = tag.substring(0,12)+"...";
+                        }
+                        TechListElement techList = new TechListElement(tech, tag);
+                        data.add(techList);
+                        return techList;
+                    }
+                })
+                .build();
+
+        adapter = new TechListAdapter(
+                getContext(), data, options, progressBar_loadMoreTechLists, ExploreFragment.this);
+
+        techListView.setAdapter(adapter);
+        techListView.scheduleLayoutAnimation();
+
+    }
+
     private void setSearchViewParameters() {
         TextView text=(TextView) searchTech.findViewById(androidx.appcompat.R.id.search_src_text);
         Typeface type= ResourcesCompat.getFont(getContext(),R.font.press_start_2p);
@@ -115,44 +164,67 @@ public class ExploreFragment extends Fragment implements techItemClicked {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                if(!newText.isEmpty()) {
-                    adapter.getFilter().filter(newText);
-                }
+                searchTechListResults(newText);
                 return false;
             }
         });
     }
 
-    private void fetchData() {
-        final ArrayList<TechListElement> data=new ArrayList<>();
-        reference.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-            @Override
-            public void onSuccess(@NonNull @NotNull QuerySnapshot queryDocumentSnapshots) {
-                for(QueryDocumentSnapshot snapshot:queryDocumentSnapshots)
-                {
-                    String tech= snapshot.getId();
-                    String tag=snapshot.getString("Tag");
-                    if(tag != null && tag.length()>12)
-                    {
-                        tag=tag.substring(0,12)+"...";
+    private void searchTechListResults(String text) {
+//        if (text != null && text.length() != 0) {
+//            text = text.substring(0, 1).toUpperCase() + text.substring(1).toLowerCase();
+//        }
+
+        Query filteredQuery = reference
+                .whereGreaterThanOrEqualTo("Search_title", text)
+                .whereLessThan("Search_title", text + 'z')
+                .orderBy("Search_title");
+
+        PagedList.Config filteredConfig = new PagedList.Config.Builder()
+                .setEnablePlaceholders(false)
+                .setInitialLoadSizeHint(25)
+                .setPrefetchDistance(2)
+                .setPageSize(15)
+                .build();
+
+        FirestorePagingOptions<TechListElement> newOptions = new FirestorePagingOptions.Builder<TechListElement>()
+                .setQuery(filteredQuery, filteredConfig, new SnapshotParser<TechListElement>() {
+                    @NonNull
+                    @Override
+                    public TechListElement parseSnapshot(@NonNull DocumentSnapshot snapshot) {
+                        String tech = snapshot.getId();
+                        String tag = snapshot.getString("Tag");
+                        if(tag != null && tag.length() > 12) {
+                            tag = tag.substring(0,12)+"...";
+                        }
+                        TechListElement techList = new TechListElement(tech, tag);
+                        filteredData.add(techList);
+                        return techList;
                     }
-                    data.add(new TechListElement(tech,tag));
-                }
-                adapter=new TechListAdapter(data,ExploreFragment.this);
-                techListView.setAdapter(adapter);
-                techListView.scheduleLayoutAnimation();
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull @NotNull Exception e) {
-                Log.d("EXPLOREFRAGMENT", "onFailure: "+e.getMessage());
-                Toast.makeText(getContext(), "Something went wrong...", Toast.LENGTH_SHORT).show();
-            }
-        });
+                })
+                .build();
+
+        adapter.notifyDataSetChanged();
+        adapter.updateOptions(newOptions);
+        techListView.setAdapter(adapter);
     }
+
     @Override
     public void onItemClicked(String item) {
         IntentHelper transfer=new IntentHelper(getContext());
         transfer.GoToTechData(item);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
+
+    //Stop Listening Adapter
+    @Override
+    public void onStop() {
+        super.onStop();
+        adapter.stopListening();
     }
 }

@@ -1,32 +1,47 @@
 package com.cswala.cswala.Adapters;
 
+import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.cswala.cswala.Models.PortalListElement;
 import com.cswala.cswala.Models.TechListElement;
 import com.cswala.cswala.R;
+import com.firebase.ui.firestore.paging.FirestorePagingAdapter;
+import com.firebase.ui.firestore.paging.FirestorePagingOptions;
+import com.firebase.ui.firestore.paging.LoadingState;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TechListAdapter extends RecyclerView.Adapter<TechListAdapter.TechHolder> implements Filterable {
+public class TechListAdapter extends FirestorePagingAdapter<TechListElement, TechListAdapter.TechHolder> {
     ArrayList<TechListElement> data;
     ArrayList<TechListElement> dataFull;
-
+    Context ctx;
+    private ProgressBar progressBar_moreTechListData;
     techItemClicked listener;
-    public TechListAdapter(ArrayList<TechListElement> data,techItemClicked listener) {
+
+    public TechListAdapter(Context ctx, ArrayList<TechListElement> data,
+                           FirestorePagingOptions<TechListElement> options,
+                           ProgressBar loadMoreTechListElements,
+                           techItemClicked listener) {
+        super(options);
         this.data = data;
+        this.ctx = ctx;
         this.listener=listener;
         dataFull=new ArrayList<>(data);
+        progressBar_moreTechListData = loadMoreTechListElements;
     }
 
     @NotNull
@@ -44,51 +59,42 @@ public class TechListAdapter extends RecyclerView.Adapter<TechListAdapter.TechHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull @NotNull TechHolder holder, int position) {
-        holder.data.setText(data.get(position).getTechName());
-        holder.tag.setText(data.get(position).getTechTag());
+    protected void onBindViewHolder(@NonNull @NotNull TechHolder holder, int position, TechListElement techList) {
+        holder.data.setText(techList.getTechName());
+        holder.tag.setText(techList.getTechTag());
     }
 
     @Override
-    public int getItemCount() {
-        return data.size();
+    protected void onError(@NonNull Exception e) {
+        super.onError(e);
+        Log.e("TECH LIST ADAPTER", e.getMessage());
     }
 
     @Override
-    public Filter getFilter() {
-        return exampleFilter;
+    protected void onLoadingStateChanged(@NonNull LoadingState state) {
+        super.onLoadingStateChanged(state);
+        switch (state) {
+            case LOADING_INITIAL:
+                Log.i("TECH LIST ADAPTER", "Loading initial data");
+                break;
+            case LOADING_MORE:
+                Log.i("TECH LIST ADAPTER", "Loading more data");
+                progressBar_moreTechListData.setVisibility(View.VISIBLE);
+                break;
+            case LOADED:
+                Log.i("TECH LIST ADAPTER", "Loaded data");
+                progressBar_moreTechListData.setVisibility(View.GONE);
+                break;
+            case ERROR:
+                Log.e("TECH LIST ADAPTER", "An error occurred");
+                break;
+            case FINISHED:
+                progressBar_moreTechListData.setVisibility(View.GONE);
+                Log.i("TECH LIST ADAPTER", "No more tech lists");
+                break;
+        }
     }
-    private final Filter exampleFilter=new Filter() {
-        @Override
-        protected FilterResults performFiltering(CharSequence constraint) {
-            ArrayList<TechListElement> sample=new ArrayList<>();
-            if(constraint==null || constraint.length()==0)
-            {
-                sample.addAll(dataFull);
-            }
-            else {
-                String pattern=constraint.toString().toLowerCase().trim();
-                for(TechListElement data: dataFull)
-                {
-                    String item=data.getTechName();
-                    if(item.toLowerCase().contains(pattern))
-                    {
-                        sample.add(data);
-                    }
-                }
-            }
-            FilterResults results=new FilterResults();
-            results.values=sample;
-            return results;
-        }
 
-        @Override
-        protected void publishResults(CharSequence constraint, FilterResults results) {
-            data.clear();
-            data.addAll((List)results.values);
-            notifyDataSetChanged();
-        }
-    };
 
     public static class TechHolder extends RecyclerView.ViewHolder {
         TextView data;
