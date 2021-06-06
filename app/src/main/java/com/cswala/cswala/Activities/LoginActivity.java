@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -161,30 +162,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    private void validate(String userEmail, String userPassword) {
 
-        progressBarLayout.setVisibility(View.VISIBLE);
-        firebaseAuth.signInWithEmailAndPassword(userEmail, userPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @SuppressLint("SetTextI18n")
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    progressBarLayout.setVisibility(View.INVISIBLE);
-                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                    IntentHelper intentHelper = new IntentHelper(LoginActivity.this);
-                    intentHelper.GoToHome();
-                    Toast.makeText(LoginActivity.this, "Welcome back", Toast.LENGTH_SHORT).show();
-
-                } else {
-                    progressBarLayout.setVisibility(View.INVISIBLE);
-                    Toast.makeText(LoginActivity.this, "Invalid Email or Password", Toast.LENGTH_SHORT).show();
-
-                }
-            }
-        });
-
-
-    }
 
     private void signIn() {
         mGoogleSignInClient.signOut().addOnSuccessListener(this, new OnSuccessListener<Void>() {
@@ -377,10 +355,7 @@ public class LoginActivity extends AppCompatActivity {
 
     // Timer for Fade-in Animation of Buttons ( T1 - Google Button; T2 - GitHub Button )
     private void timer() {
-        Timer t1, t2, t3;
-        t1 = new Timer();
-        t2 = new Timer();
-        t3 = new Timer();
+
         final Button google = findViewById(R.id.google);
         final Button github = findViewById(R.id.github);
         final Button email = findViewById(R.id.email);
@@ -389,14 +364,14 @@ public class LoginActivity extends AppCompatActivity {
         github.animate().alpha(0f).setDuration(1);
         email.animate().alpha(0f).setDuration(1);
 
-        t1.schedule(new TimerTask() {
+        new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 google.animate().alpha(1f).setDuration(500);
             }
         }, 500);
 
-        t2.schedule(new TimerTask() {
+        new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 github.animate().alpha(1f).setDuration(500);
@@ -404,7 +379,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         }, 1000);
 
-        t3.schedule(new TimerTask() {
+        new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 email.animate().alpha(1f).setDuration(500);
