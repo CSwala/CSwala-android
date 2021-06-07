@@ -63,22 +63,30 @@ public class LoginActivity extends AppCompatActivity {
 
     public void ExitDialog(){
 
-        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Do you want exit?")
-                .setCancelable(true)
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                        finishAffinity();
-                    }
-                })
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                }).create().show();
+        final AlertDialog.Builder alert = new AlertDialog.Builder(LoginActivity.this);
+        View mView = getLayoutInflater().inflate(R.layout.dialog_exit,null);
+
+        Button loginBtn_git = (Button)mView.findViewById(R.id.login_git);
+        Button cancelBtn_git = (Button)mView.findViewById(R.id.cancel_git);
+
+        alert.setView(mView);
+        final AlertDialog alertDialog = alert.create();
+        alertDialog.setCanceledOnTouchOutside(false);
+
+        cancelBtn_git.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();
+            }
+        });
+        loginBtn_git.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finishAffinity();
+            }
+        });
+
+        alertDialog.show();
 
     }
 
