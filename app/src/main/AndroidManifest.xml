@@ -26,30 +26,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.BegineerActivity"></activity>
-        <activity android:name=".Activities.PersonalInformation" />
+        <activity android:name=".Activities.BegineerActivity" android:screenOrientation="portrait"></activity>
+        <activity android:name=".Activities.PersonalInformation" android:screenOrientation="portrait" />
 
         <meta-data
             android:name="com.google.android.wearable.standalone"
             android:value="true" />
 
-        <activity android:name=".Activities.ResetPassword" />
-        <activity android:name=".Activities.Register" />
-        <activity android:name=".Activities.LoginWithEmail" />
-        <activity android:name=".Activities.WebActivity" />
+        <activity android:name=".Activities.ResetPassword" android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.Register" android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.LoginWithEmail" android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.WebActivity" android:screenOrientation="portrait"/>
 
         <service
             android:name=".Services.NotificationService"
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".Activities.TechDataActivity" />
-        <activity android:name=".Activities.LoginActivity" />
-        <activity android:name=".Activities.IntroActivity" />
-        <activity android:name=".Activities.EditProfile" />
-        <activity android:name=".Activities.contestCalendar"/>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".Activities.Splashscreen">
+        <activity android:name=".Activities.TechDataActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.LoginActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.IntroActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.EditProfile" android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.contestCalendar" android:screenOrientation="portrait"/>
+        <activity android:name=".MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.Splashscreen" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
