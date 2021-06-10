@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+android:backgroundTint="@color/colorPrimaryDark"
+    android:paddingBottom="15dp"
+    android:paddingHorizontal="10dp"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorPrimaryDark"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/item_background"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tag_element"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="tag"
+                android:layout_marginBottom="40dp"
+                android:textColor="@color/colorAccent"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/tech_data"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.208" />
+
+            <TextView
+                android:id="@+id/tech_data"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/fui_transparent"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Random"
+android:layout_marginEnd="30dp"
+                android:textColor="@color/buttontext"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

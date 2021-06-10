@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        tools:context=".Fragments.ProfileFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/circleImageView"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="56dp"
+                android:src="@drawable/ic_baseline_person_24"
+                app:civ_border_color="@color/gray"
+                app:civ_border_overlay="true"
+                app:civ_border_width="2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.09"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <LinearLayout
+                android:id="@+id/LinearLayout_text_userName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="96dp"
+                android:gravity="center"
+                app:layout_constraintBottom_toTopOf="@+id/btnPersonalInfo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/circleImageView"
+
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/materialTextView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hello"
+
+                    android:textColor="@color/gray"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0.478"
+
+                    app:layout_constraintTop_toBottomOf="@+id/circleImageView"
+                    app:layout_constraintVertical_bias="0.093" />
+
+                <TextView
+                    android:id="@+id/txtUsername"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:text="@string/Title_splash"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/circleImageView"
+                    app:layout_constraintHorizontal_bias="0.437"
+                    app:layout_constraintStart_toStartOf="@+id/materialTextView2"
+                    app:layout_constraintTop_toBottomOf="@+id/circleImageView"
+                    app:layout_constraintVertical_bias="0.093" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnPersonalInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="120dp"
+
+                android:background="@drawable/custom_button"
+                android:layout_marginHorizontal="20dp"
+                android:text="@string/personal_information"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/LinearLayout_text_userName" />
+
+            <Button
+                android:id="@+id/btneditprofile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="20dp"
+                android:background="@drawable/custom_button"
+                android:text="Edit profile"
+
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnPersonalInfo" />
+
+            <LinearLayout
+                android:id="@+id/btnTerms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="20dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btneditprofile">
+
+                <TextView
+
+                    android:id="@+id/expand_button"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:background="@drawable/custom_button"
+                    android:elevation="6dp"
+                    android:foreground="?selectableItemBackground"
+                    android:gravity="center
+"
+                    android:padding="16dp"
+                    android:text="@string/terms_of_service"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <net.cachapa.expandablelayout.ExpandableLayout
+                    android:id="@+id/expandable_layout_0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:el_duration="1000">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clipToPadding="false"
+                        android:elevation="4dp"
+                        android:gravity="center"
+                        android:text="Terms"
+                        android:textColor="@color/gray" />
+                </net.cachapa.expandablelayout.ExpandableLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnContact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                android:layout_marginHorizontal="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnTerms">
+
+                <TextView
+                    android:id="@+id/expand_button1"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/custom_button"
+                    android:elevation="6dp"
+
+                    android:foreground="?selectableItemBackground"
+                    android:gravity="center"
+                    android:padding="16dp"
+
+                    android:text="@string/contact_us"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <net.cachapa.expandablelayout.ExpandableLayout
+                    android:id="@+id/expandable_layout_01"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    app:el_duration="1000">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clipToPadding="false"
+                        android:elevation="4dp"
+                        android:gravity="center"
+                        android:text="
+cs.wala.guy@gmail.com"
+                        android:textColor="@color/gray" />
+                </net.cachapa.expandablelayout.ExpandableLayout>
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/btnLogout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/searchview_background"
+                android:text="@string/log_out"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp"
+                android:layout_marginHorizontal="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnContact" />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
+</ScrollView>
