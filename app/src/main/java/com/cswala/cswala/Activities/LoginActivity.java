@@ -66,8 +66,8 @@ public class LoginActivity extends AppCompatActivity {
         final AlertDialog.Builder alert = new AlertDialog.Builder(LoginActivity.this);
         View mView = getLayoutInflater().inflate(R.layout.dialog_exit,null);
 
-        Button loginBtn_git = (Button)mView.findViewById(R.id.login_git);
-        Button cancelBtn_git = (Button)mView.findViewById(R.id.cancel_git);
+        final Button loginBtn_git = mView.findViewById(R.id.login_git);
+        final Button cancelBtn_git = mView.findViewById(R.id.cancel_git);
 
         alert.setView(mView);
         final AlertDialog alertDialog = alert.create();
@@ -76,12 +76,16 @@ public class LoginActivity extends AppCompatActivity {
         cancelBtn_git.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Animation animation = AnimationUtils.loadAnimation(LoginActivity.this, R.anim.blink_anim);
+                cancelBtn_git.startAnimation(animation);
                 alertDialog.dismiss();
             }
         });
         loginBtn_git.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Animation animation = AnimationUtils.loadAnimation(LoginActivity.this, R.anim.blink_anim);
+                loginBtn_git.startAnimation(animation);
                 finishAffinity();
             }
         });

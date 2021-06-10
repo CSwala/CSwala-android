@@ -57,7 +57,7 @@ public class LatestNewsAdapter extends RecyclerView.Adapter<LatestNewsAdapter.Vi
                 Animation animation = AnimationUtils.loadAnimation(context, R.anim.blink_anim);
                 holder.readMore.startAnimation(animation);
                 Intent external_link = null;
-                String url=null;
+                String url;
                 try {
                     url=finalObj.getString("url");
                     external_link = new Intent(context,

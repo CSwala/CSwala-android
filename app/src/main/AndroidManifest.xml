@@ -26,16 +26,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.BegineerActivity" android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".Activities.BegineerActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".Activities.PersonalInformation" android:screenOrientation="portrait" />
 
         <meta-data
             android:name="com.google.android.wearable.standalone"
             android:value="true" />
 
-        <activity android:name=".Activities.ResetPassword" android:screenOrientation="portrait"/>
-        <activity android:name=".Activities.Register" android:screenOrientation="portrait"/>
-        <activity android:name=".Activities.LoginWithEmail" android:screenOrientation="portrait"/>
         <activity android:name=".Activities.WebActivity" android:screenOrientation="portrait"/>
 
         <service

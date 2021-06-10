@@ -26,7 +26,7 @@
             android:id="@+id/login_git"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/custom_button"
+            android:background="@drawable/item_background"
             android:text="@string/yes"
             android:layout_margin="10dp"
             android:textColor="@color/buttontext"
@@ -37,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:background="@drawable/custom_button"
+            android:background="@drawable/item_background"
             android:text="@string/no"
             android:textColor="@color/buttontext"
             android:textSize="18sp"/></LinearLayout>
