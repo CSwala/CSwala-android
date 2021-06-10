@@ -9,7 +9,7 @@
         android:id="@+id/tvLink"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/press_start_2p"
+
         android:padding="5dp"
         android:text="TextView"
         android:textColor="@color/colorPrimary"

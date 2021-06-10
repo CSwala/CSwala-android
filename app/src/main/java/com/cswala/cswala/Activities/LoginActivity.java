@@ -149,24 +149,24 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        email.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Animation animation = AnimationUtils.loadAnimation(LoginActivity.this, R.anim.blink_anim);
-                email.startAnimation(animation);
-                IntentHelper intentHelper = new IntentHelper(LoginActivity.this);
-                intentHelper.GoToLoginWithEmail();
-            }
-        });
+//        email.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Animation animation = AnimationUtils.loadAnimation(LoginActivity.this, R.anim.blink_anim);
+//                email.startAnimation(animation);
+//                IntentHelper intentHelper = new IntentHelper(LoginActivity.this);
+//                intentHelper.GoToLoginWithEmail();
+//            }
+//        });
     }
 
     private void updateUI(FirebaseUser user) {
         if (user == null) {
-                Toast.makeText(this, "Please Login ", Toast.LENGTH_SHORT);
-            } else {
-                IntentHelper intentHelper = new IntentHelper(LoginActivity.this);
-                intentHelper.GoToHome();
-            }
+            Toast.makeText(this, "Please Login ", Toast.LENGTH_SHORT);
+        } else {
+            IntentHelper intentHelper = new IntentHelper(LoginActivity.this);
+            intentHelper.GoToHome();
+        }
     }
 
 
@@ -197,7 +197,7 @@ public class LoginActivity extends AppCompatActivity {
             try {
                 // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = task.getResult(ApiException.class);
-                assert account != null;
+
                 firebaseAuthWithGoogle(account);
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
@@ -366,11 +366,11 @@ public class LoginActivity extends AppCompatActivity {
 
         final Button google = findViewById(R.id.google);
         final Button github = findViewById(R.id.github);
-        final Button email = findViewById(R.id.email);
+
 
         google.animate().alpha(0f).setDuration(1);
         github.animate().alpha(0f).setDuration(1);
-        email.animate().alpha(0f).setDuration(1);
+
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -387,14 +387,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         }, 1000);
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                email.animate().alpha(1f).setDuration(500);
-
-            }
-        }, 1500);
     }
 
 }
-

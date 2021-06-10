@@ -2,14 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorPrimaryDark"
+    android:background="@drawable/item_background"
     android:orientation="horizontal"
-    android:padding="5dp">
+    android:padding="10dp"
+    android:layout_margin="10dp">
 
     <ImageView
         android:id="@+id/image_row_hf"
         android:layout_width="75dp"
         android:layout_height="75dp"
+        android:padding="5dp"
+        android:layout_marginTop="20dp"
         android:contentDescription="@string/todo"
         android:src="@mipmap/ic_launcher" />
 
@@ -24,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:text="@string/main_title"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/buttontext"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -34,13 +37,13 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:text="@string/sub_title"
-            android:textColor="#a9a9a9"
+            android:textColor="@color/gray"
             android:textSize="15sp"
             android:textStyle="bold" />
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="42dp">
+            android:layout_height="70dp">
 
             <TextView
                 android:id="@+id/textView3_row_hf"
@@ -51,24 +54,22 @@
                 android:layout_gravity="bottom"
                 android:layout_marginStart="10dp"
                 android:text="@string/date"
-                android:textColor="#a9a9a9"
-                android:textSize="15sp"
+                android:textColor="@color/colorAccent"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
             <Button
                 android:id="@+id/read_more_hf"
-                style="@style/customfontstyle"
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:background="@drawable/custom_button"
-                android:drawableTint="@color/colorAccent"
-                android:fontFamily="@font/press_start_2p"
-                android:padding="10dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/item_background"
                 android:text="@string/read_more"
-                android:textColor="#388AFC"
-                android:textSize="12sp"
-                android:layout_marginTop="10dp"/>
+                android:textColor="@color/colorAccent"
+                android:textSize="14sp" />
 
 
         </RelativeLayout>

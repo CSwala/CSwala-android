@@ -17,35 +17,36 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:gravity="center_vertical"
-            android:background="@drawable/search_background"
+            android:background="@drawable/searchview_background"
             app:iconifiedByDefault="false"
-            app:queryHint="Search..." />
+            app:queryHint="Search..."
+            />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/llBeginner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="10">
+    <!--    <LinearLayout-->
+    <!--        android:id="@+id/llBeginner"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:orientation="horizontal"-->
+    <!--        android:weightSum="10">-->
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvBestPractice"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="9">
+    <!--        <androidx.recyclerview.widget.RecyclerView-->
+    <!--            android:id="@+id/rvBestPractice"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_weight="9">-->
 
-        </androidx.recyclerview.widget.RecyclerView>
+    <!--        </androidx.recyclerview.widget.RecyclerView>-->
 
-        <ImageView
-            android:id="@+id/ivClose"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:background="@drawable/close_custom_background"
-            android:src="@drawable/ic_baseline_close_24"></ImageView>
-    </LinearLayout>
+    <!--        <ImageView-->
+    <!--            android:id="@+id/ivClose"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_margin="5dp"-->
+    <!--            android:layout_weight="1"-->
+    <!--            android:background="@drawable/close_custom_background"-->
+    <!--            android:src="@drawable/ic_baseline_close_24"></ImageView>-->
+    <!--    </LinearLayout>-->
 
     <LinearLayout
         android:layout_width="match_parent"

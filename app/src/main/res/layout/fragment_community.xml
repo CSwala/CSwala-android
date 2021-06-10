@@ -23,7 +23,7 @@
             android:id="@+id/send_msg_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#0D1117"
+            android:background="@color/colorPrimaryDark"
             android:gravity="center"
             android:orientation="horizontal"
             android:padding="4dp">

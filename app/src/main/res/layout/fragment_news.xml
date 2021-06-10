@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.NewsFragment">
 
@@ -13,10 +14,10 @@
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/newsTabs"
             android:layout_width="match_parent"
+            app:tabTextColor="@color/colorAccent"
             android:layout_height="wrap_content"
             app:tabGravity="fill"
-            app:tabMode="fixed"
-            app:tabTextAppearance="@style/customfontstyle" />
+            app:tabMode="fixed" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

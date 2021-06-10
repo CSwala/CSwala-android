@@ -4,21 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/md_black_1000"
+    android:background="@color/colorPrimaryDark"
     tools:context=".Activities.PersonalInformation">
 
     <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_picture"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:id="@+id/profile_picture"
-        android:src="@drawable/camera"
-        app:civ_border_color="@android:color/holo_red_dark"
-        android:layout_marginTop="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="233dp"
         android:layout_marginBottom="10dp"
-        android:layout_centerHorizontal="true"
-        app:civ_border_width="2dp"
+        android:src="@drawable/camera"
+        app:civ_border_color="@color/gray"
         app:civ_border_overlay="true"
-        />
+        app:civ_border_width="2dp" />
+
     <TextView
         android:id="@+id/name_heading"
         android:layout_width="wrap_content"
@@ -26,26 +30,27 @@
         android:text="Name:"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="10dp"
-        android:fontFamily="@font/press_start_2p"
-        android:textColor="@color/colorPrimary"
+
+        android:textColor="@color/colorAccent"
         android:layout_below="@id/profile_picture"
         android:layout_marginLeft="20dp"
         />
+
     <TextView
         android:id="@+id/name_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cs Wala"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:paddingTop="10dp"
-        android:textSize="25sp"
-        android:fontFamily="@font/press_start_2p"
-        android:textColor="@color/buttontext"
         android:layout_below="@id/name_heading"
-        android:paddingLeft="20dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginRight="15dp"
         android:layout_marginBottom="10dp"
-        />
+
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:text="Cs Wala"
+        android:textColor="@color/gray"
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/email_heading"
@@ -54,8 +59,8 @@
         android:text="Email:"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="5dp"
-        android:fontFamily="@font/press_start_2p"
-        android:textColor="@color/colorPrimary"
+
+        android:textColor="@color/colorAccent"
         android:layout_below="@id/name_info"
         android:layout_marginLeft="20dp"
         />
@@ -65,12 +70,12 @@
         android:layout_height="wrap_content"
         android:text="cswala@gmail.com"
         android:textSize="20sp"
-        android:fontFamily="@font/press_start_2p"
-        android:textColor="@color/buttontext"
+
+        android:textColor="@color/gray"
         android:layout_below="@id/email_heading"
         android:paddingLeft="20dp"
         android:layout_marginBottom="10dp"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="35dp"
         android:layout_marginRight="15dp"
         android:paddingTop="10dp"
         />
@@ -81,8 +86,8 @@
         android:text="Phone Number:"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="5dp"
-        android:fontFamily="@font/press_start_2p"
-        android:textColor="@color/colorPrimary"
+
+        android:textColor="@color/colorAccent"
         android:layout_below="@id/email_info"
         android:layout_marginLeft="20dp"
         />
@@ -92,12 +97,12 @@
         android:layout_height="wrap_content"
         android:text="1234567890"
         android:textSize="20sp"
-        android:fontFamily="@font/press_start_2p"
-        android:textColor="@color/buttontext"
+
+        android:textColor="@color/gray"
         android:layout_below="@id/phone_num_heading"
         android:paddingLeft="20dp"
         android:layout_marginBottom="10dp"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="35dp"
         android:layout_marginRight="15dp"
         android:paddingTop="10dp"
         />
@@ -108,8 +113,8 @@
         android:text="Gender:"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="5dp"
-        android:fontFamily="@font/press_start_2p"
-        android:textColor="@color/colorPrimary"
+
+        android:textColor="@color/colorAccent"
         android:layout_below="@id/phone_num_info"
         android:layout_marginLeft="20dp"
         />
@@ -119,12 +124,12 @@
         android:layout_height="wrap_content"
         android:text="Male"
         android:textSize="20sp"
-        android:fontFamily="@font/press_start_2p"
-        android:textColor="@color/buttontext"
+
+        android:textColor="@color/gray"
         android:layout_below="@id/gender_heading"
         android:paddingLeft="20dp"
         android:layout_marginBottom="10dp"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="35dp"
         android:layout_marginRight="15dp"
         android:paddingTop="10dp"
         />
@@ -135,8 +140,8 @@
         android:text="Date of Birth:"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="5dp"
-        android:fontFamily="@font/press_start_2p"
-        android:textColor="@color/colorPrimary"
+
+        android:textColor="@color/colorAccent"
         android:layout_below="@id/gender_info"
         android:layout_marginLeft="20dp"
         />
@@ -146,12 +151,12 @@
         android:layout_height="wrap_content"
         android:text="1/1/2000"
         android:textSize="20sp"
-        android:fontFamily="@font/press_start_2p"
-        android:textColor="@color/buttontext"
+
+        android:textColor="@color/gray"
         android:layout_below="@id/dob_heading"
         android:paddingLeft="20dp"
         android:layout_marginBottom="5dp"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="35dp"
         android:layout_marginRight="15dp"
         android:paddingTop="10dp"
         />
