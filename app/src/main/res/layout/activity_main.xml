@@ -12,19 +12,7 @@
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
-        android:layout_above="@id/bottom">
-
-        <TextView
-            android:id="@+id/logout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/press_start_2p"
-            android:text="@string/log_out"
-            android:textColor="@color/colorPrimary"
-            android:textSize="32sp" />
-    </FrameLayout>
+        android:layout_above="@id/bottom" />
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/bottom"

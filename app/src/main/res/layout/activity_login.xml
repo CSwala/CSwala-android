@@ -7,20 +7,21 @@
     android:background="@color/colorPrimaryDark"
     tools:context=".Activities.LoginActivity">
 
-    <ImageView
+    <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/imageView"
         android:layout_width="402dp"
         android:layout_height="371dp"
-android:scaleX="0.9"
-        android:scaleY="0.9"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.05"
-android:src="@drawable/login" />
-
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="Login.json"
+        app:lottie_loop="true" />
 
     <ProgressBar
         android:id="@+id/ProgressBar"
@@ -30,58 +31,57 @@ android:src="@drawable/login" />
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.599" />
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <Button
         android:id="@+id/google"
-        android:paddingHorizontal="25dp"
         android:layout_width="350dp"
         android:layout_height="60dp"
         android:background="@drawable/custom_button"
         android:drawableStart="@drawable/ic_google"
         android:drawableTint="@color/colorAccent"
-        android:drawablePadding="15dp"
+        android:fontFamily="@font/press_start_2p"
+        android:padding="15sp"
         android:text="@string/GLogin"
-        android:textColor="@color/colorAccent"
-        android:textSize="18sp"
+        android:textColor="@color/buttontext"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.712" />
+        app:layout_constraintVertical_bias="0.628" />
 
     <Button
         android:id="@+id/github"
-        android:paddingHorizontal="25dp"
         android:layout_width="350dp"
         android:layout_height="60dp"
         android:background="@drawable/custom_button"
         android:drawableStart="@drawable/ic_github"
         android:drawableTint="@color/colorAccent"
+        android:fontFamily="@font/press_start_2p"
+        android:padding="15sp"
         android:text="@string/GitLogin"
-        android:textColor="@color/colorAccent"
-        android:textSize="18sp"
+        android:textColor="@color/buttontext"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.878" />
+        app:layout_constraintVertical_bias="0.777" />
 
     <Button
         android:id="@+id/email"
-        android:visibility="gone"
         android:layout_width="350dp"
         android:layout_height="60dp"
         android:background="@drawable/custom_button"
         android:drawableStart="@drawable/ic_mail"
         android:drawableTint="@color/colorAccent"
+        android:fontFamily="@font/press_start_2p"
         android:padding="15sp"
         android:text="@string/EmailLogin"
-        android:textColor="@color/colorAccent"
-        android:textSize="18sp"
+        android:textColor="@color/buttontext"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"

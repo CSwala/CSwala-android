@@ -8,4 +8,8 @@
     <color name="buttontext">#EFEFEF</color>
 
 
+    <color name="gray">#9E9E9E</color>
+    <color name="buttontext">#388AFC</color>
+    <color name="line_color">#444</color>
+
 </resources>

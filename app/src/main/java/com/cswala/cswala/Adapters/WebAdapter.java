@@ -44,7 +44,7 @@ public class WebAdapter extends RecyclerView.Adapter<WebAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final WebModel webModel=webModelList.get(position);
-        final String URL= webModel.getWebUrl().trim();
+        final String URL=webModel.getWebUrl().toString().trim();
         if(!URL.isEmpty()) {
             holder.richLinkView.setLink(URL, new ViewListener() {
 
