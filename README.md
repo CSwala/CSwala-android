@@ -14,9 +14,9 @@
 ![Maintenance](https://img.shields.io/maintenance/yes/2021)
 
 <img align="center" src="https://github.com/CSwala/CSwala-android/blob/develop/images/vid.gif" height=550><br>
-<img align="center" src="https://github.com/CSwala/CSwala-android/blob/main/images/ss.png" height=550><br>
-<img align="center" src="https://github.com/CSwala/CSwala-android/blob/main/images/ss1.png" height=550><br>
-<img align="center" src="https://github.com/CSwala/CSwala-android/blob/main/images/ss2.png" height=550>
+<img align="center" src="https://github.com/CSwala/CSwala-android/blob/main/images/ss.png" ><br>
+<img align="center" src="https://github.com/CSwala/CSwala-android/blob/main/images/ss1.png" ><br>
+<img align="center" src="https://github.com/CSwala/CSwala-android/blob/main/images/ss2.png" >
 <br>
 
 
