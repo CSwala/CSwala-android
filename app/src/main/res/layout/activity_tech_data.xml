@@ -10,7 +10,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         android:orientation="vertical"
         android:paddingTop="5dp"
         android:paddingBottom="20dp">
@@ -23,22 +22,17 @@
             android:paddingLeft="10dp"
             android:paddingTop="20dp"
             android:layout_margin="10dp"
-            android:textColor="@color/buttontext"
-            android:fontFamily="@font/press_start_2p"
+            android:textColor="@color/colorAccent"
             android:textSize="30sp" />
 
 
-            <TextView
-                android:id="@+id/tag"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="40dp"
-                android:textColor="@color/colorAccent"
-                android:fontFamily="@font/press_start_2p"
-                android:textSize="14sp" />
-
-
-
+        <TextView
+            android:id="@+id/tag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="40dp"
+            android:textColor="@color/gray"
+            android:textSize="14sp" />
 
 
         <TextView
@@ -48,9 +42,7 @@
             android:layout_marginBottom="10dp"
             android:paddingLeft="10dp"
             android:text="Documentation:"
-            android:textColor="@color/colorPrimary"
-
-            android:fontFamily="@font/press_start_2p"
+            android:textColor="@color/colorAccent"
             android:textSize="14sp" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -66,10 +58,8 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
             android:paddingLeft="10dp"
-            android:text="Best Youtube Creators:"
-            android:textColor="@color/colorPrimary"
-
-            android:fontFamily="@font/press_start_2p"
+            android:text="Youtube Creators:"
+            android:textColor="@color/colorAccent"
             android:textSize="14sp" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -86,9 +76,7 @@
             android:layout_marginBottom="10dp"
             android:paddingLeft="10dp"
             android:text="Useful Websites:"
-            android:textColor="@color/colorPrimary"
-
-            android:fontFamily="@font/press_start_2p"
+            android:textColor="@color/colorAccent"
             android:textSize="14sp" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -105,9 +93,9 @@
             android:layout_marginBottom="10dp"
             android:paddingLeft="10dp"
             android:text="Dedicated Github Pages:"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorAccent"
 
-            android:fontFamily="@font/press_start_2p"
+
             android:textSize="14sp" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -124,9 +112,9 @@
             android:layout_marginBottom="10dp"
             android:paddingLeft="10dp"
             android:text="Best Courses:"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorAccent"
 
-            android:fontFamily="@font/press_start_2p"
+
             android:textSize="14sp" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -142,10 +130,10 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
             android:paddingLeft="10dp"
-            android:text="Other Tips/Hacks"
-            android:textColor="@color/colorPrimary"
+            android:text="Tips/Hacks"
+            android:textColor="@color/colorAccent"
 
-            android:fontFamily="@font/press_start_2p"
+
             android:textSize="14sp" />
 
         <androidx.recyclerview.widget.RecyclerView

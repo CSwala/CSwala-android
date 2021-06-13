@@ -1,3 +1,4 @@
+
 package com.cswala.cswala.Adapters;
 
 import android.content.Context;
@@ -44,7 +45,7 @@ public class WebAdapter extends RecyclerView.Adapter<WebAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final WebModel webModel=webModelList.get(position);
-        final String URL=webModel.getWebUrl().toString().trim();
+        final String URL= webModel.getWebUrl().trim();
         if(!URL.isEmpty()) {
             holder.richLinkView.setLink(URL, new ViewListener() {
 
@@ -75,7 +76,7 @@ public class WebAdapter extends RecyclerView.Adapter<WebAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-//        CardView cardView;
+        //        CardView cardView;
         RichLinkViewSkype richLinkView;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

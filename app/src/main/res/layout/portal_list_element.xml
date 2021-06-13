@@ -8,7 +8,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:background="@drawable/search_background"
-        android:fontFamily="@font/press_start_2p"
+        android:textSize="20sp"
+        android:textColor="@color/buttontext"
+        android:background="@drawable/item_background"
         android:text="name" />
 </RelativeLayout>

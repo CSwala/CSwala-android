@@ -6,11 +6,19 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.TextView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.cswala.cswala.Activities.LoginActivity;
 import com.cswala.cswala.Fragments.CommunityFragment;
 import com.cswala.cswala.Fragments.ExploreFragment;
 import com.cswala.cswala.Fragments.JobHunt;
@@ -23,6 +31,7 @@ import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 public class MainActivity extends AppCompatActivity {
 
     ChipNavigationBar bt;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,11 +51,13 @@ public class MainActivity extends AppCompatActivity {
 
         bt = findViewById(R.id.bottom_navigation);
         bt.setItemSelected(R.id.explore, true);
+
         startService(new Intent(this, NotificationService.class));
         bt.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener() {
             @SuppressLint("NonConstantResourceId")
             @Override
             public void onItemSelected(int i) {
+
 
                 Fragment fragment;
 
@@ -57,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.hackfeed:
+                        //HACK FEED Fragment
                         fragment = new NewsFragment();
                         break;
 
@@ -65,14 +77,15 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.profile:
+                        //PROFILE Fragment
                         fragment = new ProfileFragment();
                         break;
 
                     default:
                         fragment = new ExploreFragment();
                         break;
-
                 }
+
 
                 getSupportFragmentManager()
                         .beginTransaction()
@@ -82,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
     @Override
     public void onBackPressed() {
         ExitDialog();
@@ -89,24 +103,33 @@ public class MainActivity extends AppCompatActivity {
 
     public void ExitDialog(){
 
-        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Do you want exit?")
-                .setCancelable(true)
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                        finishAffinity();
-                    }
-                })
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
+        final AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+        View mView = getLayoutInflater().inflate(R.layout.dialog_exit,null);
 
-        AlertDialog dialog = builder.create();
-        dialog.show();
+        final Button loginBtn_git = mView.findViewById(R.id.login_git);
+        final Button cancelBtn_git = mView.findViewById(R.id.cancel_git);
+
+        alert.setView(mView);
+        final AlertDialog alertDialog = alert.create();
+        alertDialog.setCanceledOnTouchOutside(false);
+
+        cancelBtn_git.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.blink_anim);
+                    cancelBtn_git.startAnimation(animation);
+                    alertDialog.dismiss();
+                }
+            });
+        loginBtn_git.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.blink_anim);
+                    loginBtn_git.startAnimation(animation);
+                    finishAffinity();
+                }
+            });
+
+        alertDialog.show();
+        }
     }
-}

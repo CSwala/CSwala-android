@@ -31,14 +31,13 @@ public class Splashscreen extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         imageView = (ImageView)findViewById(R.id.gifImageView);
-        tv =(TextView) findViewById(R.id.tv);
+
         tv1 = (TextView)findViewById(R.id.textView2);
 
         topanim = AnimationUtils.loadAnimation(this, R.anim.top_animation);
         bottomanim = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
 
         imageView.setAnimation(topanim);
-        tv.setAnimation(topanim);
         tv1.setAnimation(bottomanim);
 
         new Handler().postDelayed(new Runnable() {

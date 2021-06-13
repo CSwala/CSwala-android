@@ -27,10 +27,10 @@
             android:layout_height="60dp"
             android:background="@drawable/navbar_backgroung"
             android:padding="2dp"
-            app:cnb_badgeColor="@color/colorPrimaryDark"
+            app:cnb_badgeColor="@color/colorAccent"
             app:cnb_iconSize="30dp"
             app:cnb_menuResource="@menu/bottom_navigation"
-            app:cnb_unselectedColor="@color/colorPrimaryDark" />
+            app:cnb_unselectedColor="@color/gray" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

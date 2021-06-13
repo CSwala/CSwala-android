@@ -16,11 +16,14 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.cswala.cswala.Activities.WebActivity;
 import com.cswala.cswala.Models.PortalListElement;
 import com.cswala.cswala.R;
 import com.firebase.ui.firestore.paging.FirestorePagingAdapter;
 import com.firebase.ui.firestore.paging.FirestorePagingOptions;
 import com.firebase.ui.firestore.paging.LoadingState;
+
+import org.json.JSONException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,10 +58,14 @@ public class PortalListAdapter extends FirestorePagingAdapter<PortalListElement,
         holder.companyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ctx.startActivity(
-                        new Intent(
-                                Intent.ACTION_VIEW,
-                                Uri.parse(portalList.getLink())));
+                Intent external_link = null;
+
+                external_link = new Intent(ctx,
+                        WebActivity.class);
+                external_link.putExtra("URL",portalList.getLink().trim());
+
+                ctx.startActivity(external_link);
+
             }
         });
     }

@@ -4,16 +4,15 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:padding="10dp"
-    android:background="@color/colorPrimary">
+    android:background="@drawable/item_background">
 
     <TextView
         android:id="@+id/dialog_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/press_start_2p"
-        android:text="Enter email"
-        android:textColor="@color/md_black_1000"
-        android:textSize="20dp"
+        android:text="@string/enter_email"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
         android:padding="10dp"/>
 
     <EditText
@@ -21,10 +20,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Email"
+        android:hint="@string/email"
+        android:textColorHint="@color/gray"
         android:inputType="textEmailAddress"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="20dp"
+        android:background="@drawable/custom_button"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
         android:paddingHorizontal="10dp"
         android:layout_marginVertical="10dp"/>
 
@@ -32,19 +33,18 @@
         android:id="@+id/login_git"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/custom_button"
-        android:fontFamily="@font/press_start_2p"
-        android:text="Login"
-        android:textColor="#388AFC"
-        android:textSize="12sp"/>
+        android:background="@drawable/item_background"
+        android:text="@string/login"
+        android:textColor="@color/buttontext"
+        android:textSize="18sp"/>
 
     <Button
         android:id="@+id/cancel_git"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/custom_button"
-        android:fontFamily="@font/press_start_2p"
-        android:text="Cancel"
-        android:textColor="#388AFC"
-        android:textSize="12sp"/>
+        android:background="@drawable/item_background"
+
+        android:text="@string/cancel"
+        android:textColor="@color/buttontext"
+        android:textSize="18sp"/>
 </LinearLayout>

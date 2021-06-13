@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:background="@color/colorPrimary"
+    >
+
+    <TextView
+        android:id="@+id/dialog_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/exit_cswaala"
+        android:textColor="@color/colorAccent"
+        android:textSize="24sp"
+        android:padding="20dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="10dp"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/login_git"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/item_background"
+            android:text="@string/yes"
+            android:layout_margin="10dp"
+            android:textColor="@color/buttontext"
+            android:textSize="18sp"/>
+
+        <Button
+            android:id="@+id/cancel_git"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/item_background"
+            android:text="@string/no"
+            android:textColor="@color/buttontext"
+            android:textSize="18sp"/></LinearLayout>
+
+</LinearLayout>

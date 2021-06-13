@@ -1,23 +1,22 @@
 <resources>
-    <string name="app_name">CS\nwala</string>
+    <string name="app_name">CSwaala</string>
     <string name="splash_desc">Dictionary\nResources\nHacks\nTips</string>
-    <string name="Title_splash">CSwala</string>
-    <string name="log_out">Log Out !</string>
+    <string name="Title_splash">CSwaala</string>
+    <string name="log_out">LOG OUT !</string>
     <string name="explore">EXPLORE</string>
     <string name="profile">PROFILE</string>
     <string name="community">COMMUNITY</string>
     <string name="jobhunt">JOBHUNT</string>
     <string name="news">HACKFEED</string>
-    <string name="GLogin">Continue with google</string>
+    <string name="GLogin">Continue with Google</string>
     <string name="GitLogin">Continue with Github</string>
     <string name="EmailLogin">Continue with Email</string>
     <string name="ErrorLogin">Invalid Email or Password</string>
     <string name="tech_data">Tech Data</string>
     <string name="my_profile">MY PROFILE</string>
     <string name="hello">Hello ,</string>
-    <string name="username">Username</string>
     <string name="personal_information">Personal Information</string>
-    <string name="terms_of_service">TERMS OF SERVICE</string>
+    <string name="terms_of_service">Terms of Service</string>
     <string name="documentation">Documentation</string>
     <string name="latest_news">Latest News</string>
     <string name="events">Events</string>
@@ -43,8 +42,8 @@
     <string name="gender">Gender</string>
     <string name="date_of_birth">Date Of Birth</string>
     <string name="select_date">Select Date</string>
-    <string name="save">save</string>
-    <string name="contact_us">CONTACT US</string>
+    <string name="save">SAVE</string>
+    <string name="contact_us">Contact Us</string>
     <string-array name="gender1">
         <item>Male</item>
         <item>Female</item>
@@ -56,8 +55,8 @@
 
 
     <string name="title_activity_contest_calendar">contestCalendar</string>
-    <string name="codeforces">codeforces</string>
-    <string name="codechef">codechef</string>
+    <string name="codeforces">Codeforces</string>
+    <string name="codechef">Codechef</string>
     <string name="topcoder">Topcoder</string>
     <string name="atcoder">Atcoder</string>
     <string name="hacker_rank">Hacker Rank</string>
@@ -72,5 +71,10 @@
     <string name="start_time">Start time</string>
     <string name="start">START</string>
     <string name="url">URL</string>
-    <string name="faang">faang</string>
+    <string name="faang">FAANG</string>
+    <string name="login">Login</string>
+    <string name="cancel">Cancel</string>
+    <string name="exit_cswaala">Exit CSwaala ?</string>
+    <string name="no">NO</string>
+    <string name="yes">YES</string>
 </resources>

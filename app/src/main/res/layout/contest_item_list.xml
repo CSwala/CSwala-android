@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:background="@drawable/item_background"
         app:cardBackgroundColor="@color/colorPrimary"
         app:cardCornerRadius="10dp"
         app:cardElevation="10dp">
@@ -25,16 +26,16 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:text="@string/name"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/colorAccent"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                tools:ignore="ExtraText"></TextView>
+                tools:ignore="ExtraText"/>
 
             <TableRow
                 android:id="@+id/hr"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/line_color"></TableRow>
+                android:background="@color/gray" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -68,7 +69,8 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_margin="10dp"
-                            android:text="@string/start_time"></TextView>
+                            android:textColor="@color/buttontext"
+                            android:text="@string/start_time"/>
 
                     </LinearLayout>
 
@@ -91,8 +93,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:textColor="@color/buttontext"
                             android:layout_margin="10dp"
-                            android:text="@string/end_time"></TextView>
+                            android:text="@string/end_time"/>
 
                     </LinearLayout>
 
@@ -108,14 +111,16 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
-                        android:text="@string/Duration"></TextView>
+                        android:textColor="@color/gray"
+                        android:text="@string/Duration"/>
 
                     <TextView
                         android:id="@+id/contest_duration"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/buttontext"
                         android:layout_marginTop="10dp"
-                        android:text="@string/duration"></TextView>
+                        android:text="@string/duration"/>
 
                 </LinearLayout>
 
@@ -125,7 +130,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:text="@string/status"></TextView>
+                    android:textColor="@color/buttontext"
+                    android:text="@string/status"/>
 
             </LinearLayout>
 

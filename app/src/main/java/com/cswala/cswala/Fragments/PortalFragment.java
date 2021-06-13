@@ -23,6 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.cswala.cswala.Adapters.PortalListAdapter;
 import com.cswala.cswala.Models.PortalListElement;
 import com.cswala.cswala.R;
+import com.cswala.cswala.utils.IntentHelper;
 import com.firebase.ui.firestore.SnapshotParser;
 import com.firebase.ui.firestore.paging.FirestorePagingOptions;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -104,9 +105,6 @@ public class PortalFragment extends Fragment {
     }
 
     private void setSearchViewParameters() {
-        TextView text = (TextView) searchTech.findViewById(androidx.appcompat.R.id.search_src_text);
-        Typeface type = ResourcesCompat.getFont(getContext(), R.font.press_start_2p);
-        text.setTypeface(type);
         searchTech.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -182,6 +180,7 @@ public class PortalFragment extends Fragment {
         adapter.updateOptions(newOptions);
         portalListView.setAdapter(adapter);
     }
+
 
     @Override
     public void onStart() {
