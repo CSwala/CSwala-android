@@ -83,7 +83,7 @@
                 android:paddingTop="10dp"
                 android:paddingEnd="15dp"
                 android:paddingBottom="10dp"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/buttontext"
                 android:textColorHint="#FCA1A0A0" />
 
             <ImageButton
@@ -92,7 +92,7 @@
                 android:layout_height="35dp"
                 android:layout_margin="4dp"
                 android:layout_weight="0"
-                android:background="@drawable/send_circle"
+                android:background="@drawable/send_background"
                 android:src="@drawable/ic_baseline_attachment_24" />
 
             <ImageButton
@@ -101,7 +101,7 @@
                 android:layout_height="35dp"
                 android:layout_margin="4dp"
                 android:layout_weight="0"
-                android:background="@drawable/send_circle"
+                android:background="@drawable/send_background"
                 android:src="@drawable/ic_baseline_send_24"
                 android:visibility="gone"
                 tools:visibility="visible" />
