@@ -7,6 +7,7 @@ public class Message {
     private String senderName;
     private String content;
     private long createdTime;
+    private String imageUrl;
 
     public Message() {
     }
@@ -31,6 +32,8 @@ public class Message {
         this.createdTime = createdTime;
     }
 
+    public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
+
     public String getMsgId() {
         return msgId;
     }
@@ -51,11 +54,14 @@ public class Message {
         return createdTime;
     }
 
-    public Message(String msgId, String senderName, String senderId, String content, long createdTime) {
+    public String getImageUrl() { return imageUrl; }
+
+    public Message(String msgId, String senderName, String senderId, String content, long createdTime, String imageUrl) {
         this.msgId = msgId;
         this.senderName = senderName;
         this.senderId = senderId;
         this.content = content;
         this.createdTime = createdTime;
+        this.imageUrl = imageUrl;
     }
 }

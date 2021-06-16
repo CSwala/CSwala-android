@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.graphics.Color;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.cswala.cswala.R;
 import com.cswala.cswala.Models.Message;
 import com.goodayapps.widget.AvatarView;
@@ -29,6 +31,7 @@ public class MessageHolder extends RecyclerView.ViewHolder {
     private final TextView msgText;
     private final AvatarView profileContainer;
     private final ConstraintLayout container;
+    private final ImageView imageText;
     private final Context context;
     private final DatabaseReference reference = FirebaseDatabase.getInstance().getReference("chats");
 
@@ -48,6 +51,7 @@ public class MessageHolder extends RecyclerView.ViewHolder {
         nameText = itemView.findViewById(R.id.name_text);
         msgText = itemView.findViewById(R.id.msg_text);
         profileContainer = itemView.findViewById(R.id.profile_container);
+        imageText = itemView.findViewById(R.id.image_text);
         container = itemView.findViewById(R.id.container);
         this.context = context;
     }
@@ -106,6 +110,8 @@ public class MessageHolder extends RecyclerView.ViewHolder {
                 }
             });
         }
+
+        Glide.with(context).load(msg.getImageUrl()).into(imageText);
 
     }
 }

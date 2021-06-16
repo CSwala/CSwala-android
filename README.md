@@ -13,8 +13,10 @@
 ![contributions welcome](https://img.shields.io/static/v1.svg?label=Contributions&message=Welcome&color=0059b3&style=flat-square) 
 ![Maintenance](https://img.shields.io/maintenance/yes/2021)
 
-<img align="right" src="https://github.com/CSwala/CSwala-android/blob/develop/images/vid.gif" height=550>
-<img align="center" src="https://github.com/CSwala/CSwala-android/blob/main/images/ss.png" height=550>
+<img  src="https://github.com/CSwala/CSwala-android/blob/develop/images/vid.gif" height=550><br>
+<img align="center" src="https://github.com/CSwala/CSwala-android/blob/main/images/ss.png" ><br>
+<img align="center" src="https://github.com/CSwala/CSwala-android/blob/main/images/ss1.png" ><br>
+<img align="center" src="https://github.com/CSwala/CSwala-android/blob/main/images/ss2.png" >
 <br>
 
 
