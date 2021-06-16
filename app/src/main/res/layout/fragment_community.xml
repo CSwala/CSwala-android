@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -18,6 +19,44 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             tools:listitem="@layout/message_item_view" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/image_container"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <ImageView
+                android:id="@+id/msg_image"
+                android:layout_width="100dp"
+                android:layout_height="0dp"
+                android:src="@drawable/illustration"
+                app:layout_constraintBottom_toTopOf="@id/image_upload_progressBar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/remove_image_btn"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:background="@drawable/send_circle"
+                android:src="@drawable/ic_baseline_close_24"
+                app:layout_constraintBottom_toTopOf="@id/image_upload_progressBar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ProgressBar
+                android:id="@+id/image_upload_progressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:progress="45"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
             android:id="@+id/send_msg_container"
@@ -46,6 +85,15 @@
                 android:paddingBottom="10dp"
                 android:textColor="#FFFFFF"
                 android:textColorHint="#FCA1A0A0" />
+
+            <ImageButton
+                android:id="@+id/image_btn"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_margin="4dp"
+                android:layout_weight="0"
+                android:background="@drawable/send_circle"
+                android:src="@drawable/ic_baseline_attachment_24" />
 
             <ImageButton
                 android:id="@+id/send_btn"

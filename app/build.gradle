@@ -106,4 +106,7 @@ dependencies {
     //paging library
     implementation 'androidx.paging:paging-runtime:2.1.2'
 
+    // Image Cropper
+    api 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
+
 }
