@@ -1,3 +1,5 @@
+# Made some changes
+
 # 💻 An Open Source Android App to Educate people about the right style of getting educated!.📰🔥.
 
 <img src="https://emoji.discord.st/emojis/DiscordLuv.gif" height="30" width="30">  Join the Discord Server [here](https://discord.gg/rAz3Eb8fsN)
